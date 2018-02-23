@@ -51,7 +51,7 @@ public:
         label_picture->setGeometry(QRect(130, 10, 151, 121));
         label_menuSelection = new QLabel(centralWidget);
         label_menuSelection->setObjectName(QStringLiteral("label_menuSelection"));
-        label_menuSelection->setGeometry(QRect(26, 150, 71, 21));
+        label_menuSelection->setGeometry(QRect(10, 150, 101, 21));
         pushButton = new QPushButton(centralWidget);
         pushButton->setObjectName(QStringLiteral("pushButton"));
         pushButton->setGeometry(QRect(290, 180, 75, 23));
