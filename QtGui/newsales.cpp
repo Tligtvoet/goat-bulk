@@ -8,6 +8,8 @@ newSales::newSales(QWidget *parent) :
     ui->setupUi(this);
     ui->pushButton_save->setVisible(false);
     ui->pushButton_edit->setVisible(false);
+    ui->scrollArea->setVisible(false);
+    ui->textBrowser->setVisible(false);
 }
 
 newSales::~newSales()
@@ -81,6 +83,8 @@ void newSales::on_comboBox_currentTextChanged(const QString &arg1)
 
         ui->textBrowser->setText(in.readAll());
     }
+    ui->scrollArea->setVisible(true);
+    ui->textBrowser->setVisible(true);
 }
 
 void newSales::on_pushButton_back_clicked()
