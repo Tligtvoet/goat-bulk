@@ -2,6 +2,7 @@
 #define MENU_H
 
 #include "salesinfo.h"
+#include "newsales.h"
 #include <QMainWindow>
 
 namespace Ui {
