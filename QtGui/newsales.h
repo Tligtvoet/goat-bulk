@@ -31,6 +31,7 @@ private slots:
 
 private:
     Ui::newSales *ui;
+    QString currentFile;
 };
 
 #endif // NEWSALES_H

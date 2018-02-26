@@ -6,6 +6,7 @@ newSales::newSales(QWidget *parent) :
     ui(new Ui::newSales)
 {
     ui->setupUi(this);
+    currentFile = "";
     ui->pushButton_save->setVisible(false);
     ui->pushButton_edit->setVisible(false);
     ui->scrollArea->setVisible(false);
@@ -26,7 +27,7 @@ void newSales::on_comboBox_currentTextChanged(const QString &arg1)
             std::cout << "File not opened";
 
         QTextStream in(&file);
-
+        currentFile = "day1.txt";
         ui->textBrowser->setText(in.readAll());
     } else if(arg1 == "Day 2")
     {
@@ -35,7 +36,7 @@ void newSales::on_comboBox_currentTextChanged(const QString &arg1)
             std::cout << "File not opened";
 
         QTextStream in(&file);
-
+        currentFile = "day2.txt";
         ui->textBrowser->setText(in.readAll());
     } else if(arg1 == "Day 3")
     {
@@ -44,7 +45,7 @@ void newSales::on_comboBox_currentTextChanged(const QString &arg1)
             std::cout << "File not opened";
 
         QTextStream in(&file);
-
+        currentFile = "day3.txt";
         ui->textBrowser->setText(in.readAll());
     } else if(arg1 == "Day 4")
     {
@@ -53,7 +54,7 @@ void newSales::on_comboBox_currentTextChanged(const QString &arg1)
             std::cout << "File not opened";
 
         QTextStream in(&file);
-
+        currentFile = "day4.txt";
         ui->textBrowser->setText(in.readAll());
     } else if(arg1 == "Day 5")
     {
@@ -62,7 +63,7 @@ void newSales::on_comboBox_currentTextChanged(const QString &arg1)
             std::cout << "File not opened";
 
         QTextStream in(&file);
-
+        currentFile = "day5.txt";
         ui->textBrowser->setText(in.readAll());
     } else if(arg1 == "Day 6")
     {
@@ -71,7 +72,7 @@ void newSales::on_comboBox_currentTextChanged(const QString &arg1)
             std::cout << "File not opened";
 
         QTextStream in(&file);
-
+        currentFile = "day6.txt";
         ui->textBrowser->setText(in.readAll());
     } else if(arg1 == "Day 7")
     {
@@ -80,11 +81,13 @@ void newSales::on_comboBox_currentTextChanged(const QString &arg1)
             std::cout << "File not opened";
 
         QTextStream in(&file);
-
+        currentFile = "day7.txt";
         ui->textBrowser->setText(in.readAll());
     }
     ui->scrollArea->setVisible(true);
     ui->textBrowser->setVisible(true);
+    ui->pushButton_edit->setVisible(true);
+    ui->pushButton_save->setVisible(true);
 }
 
 void newSales::on_pushButton_back_clicked()
@@ -110,6 +113,7 @@ void newSales::on_pushButton_edit_clicked()
             std::cout << "File not opened";
 
         QTextStream in(&file);
+        currentFile = item;
         ui->textBrowser->setReadOnly(false);
         ui->pushButton_save->setVisible(true);
         ui->textBrowser->setText(in.readAll());
