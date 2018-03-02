@@ -3,6 +3,7 @@
 
 #include "salesinfo.h"
 #include "newsales.h"
+#include "loginmanager.h"
 #include <QMainWindow>
 
 namespace Ui {
@@ -20,6 +21,8 @@ public:
 
 private slots:
     void on_combobox_selection_currentTextChanged(const QString &arg1);
+
+    void on_pushButton_clicked();
 
 private:
     Ui::Menu *ui;

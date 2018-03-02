@@ -29,15 +29,23 @@ Menu::~Menu()
 
 void Menu::on_combobox_selection_currentTextChanged(const QString &arg1) //Used for checking when an option is changed
 {
-    if(arg1 == "Sales Information"){
+    switch(arg1)
+    {
+    case "Sales Information":
         newSales *newSalesPtr = new newSales(this);
         this->close();
         newSalesPtr->show();
-        /*Sales *salePtr = new Sales(this);
-        this->close();
-        salePtr->show();*/
+        break;
+    case "Employee Management":
 
     }
 
 
+}
+
+void Menu::on_pushButton_clicked() // Correctly returns to login screen but if the user enters incorrect username/password or enters nothing and presses login button . . . shows invalidCreds message and closes
+{
+    LoginWindow* logintPtr = new LoginWindow(this);
+    this->close();
+    logintPtr->show();
 }

@@ -1,4 +1,4 @@
-#include "loginwindow.h"
+#include "loginmanager.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])

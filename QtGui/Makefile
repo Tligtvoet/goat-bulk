@@ -12,10 +12,10 @@ MAKEFILE      = Makefile
 
 CC            = /Applications/Xcode.app/Contents/Developer/usr/bin/gcc
 CXX           = /Applications/Xcode.app/Contents/Developer/usr/bin/g++
-DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -mmacosx-version-min=10.10 -Wall -W -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -g -std=gnu++11 $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -mmacosx-version-min=10.10 -Wall -W -fPIC $(DEFINES)
-INCPATH       = -I. -I../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I../../../Qt/5.11.0/clang_64/lib/QtGui.framework/Headers -I../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/AGL.framework/Headers -I. -I../../../Qt/5.11.0/clang_64/mkspecs/macx-g++ -F/Users/mitchellohair/Qt/5.11.0/clang_64/lib
+INCPATH       = -I. -I../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I../../../Qt/5.11.0/clang_64/lib/QtGui.framework/Headers -I../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers -I../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/AGL.framework/Headers -I. -I../../../Qt/5.11.0/clang_64/mkspecs/macx-g++ -F/Users/mitchellohair/Qt/5.11.0/clang_64/lib
 QMAKE         = /Users/mitchellohair/Qt/5.11.0/clang_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -38,7 +38,7 @@ DISTNAME      = bulkproject1.0.0
 DISTDIR = /Users/mitchellohair/Desktop/goat-bulk/QtGui/.tmp/bulkproject1.0.0
 LINK          = /Applications/Xcode.app/Contents/Developer/usr/bin/g++
 LFLAGS        = -headerpad_max_install_names $(EXPORT_ARCH_ARGS) -Wl,-syslibroot,/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -mmacosx-version-min=10.10 -Wl,-rpath,@executable_path/Frameworks -Wl,-rpath,/Users/mitchellohair/Qt/5.11.0/clang_64/lib
-LIBS          = $(SUBLIBS) -F/Users/mitchellohair/Qt/5.11.0/clang_64/lib -framework QtWidgets -framework QtGui -framework QtCore -framework DiskArbitration -framework IOKit -framework OpenGL -framework AGL 
+LIBS          = $(SUBLIBS) -F/Users/mitchellohair/Qt/5.11.0/clang_64/lib -framework QtWidgets -framework QtGui -framework QtCore -framework DiskArbitration -framework IOKit -framework QtSql -framework OpenGL -framework AGL 
 AR            = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar cq
 RANLIB        = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib -s
 SED           = sed
@@ -51,26 +51,30 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = main.cpp \
-		loginwindow.cpp \
 		salesinfo.cpp \
 		menu.cpp \
 		sales.cpp \
-		newsales.cpp qrc_menupicture.cpp \
-		moc_loginwindow.cpp \
+		newsales.cpp \
+		dbmanager.cpp \
+		user.cpp \
+		loginmanager.cpp qrc_menupicture.cpp \
 		moc_menu.cpp \
 		moc_sales.cpp \
-		moc_newsales.cpp
+		moc_newsales.cpp \
+		moc_loginmanager.cpp
 OBJECTS       = main.o \
-		loginwindow.o \
 		salesinfo.o \
 		menu.o \
 		sales.o \
 		newsales.o \
+		dbmanager.o \
+		user.o \
+		loginmanager.o \
 		qrc_menupicture.o \
-		moc_loginwindow.o \
 		moc_menu.o \
 		moc_sales.o \
-		moc_newsales.o
+		moc_newsales.o \
+		moc_loginmanager.o
 DIST          = ../../../Qt/5.11.0/clang_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.11.0/clang_64/mkspecs/qdevice.pri \
 		../../../Qt/5.11.0/clang_64/mkspecs/features/device_config.prf \
@@ -259,16 +263,21 @@ DIST          = ../../../Qt/5.11.0/clang_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.11.0/clang_64/mkspecs/features/exceptions.prf \
 		../../../Qt/5.11.0/clang_64/mkspecs/features/yacc.prf \
 		../../../Qt/5.11.0/clang_64/mkspecs/features/lex.prf \
-		bulkproject.pro loginwindow.h \
-		salesinfo.h \
+		bulkproject.pro salesinfo.h \
 		menu.h \
 		sales.h \
-		newsales.h main.cpp \
-		loginwindow.cpp \
+		newsales.h \
+		dbmanager.h \
+		constants.h \
+		loginmanager.h \
+		user.h main.cpp \
 		salesinfo.cpp \
 		menu.cpp \
 		sales.cpp \
-		newsales.cpp
+		newsales.cpp \
+		dbmanager.cpp \
+		user.cpp \
+		loginmanager.cpp
 QMAKE_TARGET  = bulkproject
 DESTDIR       = 
 TARGET        = bulkproject.app/Contents/MacOS/bulkproject
@@ -478,6 +487,7 @@ Makefile: bulkproject.pro ../../../Qt/5.11.0/clang_64/mkspecs/macx-g++/qmake.con
 		menupicture.qrc \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/QtWidgets.prl \
 		../../../Qt/5.11.0/clang_64/lib/QtGui.framework/QtGui.prl \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/QtSql.prl \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/QtCore.prl
 	$(QMAKE) -o Makefile bulkproject.pro -spec macx-g++ CONFIG+=debug CONFIG+=x86_64 CONFIG+=qml_debug
 ../../../Qt/5.11.0/clang_64/mkspecs/features/spec_pre.prf:
@@ -672,6 +682,7 @@ bulkproject.pro:
 menupicture.qrc:
 ../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/QtWidgets.prl:
 ../../../Qt/5.11.0/clang_64/lib/QtGui.framework/QtGui.prl:
+../../../Qt/5.11.0/clang_64/lib/QtSql.framework/QtSql.prl:
 ../../../Qt/5.11.0/clang_64/lib/QtCore.framework/QtCore.prl:
 qmake: FORCE
 	@$(QMAKE) -o Makefile bulkproject.pro -spec macx-g++ CONFIG+=debug CONFIG+=x86_64 CONFIG+=qml_debug
@@ -704,8 +715,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents menupicture.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../Qt/5.11.0/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents loginwindow.h salesinfo.h menu.h sales.h newsales.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp loginwindow.cpp salesinfo.cpp menu.cpp sales.cpp newsales.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents salesinfo.h menu.h sales.h newsales.h dbmanager.h constants.h loginmanager.h user.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp salesinfo.cpp menu.cpp sales.cpp newsales.cpp dbmanager.cpp user.cpp loginmanager.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents loginwindow.ui menu.ui sales.ui newsales.ui $(DISTDIR)/
 
 
@@ -744,49 +755,84 @@ compiler_moc_predefs_clean:
 moc_predefs.h: ../../../Qt/5.11.0/clang_64/mkspecs/features/data/dummy.cpp
 	/Applications/Xcode.app/Contents/Developer/usr/bin/g++ -pipe -g -std=gnu++11 $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -mmacosx-version-min=10.10 -Wall -W -dM -E -o moc_predefs.h ../../../Qt/5.11.0/clang_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_loginwindow.cpp moc_menu.cpp moc_sales.cpp moc_newsales.cpp
+compiler_moc_header_make_all: moc_menu.cpp moc_sales.cpp moc_newsales.cpp moc_loginmanager.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_loginwindow.cpp moc_menu.cpp moc_sales.cpp moc_newsales.cpp
-moc_loginwindow.cpp: menu.h \
-		salesinfo.h \
+	-$(DEL_FILE) moc_menu.cpp moc_sales.cpp moc_newsales.cpp moc_loginmanager.cpp
+moc_menu.cpp: salesinfo.h \
+		newsales.h \
+		menu.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
-		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
-		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
-		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QTextStream \
-		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qtextstream.h \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QInputDialog \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qinputdialog.h \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QFile \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qfile.h \
-		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
-		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
-		loginwindow.h \
-		moc_predefs.h \
-		../../../Qt/5.11.0/clang_64/bin/moc
-	/Users/mitchellohair/Qt/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/mitchellohair/Qt/5.11.0/clang_64/mkspecs/macx-g++ -I/Users/mitchellohair/Desktop/goat-bulk/QtGui -I/Users/mitchellohair/Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/mitchellohair/Qt/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/mitchellohair/Qt/5.11.0/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include -F/Users/mitchellohair/Qt/5.11.0/clang_64/lib loginwindow.h -o moc_loginwindow.cpp
-
-moc_menu.cpp: salesinfo.h \
-		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
-		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QTextStream \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qtextstream.h \
 		menu.h \
 		moc_predefs.h \
 		../../../Qt/5.11.0/clang_64/bin/moc
-	/Users/mitchellohair/Qt/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/mitchellohair/Qt/5.11.0/clang_64/mkspecs/macx-g++ -I/Users/mitchellohair/Desktop/goat-bulk/QtGui -I/Users/mitchellohair/Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/mitchellohair/Qt/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/mitchellohair/Qt/5.11.0/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include -F/Users/mitchellohair/Qt/5.11.0/clang_64/lib menu.h -o moc_menu.cpp
+	/Users/mitchellohair/Qt/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/mitchellohair/Qt/5.11.0/clang_64/mkspecs/macx-g++ -I/Users/mitchellohair/Desktop/goat-bulk/QtGui -I/Users/mitchellohair/Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/mitchellohair/Qt/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/mitchellohair/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers -I/Users/mitchellohair/Qt/5.11.0/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include -F/Users/mitchellohair/Qt/5.11.0/clang_64/lib menu.h -o moc_menu.cpp
 
 moc_sales.cpp: menu.h \
 		salesinfo.h \
+		newsales.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QInputDialog \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qinputdialog.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QFile \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qfile.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QTextStream \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qtextstream.h \
 		sales.h \
 		moc_predefs.h \
 		../../../Qt/5.11.0/clang_64/bin/moc
-	/Users/mitchellohair/Qt/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/mitchellohair/Qt/5.11.0/clang_64/mkspecs/macx-g++ -I/Users/mitchellohair/Desktop/goat-bulk/QtGui -I/Users/mitchellohair/Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/mitchellohair/Qt/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/mitchellohair/Qt/5.11.0/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include -F/Users/mitchellohair/Qt/5.11.0/clang_64/lib sales.h -o moc_sales.cpp
+	/Users/mitchellohair/Qt/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/mitchellohair/Qt/5.11.0/clang_64/mkspecs/macx-g++ -I/Users/mitchellohair/Desktop/goat-bulk/QtGui -I/Users/mitchellohair/Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/mitchellohair/Qt/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/mitchellohair/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers -I/Users/mitchellohair/Qt/5.11.0/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include -F/Users/mitchellohair/Qt/5.11.0/clang_64/lib sales.h -o moc_sales.cpp
 
-moc_newsales.cpp: ../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
-		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+moc_newsales.cpp: menu.h \
+		salesinfo.h \
+		newsales.h \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QInputDialog \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qinputdialog.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QFile \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qfile.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QTextStream \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qtextstream.h \
 		newsales.h \
 		moc_predefs.h \
 		../../../Qt/5.11.0/clang_64/bin/moc
-	/Users/mitchellohair/Qt/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/mitchellohair/Qt/5.11.0/clang_64/mkspecs/macx-g++ -I/Users/mitchellohair/Desktop/goat-bulk/QtGui -I/Users/mitchellohair/Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/mitchellohair/Qt/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/mitchellohair/Qt/5.11.0/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include -F/Users/mitchellohair/Qt/5.11.0/clang_64/lib newsales.h -o moc_newsales.cpp
+	/Users/mitchellohair/Qt/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/mitchellohair/Qt/5.11.0/clang_64/mkspecs/macx-g++ -I/Users/mitchellohair/Desktop/goat-bulk/QtGui -I/Users/mitchellohair/Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/mitchellohair/Qt/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/mitchellohair/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers -I/Users/mitchellohair/Qt/5.11.0/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include -F/Users/mitchellohair/Qt/5.11.0/clang_64/lib newsales.h -o moc_newsales.cpp
+
+moc_loginmanager.cpp: user.h \
+		constants.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QString \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QStringBuilder \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qstringbuilder.h \
+		dbmanager.h \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QDebug \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QFile \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qfile.h \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlError \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlRecord \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlrecord.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QVariant \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qvariant.h \
+		loginmanager.h \
+		moc_predefs.h \
+		../../../Qt/5.11.0/clang_64/bin/moc
+	/Users/mitchellohair/Qt/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/mitchellohair/Qt/5.11.0/clang_64/mkspecs/macx-g++ -I/Users/mitchellohair/Desktop/goat-bulk/QtGui -I/Users/mitchellohair/Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/mitchellohair/Qt/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/mitchellohair/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers -I/Users/mitchellohair/Qt/5.11.0/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include -F/Users/mitchellohair/Qt/5.11.0/clang_64/lib loginmanager.h -o moc_loginmanager.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -823,46 +869,48 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 
 ####### Compile
 
-main.o: main.cpp loginwindow.h \
-		menu.h \
-		salesinfo.h \
-		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
-		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
-		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
-		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
-		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QTextStream \
-		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qtextstream.h \
+main.o: main.cpp loginmanager.h \
+		user.h \
+		constants.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QString \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QStringBuilder \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qstringbuilder.h \
+		dbmanager.h \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QDebug \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QFile \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qfile.h \
-		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
-		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlError \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlRecord \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlrecord.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QVariant \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qvariant.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QApplication \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
-
-loginwindow.o: loginwindow.cpp loginwindow.h \
-		menu.h \
-		salesinfo.h \
-		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
-		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
-		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
-		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
-		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QTextStream \
-		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qtextstream.h \
-		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QFile \
-		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qfile.h \
-		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
-		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
-		ui_loginwindow.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o loginwindow.o loginwindow.cpp
 
 salesinfo.o: salesinfo.cpp salesinfo.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o salesinfo.o salesinfo.cpp
 
 menu.o: menu.cpp menu.h \
 		salesinfo.h \
+		newsales.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QInputDialog \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qinputdialog.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QFile \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qfile.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QTextStream \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qtextstream.h \
 		sales.h \
 		ui_menu.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
@@ -878,22 +926,81 @@ menu.o: menu.cpp menu.h \
 sales.o: sales.cpp sales.h \
 		menu.h \
 		salesinfo.h \
+		newsales.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QInputDialog \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qinputdialog.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QFile \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qfile.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QTextStream \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qtextstream.h \
 		ui_sales.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o sales.o sales.cpp
 
 newsales.o: newsales.cpp newsales.h \
-		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
-		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		menu.h \
+		salesinfo.h \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QInputDialog \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qinputdialog.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QFile \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qfile.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QTextStream \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qtextstream.h \
 		ui_newsales.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o newsales.o newsales.cpp
 
+dbmanager.o: dbmanager.cpp dbmanager.h \
+		constants.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QString \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QDebug \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QFile \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qfile.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dbmanager.o dbmanager.cpp
+
+user.o: user.cpp user.h \
+		constants.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QString \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QStringBuilder \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qstringbuilder.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o user.o user.cpp
+
+loginmanager.o: loginmanager.cpp loginmanager.h \
+		user.h \
+		constants.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QString \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QStringBuilder \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qstringbuilder.h \
+		dbmanager.h \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QDebug \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QFile \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qfile.h \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlError \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlRecord \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlrecord.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QVariant \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qvariant.h \
+		ui_loginwindow.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o loginmanager.o loginmanager.cpp
+
 qrc_menupicture.o: qrc_menupicture.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_menupicture.o qrc_menupicture.cpp
-
-moc_loginwindow.o: moc_loginwindow.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_loginwindow.o moc_loginwindow.cpp
 
 moc_menu.o: moc_menu.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_menu.o moc_menu.cpp
@@ -903,6 +1010,9 @@ moc_sales.o: moc_sales.cpp
 
 moc_newsales.o: moc_newsales.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_newsales.o moc_newsales.cpp
+
+moc_loginmanager.o: moc_loginmanager.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_loginmanager.o moc_loginmanager.cpp
 
 ####### Install
 
