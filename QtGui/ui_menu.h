@@ -42,6 +42,7 @@ public:
         combobox_selection = new QComboBox(centralWidget);
         combobox_selection->addItem(QString());
         combobox_selection->addItem(QString());
+        combobox_selection->addItem(QString());
         combobox_selection->setObjectName(QStringLiteral("combobox_selection"));
         combobox_selection->setGeometry(QRect(110, 150, 171, 22));
         combobox_selection->setCursor(QCursor(Qt::ArrowCursor));
@@ -71,6 +72,7 @@ public:
         Menu->setWindowTitle(QApplication::translate("Menu", "Menu", nullptr));
         combobox_selection->setItemText(0, QApplication::translate("Menu", "Select an Option", nullptr));
         combobox_selection->setItemText(1, QApplication::translate("Menu", "Sales Information", nullptr));
+        combobox_selection->setItemText(2, QApplication::translate("Menu", "Employee Management", nullptr));
 
         label_picture->setText(QString());
         label_menuSelection->setText(QApplication::translate("Menu", "Menu Selection", nullptr));

@@ -31,7 +31,8 @@ SOURCES += \
     newsales.cpp \
     dbmanager.cpp \
     user.cpp \
-    loginmanager.cpp
+    loginmanager.cpp \
+    employeemanager.cpp
 
 HEADERS += \
     salesinfo.h \
@@ -41,14 +42,15 @@ HEADERS += \
     dbmanager.h \
     constants.h \
     loginmanager.h \
-    user.h
+    user.h \
+    employeemanager.h
 
 FORMS += \
     loginwindow.ui \
     menu.ui \
     sales.ui \
     newsales.ui \
-    employeemanage.ui
+    employeemanager.ui
 
 RESOURCES += \
     menupicture.qrc

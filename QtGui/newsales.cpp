@@ -6,7 +6,6 @@ newSales::newSales(QWidget *parent) :
     ui(new Ui::newSales)
 {
     ui->setupUi(this);
-    currentFile = "";
     ui->pushButton_save->setVisible(false);
     ui->pushButton_edit->setVisible(false);
     ui->scrollArea->setVisible(false);

@@ -57,11 +57,13 @@ SOURCES       = main.cpp \
 		newsales.cpp \
 		dbmanager.cpp \
 		user.cpp \
-		loginmanager.cpp qrc_menupicture.cpp \
+		loginmanager.cpp \
+		employeemanager.cpp qrc_menupicture.cpp \
 		moc_menu.cpp \
 		moc_sales.cpp \
 		moc_newsales.cpp \
-		moc_loginmanager.cpp
+		moc_loginmanager.cpp \
+		moc_employeemanager.cpp
 OBJECTS       = main.o \
 		salesinfo.o \
 		menu.o \
@@ -70,11 +72,13 @@ OBJECTS       = main.o \
 		dbmanager.o \
 		user.o \
 		loginmanager.o \
+		employeemanager.o \
 		qrc_menupicture.o \
 		moc_menu.o \
 		moc_sales.o \
 		moc_newsales.o \
-		moc_loginmanager.o
+		moc_loginmanager.o \
+		moc_employeemanager.o
 DIST          = ../../../Qt/5.11.0/clang_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.11.0/clang_64/mkspecs/qdevice.pri \
 		../../../Qt/5.11.0/clang_64/mkspecs/features/device_config.prf \
@@ -270,14 +274,16 @@ DIST          = ../../../Qt/5.11.0/clang_64/mkspecs/features/spec_pre.prf \
 		dbmanager.h \
 		constants.h \
 		loginmanager.h \
-		user.h main.cpp \
+		user.h \
+		employeemanager.h main.cpp \
 		salesinfo.cpp \
 		menu.cpp \
 		sales.cpp \
 		newsales.cpp \
 		dbmanager.cpp \
 		user.cpp \
-		loginmanager.cpp
+		loginmanager.cpp \
+		employeemanager.cpp
 QMAKE_TARGET  = bulkproject
 DESTDIR       = 
 TARGET        = bulkproject.app/Contents/MacOS/bulkproject
@@ -291,7 +297,7 @@ EXPORT_ARCH_ARGS = $(foreach arch, $(if $(EXPORT_ACTIVE_ARCHS), $(EXPORT_ACTIVE_
 first: all
 ####### Build rules
 
-$(TARGET): ui_loginwindow.h ui_menu.h ui_sales.h ui_newsales.h $(OBJECTS)  
+$(TARGET): ui_loginwindow.h ui_menu.h ui_sales.h ui_newsales.h ui_employeemanager.h $(OBJECTS)  
 	@test -d bulkproject.app/Contents/MacOS/ || mkdir -p bulkproject.app/Contents/MacOS/
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
@@ -715,9 +721,9 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents menupicture.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../Qt/5.11.0/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents salesinfo.h menu.h sales.h newsales.h dbmanager.h constants.h loginmanager.h user.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp salesinfo.cpp menu.cpp sales.cpp newsales.cpp dbmanager.cpp user.cpp loginmanager.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents loginwindow.ui menu.ui sales.ui newsales.ui $(DISTDIR)/
+	$(COPY_FILE) --parents salesinfo.h menu.h sales.h newsales.h dbmanager.h constants.h loginmanager.h user.h employeemanager.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp salesinfo.cpp menu.cpp sales.cpp newsales.cpp dbmanager.cpp user.cpp loginmanager.cpp employeemanager.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents loginwindow.ui menu.ui sales.ui newsales.ui employeemanager.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -755,18 +761,40 @@ compiler_moc_predefs_clean:
 moc_predefs.h: ../../../Qt/5.11.0/clang_64/mkspecs/features/data/dummy.cpp
 	/Applications/Xcode.app/Contents/Developer/usr/bin/g++ -pipe -g -std=gnu++11 $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -mmacosx-version-min=10.10 -Wall -W -dM -E -o moc_predefs.h ../../../Qt/5.11.0/clang_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_menu.cpp moc_sales.cpp moc_newsales.cpp moc_loginmanager.cpp
+compiler_moc_header_make_all: moc_menu.cpp moc_sales.cpp moc_newsales.cpp moc_loginmanager.cpp moc_employeemanager.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_menu.cpp moc_sales.cpp moc_newsales.cpp moc_loginmanager.cpp
+	-$(DEL_FILE) moc_menu.cpp moc_sales.cpp moc_newsales.cpp moc_loginmanager.cpp moc_employeemanager.cpp
 moc_menu.cpp: salesinfo.h \
 		newsales.h \
 		menu.h \
-		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
-		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
-		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QInputDialog \
-		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qinputdialog.h \
+		loginmanager.h \
+		user.h \
+		constants.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QString \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QStringBuilder \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qstringbuilder.h \
+		dbmanager.h \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QDebug \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QFile \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qfile.h \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlError \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlRecord \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlrecord.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QVariant \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qvariant.h \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QInputDialog \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qinputdialog.h \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QTextStream \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qtextstream.h \
 		menu.h \
@@ -785,6 +813,28 @@ moc_sales.cpp: menu.h \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qfile.h \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QTextStream \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qtextstream.h \
+		loginmanager.h \
+		user.h \
+		constants.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QString \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QStringBuilder \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qstringbuilder.h \
+		dbmanager.h \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QDebug \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlError \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlRecord \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlrecord.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QVariant \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qvariant.h \
 		sales.h \
 		moc_predefs.h \
 		../../../Qt/5.11.0/clang_64/bin/moc
@@ -801,6 +851,28 @@ moc_newsales.cpp: menu.h \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qfile.h \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QTextStream \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qtextstream.h \
+		loginmanager.h \
+		user.h \
+		constants.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QString \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QStringBuilder \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qstringbuilder.h \
+		dbmanager.h \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QDebug \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlError \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlRecord \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlrecord.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QVariant \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qvariant.h \
 		newsales.h \
 		moc_predefs.h \
 		../../../Qt/5.11.0/clang_64/bin/moc
@@ -812,15 +884,25 @@ moc_loginmanager.cpp: user.h \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QStringBuilder \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qstringbuilder.h \
+		menu.h \
+		salesinfo.h \
+		newsales.h \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QInputDialog \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qinputdialog.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QFile \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qfile.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QTextStream \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qtextstream.h \
+		loginmanager.h \
 		dbmanager.h \
 		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
 		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QDebug \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qdebug.h \
-		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QFile \
-		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qfile.h \
-		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
-		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
 		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
 		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlError \
@@ -834,13 +916,20 @@ moc_loginmanager.cpp: user.h \
 		../../../Qt/5.11.0/clang_64/bin/moc
 	/Users/mitchellohair/Qt/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/mitchellohair/Qt/5.11.0/clang_64/mkspecs/macx-g++ -I/Users/mitchellohair/Desktop/goat-bulk/QtGui -I/Users/mitchellohair/Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/mitchellohair/Qt/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/mitchellohair/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers -I/Users/mitchellohair/Qt/5.11.0/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include -F/Users/mitchellohair/Qt/5.11.0/clang_64/lib loginmanager.h -o moc_loginmanager.cpp
 
+moc_employeemanager.cpp: ../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		employeemanager.h \
+		moc_predefs.h \
+		../../../Qt/5.11.0/clang_64/bin/moc
+	/Users/mitchellohair/Qt/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/mitchellohair/Qt/5.11.0/clang_64/mkspecs/macx-g++ -I/Users/mitchellohair/Desktop/goat-bulk/QtGui -I/Users/mitchellohair/Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/mitchellohair/Qt/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/mitchellohair/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers -I/Users/mitchellohair/Qt/5.11.0/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include -F/Users/mitchellohair/Qt/5.11.0/clang_64/lib employeemanager.h -o moc_employeemanager.cpp
+
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_loginwindow.h ui_menu.h ui_sales.h ui_newsales.h
+compiler_uic_make_all: ui_loginwindow.h ui_menu.h ui_sales.h ui_newsales.h ui_employeemanager.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_loginwindow.h ui_menu.h ui_sales.h ui_newsales.h
+	-$(DEL_FILE) ui_loginwindow.h ui_menu.h ui_sales.h ui_newsales.h ui_employeemanager.h
 ui_loginwindow.h: loginwindow.ui \
 		../../../Qt/5.11.0/clang_64/bin/uic
 	/Users/mitchellohair/Qt/5.11.0/clang_64/bin/uic loginwindow.ui -o ui_loginwindow.h
@@ -856,6 +945,10 @@ ui_sales.h: sales.ui \
 ui_newsales.h: newsales.ui \
 		../../../Qt/5.11.0/clang_64/bin/uic
 	/Users/mitchellohair/Qt/5.11.0/clang_64/bin/uic newsales.ui -o ui_newsales.h
+
+ui_employeemanager.h: employeemanager.ui \
+		../../../Qt/5.11.0/clang_64/bin/uic
+	/Users/mitchellohair/Qt/5.11.0/clang_64/bin/uic employeemanager.ui -o ui_employeemanager.h
 
 compiler_rez_source_make_all:
 compiler_rez_source_clean:
@@ -876,15 +969,24 @@ main.o: main.cpp loginmanager.h \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QStringBuilder \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qstringbuilder.h \
+		menu.h \
+		salesinfo.h \
+		newsales.h \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QInputDialog \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qinputdialog.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QFile \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qfile.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QTextStream \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qtextstream.h \
 		dbmanager.h \
 		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
 		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QDebug \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qdebug.h \
-		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QFile \
-		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qfile.h \
-		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
-		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
 		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
 		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlError \
@@ -911,10 +1013,30 @@ menu.o: menu.cpp menu.h \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qfile.h \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QTextStream \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qtextstream.h \
-		sales.h \
-		ui_menu.h \
+		loginmanager.h \
+		user.h \
+		constants.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QString \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QStringBuilder \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qstringbuilder.h \
+		dbmanager.h \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QDebug \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlError \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlRecord \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlrecord.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QVariant \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qvariant.h \
+		sales.h \
+		ui_menu.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QComboBox \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qcombobox.h \
 		../../../Qt/5.11.0/clang_64/lib/QtGui.framework/Headers/QPixmap \
@@ -935,18 +1057,62 @@ sales.o: sales.cpp sales.h \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qfile.h \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QTextStream \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qtextstream.h \
+		loginmanager.h \
+		user.h \
+		constants.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QString \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QStringBuilder \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qstringbuilder.h \
+		dbmanager.h \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QDebug \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlError \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlRecord \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlrecord.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QVariant \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qvariant.h \
 		ui_sales.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o sales.o sales.cpp
 
 newsales.o: newsales.cpp newsales.h \
 		menu.h \
 		salesinfo.h \
-		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
-		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
-		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QInputDialog \
-		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qinputdialog.h \
+		loginmanager.h \
+		user.h \
+		constants.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QString \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QStringBuilder \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qstringbuilder.h \
+		dbmanager.h \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QDebug \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QFile \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qfile.h \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlError \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlRecord \
+		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlrecord.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QVariant \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qvariant.h \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QInputDialog \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qinputdialog.h \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QTextStream \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qtextstream.h \
 		ui_newsales.h
@@ -979,15 +1145,24 @@ loginmanager.o: loginmanager.cpp loginmanager.h \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QStringBuilder \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qstringbuilder.h \
+		menu.h \
+		salesinfo.h \
+		newsales.h \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QInputDialog \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qinputdialog.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QFile \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qfile.h \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QTextStream \
+		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qtextstream.h \
 		dbmanager.h \
 		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
 		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QDebug \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qdebug.h \
-		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QFile \
-		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qfile.h \
-		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
-		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
 		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
 		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlError \
@@ -998,6 +1173,12 @@ loginmanager.o: loginmanager.cpp loginmanager.h \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qvariant.h \
 		ui_loginwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o loginmanager.o loginmanager.cpp
+
+employeemanager.o: employeemanager.cpp employeemanager.h \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		ui_employeemanager.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o employeemanager.o employeemanager.cpp
 
 qrc_menupicture.o: qrc_menupicture.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_menupicture.o qrc_menupicture.cpp
@@ -1013,6 +1194,9 @@ moc_newsales.o: moc_newsales.cpp
 
 moc_loginmanager.o: moc_loginmanager.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_loginmanager.o moc_loginmanager.cpp
+
+moc_employeemanager.o: moc_employeemanager.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_employeemanager.o moc_employeemanager.cpp
 
 ####### Install
 

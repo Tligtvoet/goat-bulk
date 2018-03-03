@@ -51,6 +51,11 @@
       <string>Sales Information</string>
      </property>
     </item>
+    <item>
+     <property name="text">
+      <string>Employee Management</string>
+     </property>
+    </item>
    </widget>
    <widget class="QLabel" name="label_picture">
     <property name="geometry">

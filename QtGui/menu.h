@@ -3,6 +3,7 @@
 
 #include "salesinfo.h"
 #include "newsales.h"
+#include "employeemanager.h"
 #include "loginmanager.h"
 #include <QMainWindow>
 
