@@ -45,25 +45,38 @@ bool LoginManager::createUserAccount(const User& user) const
 
 bool LoginManager::deleteUserAccount(int userId) const
 {
-    QSqlQuery query;
-    query.prepare("DELETE FROM LoginInfo WHERE Id = :UserID");
-    query.bindValue(":UserID", userId);
+    QSqlQuery deleteQuery;
+    deleteQuery.prepare("DELETE FROM LoginInfo WHERE UserID = :userId");
+    deleteQuery.bindValue(":userId", userId);
 
-    if( query.exec() )
+    if( deleteQuery.exec() )
     {
-        qDebug() << "User account deleted!";
         return true;
     }
     else
     {
-        qDebug() << "Delete user failed: " << query.lastError();
         return false;
     }
 }
 
 bool LoginManager::updateUserAccount(const User& user) const
 {
+    QSqlQuery updateQuery;
 
+    updateQuery.prepare("UPDATE LoginInfo SET Username = :username, Password = :password, isAdministrator = :isAdmin WHERE UserID = :userId");
+    updateQuery.bindValue(":username", user.getUsername());
+    updateQuery.bindValue(":password", user.getPassword());
+    updateQuery.bindValue(":isAdmin", user.isAdministrator() ? 1 : 0);
+    updateQuery.bindValue(":userId", user.getId());
+
+    if( updateQuery.exec() )
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 User LoginManager::authenticate(const QString& username, const QString& password) const

@@ -22,7 +22,9 @@ private slots:
 
     void on_pushButton_Add_clicked();
 
-    void on_pushButton_SaveChanges_clicked();
+    void on_pushButton_Delete_clicked();
+
+    void on_pushButton_Edit_clicked();
 
 private:
     Ui::EmployeeManager *ui;

@@ -3,6 +3,6 @@
 #include <QString>
 
 const int UNASSIGNED_DB_ID = -1;
-const QString DB_Path = "/Users/mitchellohair/Desktop/goat-bulk/QtGui";
+const QString DB_Path = "/Users/Kenneth/Desktop/goat-bulk-GUI/QtGui";
 
 #endif // CONSTANTS_H
