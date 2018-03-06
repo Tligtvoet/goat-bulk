@@ -1,4 +1,6 @@
 #include "loginwindow.h"
+#include "employeetable.h"
+#include "dbmanager.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])
@@ -6,7 +8,9 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     LoginWindow login;
 
-    login.show();
+    EmployeeTable table(LOGIN_TABLE);
+    table.show();
+    //login.show();
 
     return a.exec();
 }
