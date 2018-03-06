@@ -1,5 +1,4 @@
 #include "menu.h"
-#include "sales.h"
 #include "newsales.h"
 #include "ui_menu.h"
 #include <QMessageBox>

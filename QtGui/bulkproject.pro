@@ -27,28 +27,27 @@ SOURCES += \
         main.cpp \
     salesinfo.cpp \
     menu.cpp \
-    sales.cpp \
     newsales.cpp \
     dbmanager.cpp \
     user.cpp \
     loginmanager.cpp \
-    employeemanager.cpp
+    employeemanager.cpp \
+    loginwindow.cpp
 
 HEADERS += \
     salesinfo.h \
     menu.h \
-    sales.h \
     newsales.h \
     dbmanager.h \
     constants.h \
     loginmanager.h \
     user.h \
-    employeemanager.h
+    employeemanager.h \
+    loginwindow.h
 
 FORMS += \
     loginwindow.ui \
     menu.ui \
-    sales.ui \
     newsales.ui \
     employeemanager.ui
 

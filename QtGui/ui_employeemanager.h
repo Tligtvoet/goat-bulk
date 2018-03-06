@@ -46,7 +46,6 @@ public:
     QHBoxLayout *horizontalLayout;
     QCheckBox *checkBox_Yes;
     QCheckBox *checkBox_No;
-    QPushButton *pushButton_SaveChanges;
 
     void setupUi(QWidget *EmployeeManager)
     {
@@ -142,9 +141,6 @@ public:
 
         horizontalLayout->addWidget(checkBox_No);
 
-        pushButton_SaveChanges = new QPushButton(EmployeeManager);
-        pushButton_SaveChanges->setObjectName(QStringLiteral("pushButton_SaveChanges"));
-        pushButton_SaveChanges->setGeometry(QRect(240, 270, 121, 24));
 
         retranslateUi(EmployeeManager);
 
@@ -164,7 +160,6 @@ public:
         label_AdministrationStatus->setText(QApplication::translate("EmployeeManager", "Administration Status", nullptr));
         checkBox_Yes->setText(QApplication::translate("EmployeeManager", "Yes", nullptr));
         checkBox_No->setText(QApplication::translate("EmployeeManager", "No", nullptr));
-        pushButton_SaveChanges->setText(QApplication::translate("EmployeeManager", "Save Changes", nullptr));
     } // retranslateUi
 
 };

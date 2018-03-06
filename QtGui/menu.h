@@ -4,7 +4,7 @@
 #include "salesinfo.h"
 #include "newsales.h"
 #include "employeemanager.h"
-#include "loginmanager.h"
+#include "loginwindow.h"
 #include <QMainWindow>
 
 namespace Ui {

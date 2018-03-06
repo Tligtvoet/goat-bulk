@@ -5,7 +5,6 @@
 #include "menu.h"
 #include "dbmanager.h"
 #include <QMessageBox>
-#include <QMainWindow>
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QSqlRecord>
@@ -32,7 +31,7 @@ private:
       ~LoginManager(); // forbid to delete instance outside
 };
 
-namespace Ui {
+/*namespace Ui {
 class LoginWindow;
 }
 
@@ -49,7 +48,7 @@ private slots:
 
 private:
     Ui::LoginWindow *ui;
-};
+};*/
 /*#include "menu.h"
 #include <iostream>
 #include <iomanip>
