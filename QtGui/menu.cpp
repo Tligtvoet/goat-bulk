@@ -1,10 +1,4 @@
 #include "menu.h"
-#include "newsales.h"
-#include "ui_menu.h"
-#include <QMessageBox>
-#include <QComboBox>
-#include <QPixmap>
-#include <QDialog>
 
 Menu::Menu(QWidget *parent) :
     QMainWindow(parent),
@@ -35,9 +29,12 @@ void Menu::on_combobox_selection_currentTextChanged(const QString &arg1) //Used 
         newSalesPtr->show();
     } else if(arg1 == "Employee Management")
     {
-        EmployeeManager *EmployeeManagerPtr = new EmployeeManager(this);
+        EmployeeTable *table = new EmployeeTable(LOGIN_TABLE);
         this->close();
-        EmployeeManagerPtr->show();
+        table->show();
+        /*EmployeeManager *EmployeeManagerPtr = new EmployeeManager(this);
+        this->close();
+        EmployeeManagerPtr->show();*/
     }
 }
 

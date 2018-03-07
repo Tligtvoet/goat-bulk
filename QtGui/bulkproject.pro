@@ -51,8 +51,7 @@ FORMS += \
     loginwindow.ui \
     menu.ui \
     newsales.ui \
-    employeemanager.ui \
-    employeetable.ui
+    employeemanager.ui
 
 RESOURCES += \
     menupicture.qrc

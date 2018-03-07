@@ -11,12 +11,17 @@ class QDialogButtonBox;
 class QPushButton;
 class QSqlTableModel;
 
+namespace Widg {
+class EmployeeTable;
+}
+
 class EmployeeTable : public QWidget
 {
     Q_OBJECT
 
 public:
     explicit EmployeeTable(const QString &tableName, QWidget *parent = nullptr);
+    ~EmployeeTable();
 
 private slots:
     void submit();
@@ -27,6 +32,7 @@ private:
     QPushButton *quitButton;
     QDialogButtonBox *buttonBox;
     QSqlTableModel *model;
+    Widg::EmployeeTable *widg;
 };
 
 #endif // EMPLOYEETABLE_H

@@ -3,9 +3,15 @@
 
 #include "salesinfo.h"
 #include "newsales.h"
-#include "employeemanager.h"
+#include "employeetable.h"
 #include "loginwindow.h"
+#include "ui_menu.h"
+#include <QWidget>
 #include <QMainWindow>
+#include <QMessageBox>
+#include <QComboBox>
+#include <QPixmap>
+#include <QDialog>
 
 namespace Ui {
 

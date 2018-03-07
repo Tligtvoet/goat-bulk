@@ -1,5 +1,4 @@
 #include "employeetable.h"
-#include "ui_employeetable.h"
 
 EmployeeTable::EmployeeTable(const QString &tableName, QWidget *parent) :
     QWidget(parent)
@@ -38,12 +37,14 @@ EmployeeTable::EmployeeTable(const QString &tableName, QWidget *parent) :
         setLayout(mainLayout);
 
         setWindowTitle(tr("Employee's"));
+}
 
+EmployeeTable::~EmployeeTable() {
+    delete widg;
 }
 
 void EmployeeTable::submit()
 {
-
     model->database().transaction();
     if (model->submitAll()) {
         model->database().commit();
