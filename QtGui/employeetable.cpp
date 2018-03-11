@@ -3,6 +3,13 @@
 EmployeeTable::EmployeeTable(const QString &tableName, QWidget *parent) :
     QWidget(parent)
 {
+    QList <int> idList;
+    QList <QString> usernameList;
+    QList <QString> passwordList;
+    QList <int> adminList;
+
+
+
     model = new QSqlTableModel(this);
         model->setTable(tableName);
         model->setEditStrategy(QSqlTableModel::OnManualSubmit);

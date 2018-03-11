@@ -13,8 +13,8 @@ MAKEFILE      = Makefile
 CC            = /Applications/Xcode.app/Contents/Developer/usr/bin/gcc
 CXX           = /Applications/Xcode.app/Contents/Developer/usr/bin/g++
 DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_CORE_LIB
-CFLAGS        = -pipe -g $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -mmacosx-version-min=10.10 -Wall -W -fPIC $(DEFINES)
-CXXFLAGS      = -pipe -g -std=gnu++11 $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -mmacosx-version-min=10.10 -Wall -W -fPIC $(DEFINES)
+CFLAGS        = -pipe -g $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -mmacosx-version-min=10.11 -Wall -W -fPIC $(DEFINES)
+CXXFLAGS      = -pipe -g -std=gnu++11 $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -mmacosx-version-min=10.11 -Wall -W -fPIC $(DEFINES)
 INCPATH       = -I. -I../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I../../../Qt/5.11.0/clang_64/lib/QtGui.framework/Headers -I../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers -I../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/AGL.framework/Headers -I. -I../../../Qt/5.11.0/clang_64/mkspecs/macx-g++ -F/Users/mitchellohair/Qt/5.11.0/clang_64/lib
 QMAKE         = /Users/mitchellohair/Qt/5.11.0/clang_64/bin/qmake
 DEL_FILE      = rm -f
@@ -37,7 +37,7 @@ COMPRESS      = gzip -9f
 DISTNAME      = bulkproject1.0.0
 DISTDIR = /Users/mitchellohair/Desktop/goat-bulk/QtGui/.tmp/bulkproject1.0.0
 LINK          = /Applications/Xcode.app/Contents/Developer/usr/bin/g++
-LFLAGS        = -headerpad_max_install_names $(EXPORT_ARCH_ARGS) -Wl,-syslibroot,/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -mmacosx-version-min=10.10 -Wl,-rpath,@executable_path/Frameworks -Wl,-rpath,/Users/mitchellohair/Qt/5.11.0/clang_64/lib
+LFLAGS        = -headerpad_max_install_names $(EXPORT_ARCH_ARGS) -Wl,-syslibroot,/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -mmacosx-version-min=10.11 -Wl,-rpath,@executable_path/Frameworks -Wl,-rpath,/Users/mitchellohair/Qt/5.11.0/clang_64/lib
 LIBS          = $(SUBLIBS) -F/Users/mitchellohair/Qt/5.11.0/clang_64/lib -framework QtWidgets -framework QtGui -framework QtCore -framework DiskArbitration -framework IOKit -framework QtSql -framework OpenGL -framework AGL 
 AR            = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar cq
 RANLIB        = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib -s
@@ -149,6 +149,8 @@ DIST          = ../../../Qt/5.11.0/clang_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.11.0/clang_64/mkspecs/modules/qt_lib_help_private.pri \
 		../../../Qt/5.11.0/clang_64/mkspecs/modules/qt_lib_location.pri \
 		../../../Qt/5.11.0/clang_64/mkspecs/modules/qt_lib_location_private.pri \
+		../../../Qt/5.11.0/clang_64/mkspecs/modules/qt_lib_locationlabs.pri \
+		../../../Qt/5.11.0/clang_64/mkspecs/modules/qt_lib_locationlabs_private.pri \
 		../../../Qt/5.11.0/clang_64/mkspecs/modules/qt_lib_macextras.pri \
 		../../../Qt/5.11.0/clang_64/mkspecs/modules/qt_lib_macextras_private.pri \
 		../../../Qt/5.11.0/clang_64/mkspecs/modules/qt_lib_multimedia.pri \
@@ -373,6 +375,8 @@ Makefile: bulkproject.pro ../../../Qt/5.11.0/clang_64/mkspecs/macx-g++/qmake.con
 		../../../Qt/5.11.0/clang_64/mkspecs/modules/qt_lib_help_private.pri \
 		../../../Qt/5.11.0/clang_64/mkspecs/modules/qt_lib_location.pri \
 		../../../Qt/5.11.0/clang_64/mkspecs/modules/qt_lib_location_private.pri \
+		../../../Qt/5.11.0/clang_64/mkspecs/modules/qt_lib_locationlabs.pri \
+		../../../Qt/5.11.0/clang_64/mkspecs/modules/qt_lib_locationlabs_private.pri \
 		../../../Qt/5.11.0/clang_64/mkspecs/modules/qt_lib_macextras.pri \
 		../../../Qt/5.11.0/clang_64/mkspecs/modules/qt_lib_macextras_private.pri \
 		../../../Qt/5.11.0/clang_64/mkspecs/modules/qt_lib_multimedia.pri \
@@ -568,6 +572,8 @@ Makefile: bulkproject.pro ../../../Qt/5.11.0/clang_64/mkspecs/macx-g++/qmake.con
 ../../../Qt/5.11.0/clang_64/mkspecs/modules/qt_lib_help_private.pri:
 ../../../Qt/5.11.0/clang_64/mkspecs/modules/qt_lib_location.pri:
 ../../../Qt/5.11.0/clang_64/mkspecs/modules/qt_lib_location_private.pri:
+../../../Qt/5.11.0/clang_64/mkspecs/modules/qt_lib_locationlabs.pri:
+../../../Qt/5.11.0/clang_64/mkspecs/modules/qt_lib_locationlabs_private.pri:
 ../../../Qt/5.11.0/clang_64/mkspecs/modules/qt_lib_macextras.pri:
 ../../../Qt/5.11.0/clang_64/mkspecs/modules/qt_lib_macextras_private.pri:
 ../../../Qt/5.11.0/clang_64/mkspecs/modules/qt_lib_multimedia.pri:
@@ -710,7 +716,7 @@ bulkproject.app/Contents/Resources/empty.lproj:
 bulkproject.app/Contents/Info.plist: 
 	@test -d bulkproject.app/Contents || mkdir -p bulkproject.app/Contents
 	@$(DEL_FILE) bulkproject.app/Contents/Info.plist
-	@sed -e "s,@SHORT_VERSION@,1.0,g" -e "s,\$${QMAKE_SHORT_VERSION},1.0,g" -e "s,@FULL_VERSION@,1.0.0,g" -e "s,\$${QMAKE_FULL_VERSION},1.0.0,g" -e "s,@TYPEINFO@,????,g" -e "s,\$${QMAKE_PKGINFO_TYPEINFO},????,g" -e "s,@BUNDLEIDENTIFIER@,mitchdotdev.bulkproject,g" -e "s,\$${PRODUCT_BUNDLE_IDENTIFIER},mitchdotdev.bulkproject,g" -e "s,\$${MACOSX_DEPLOYMENT_TARGET},10.10,g" -e "s,\$${IPHONEOS_DEPLOYMENT_TARGET},,g" -e "s,\$${TVOS_DEPLOYMENT_TARGET},,g" -e "s,\$${WATCHOS_DEPLOYMENT_TARGET},,g" -e "s,@ICON@,,g" -e "s,\$${ASSETCATALOG_COMPILER_APPICON_NAME},,g" -e "s,@EXECUTABLE@,bulkproject,g" -e "s,@LIBRARY@,bulkproject,g" -e "s,\$${EXECUTABLE_NAME},bulkproject,g" -e "s,@TYPEINFO@,????,g" -e "s,\$${QMAKE_PKGINFO_TYPEINFO},????,g" ../../../Qt/5.11.0/clang_64/mkspecs/macx-g++/Info.plist.app >bulkproject.app/Contents/Info.plist
+	@sed -e "s,@SHORT_VERSION@,1.0,g" -e "s,\$${QMAKE_SHORT_VERSION},1.0,g" -e "s,@FULL_VERSION@,1.0.0,g" -e "s,\$${QMAKE_FULL_VERSION},1.0.0,g" -e "s,@TYPEINFO@,????,g" -e "s,\$${QMAKE_PKGINFO_TYPEINFO},????,g" -e "s,@BUNDLEIDENTIFIER@,com.mitchdotdev.bulkproject,g" -e "s,\$${PRODUCT_BUNDLE_IDENTIFIER},com.mitchdotdev.bulkproject,g" -e "s,\$${MACOSX_DEPLOYMENT_TARGET},10.11,g" -e "s,\$${IPHONEOS_DEPLOYMENT_TARGET},,g" -e "s,\$${TVOS_DEPLOYMENT_TARGET},,g" -e "s,\$${WATCHOS_DEPLOYMENT_TARGET},,g" -e "s,@ICON@,,g" -e "s,\$${ASSETCATALOG_COMPILER_APPICON_NAME},,g" -e "s,@EXECUTABLE@,bulkproject,g" -e "s,@LIBRARY@,bulkproject,g" -e "s,\$${EXECUTABLE_NAME},bulkproject,g" -e "s,@TYPEINFO@,????,g" -e "s,\$${QMAKE_PKGINFO_TYPEINFO},????,g" ../../../Qt/5.11.0/clang_64/mkspecs/macx-g++/Info.plist.app >bulkproject.app/Contents/Info.plist
 
 all: Makefile \
 		bulkproject.app/Contents/PkgInfo \
@@ -763,7 +769,7 @@ compiler_moc_predefs_make_all: moc_predefs.h
 compiler_moc_predefs_clean:
 	-$(DEL_FILE) moc_predefs.h
 moc_predefs.h: ../../../Qt/5.11.0/clang_64/mkspecs/features/data/dummy.cpp
-	/Applications/Xcode.app/Contents/Developer/usr/bin/g++ -pipe -g -std=gnu++11 $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -mmacosx-version-min=10.10 -Wall -W -dM -E -o moc_predefs.h ../../../Qt/5.11.0/clang_64/mkspecs/features/data/dummy.cpp
+	/Applications/Xcode.app/Contents/Developer/usr/bin/g++ -pipe -g -std=gnu++11 $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -mmacosx-version-min=10.11 -Wall -W -dM -E -o moc_predefs.h ../../../Qt/5.11.0/clang_64/mkspecs/features/data/dummy.cpp
 
 compiler_moc_header_make_all: moc_menu.cpp moc_newsales.cpp moc_employeemanager.cpp moc_loginwindow.cpp moc_employeetable.cpp
 compiler_moc_header_clean:
@@ -775,6 +781,8 @@ moc_menu.cpp: salesinfo.h \
 		constants.h \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QString \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		../../../Qt/5.11.0/clang_64/lib/QtGui.framework/Headers/QList \
+		../../../Qt/5.11.0/clang_64/lib/QtGui.framework/Headers/qevent.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qtwidgetsglobal.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qabstractbutton.h \
@@ -968,6 +976,8 @@ moc_newsales.cpp: menu.h \
 		constants.h \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QString \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		../../../Qt/5.11.0/clang_64/lib/QtGui.framework/Headers/QList \
+		../../../Qt/5.11.0/clang_64/lib/QtGui.framework/Headers/qevent.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qtwidgetsglobal.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qabstractbutton.h \
@@ -1157,6 +1167,8 @@ moc_employeemanager.cpp: user.h \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QTextStream \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qtextstream.h \
 		employeetable.h \
+		../../../Qt/5.11.0/clang_64/lib/QtGui.framework/Headers/QList \
+		../../../Qt/5.11.0/clang_64/lib/QtGui.framework/Headers/qevent.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qtwidgetsglobal.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qabstractbutton.h \
@@ -1341,6 +1353,8 @@ moc_loginwindow.cpp: user.h \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QTextStream \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qtextstream.h \
 		employeetable.h \
+		../../../Qt/5.11.0/clang_64/lib/QtGui.framework/Headers/QList \
+		../../../Qt/5.11.0/clang_64/lib/QtGui.framework/Headers/qevent.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qtwidgetsglobal.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qabstractbutton.h \
@@ -1511,6 +1525,8 @@ moc_loginwindow.cpp: user.h \
 moc_employeetable.cpp: constants.h \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QString \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		../../../Qt/5.11.0/clang_64/lib/QtGui.framework/Headers/QList \
+		../../../Qt/5.11.0/clang_64/lib/QtGui.framework/Headers/qevent.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qtwidgetsglobal.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qabstractbutton.h \
@@ -1717,6 +1733,8 @@ main.o: main.cpp loginwindow.h \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QTextStream \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qtextstream.h \
 		employeetable.h \
+		../../../Qt/5.11.0/clang_64/lib/QtGui.framework/Headers/QList \
+		../../../Qt/5.11.0/clang_64/lib/QtGui.framework/Headers/qevent.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qtwidgetsglobal.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qabstractbutton.h \
@@ -1899,6 +1917,8 @@ menu.o: menu.cpp menu.h \
 		constants.h \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QString \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		../../../Qt/5.11.0/clang_64/lib/QtGui.framework/Headers/QList \
+		../../../Qt/5.11.0/clang_64/lib/QtGui.framework/Headers/qevent.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qtwidgetsglobal.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qabstractbutton.h \
@@ -2073,6 +2093,8 @@ newsales.o: newsales.cpp newsales.h \
 		constants.h \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QString \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		../../../Qt/5.11.0/clang_64/lib/QtGui.framework/Headers/QList \
+		../../../Qt/5.11.0/clang_64/lib/QtGui.framework/Headers/qevent.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qtwidgetsglobal.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qabstractbutton.h \
@@ -2288,6 +2310,8 @@ loginmanager.o: loginmanager.cpp loginmanager.h \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QTextStream \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qtextstream.h \
 		employeetable.h \
+		../../../Qt/5.11.0/clang_64/lib/QtGui.framework/Headers/QList \
+		../../../Qt/5.11.0/clang_64/lib/QtGui.framework/Headers/qevent.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qtwidgetsglobal.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qabstractbutton.h \
@@ -2471,6 +2495,8 @@ employeemanager.o: employeemanager.cpp employeemanager.h \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QTextStream \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qtextstream.h \
 		employeetable.h \
+		../../../Qt/5.11.0/clang_64/lib/QtGui.framework/Headers/QList \
+		../../../Qt/5.11.0/clang_64/lib/QtGui.framework/Headers/qevent.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qtwidgetsglobal.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qabstractbutton.h \
@@ -2654,6 +2680,8 @@ loginwindow.o: loginwindow.cpp loginwindow.h \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QTextStream \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qtextstream.h \
 		employeetable.h \
+		../../../Qt/5.11.0/clang_64/lib/QtGui.framework/Headers/QList \
+		../../../Qt/5.11.0/clang_64/lib/QtGui.framework/Headers/qevent.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qtwidgetsglobal.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qabstractbutton.h \
@@ -2822,6 +2850,8 @@ employeetable.o: employeetable.cpp employeetable.h \
 		constants.h \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QString \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		../../../Qt/5.11.0/clang_64/lib/QtGui.framework/Headers/QList \
+		../../../Qt/5.11.0/clang_64/lib/QtGui.framework/Headers/qevent.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qtwidgetsglobal.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qabstractbutton.h \

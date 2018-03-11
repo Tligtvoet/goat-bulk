@@ -3,6 +3,7 @@
 
 #include "user.h"
 #include "menu.h"
+#include <QList>
 #include "dbmanager.h"
 #include <QMessageBox>
 #include <QSqlQuery>

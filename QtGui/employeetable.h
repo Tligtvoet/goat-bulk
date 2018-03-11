@@ -2,6 +2,7 @@
 #define EMPLOYEETABLE_H
 
 #include "constants.h"
+#include <QList>
 #include <QtWidgets>
 #include <QDialog>
 #include <QtSql>
@@ -25,6 +26,7 @@ public:
 
 private slots:
     void submit();
+    void close();
 
 private:
     QPushButton *submitButton;
