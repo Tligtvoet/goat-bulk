@@ -1,4 +1,5 @@
 #include "employeetable.h"
+#include "newmenu.h"
 
 EmployeeTable::EmployeeTable(const QString &tableName, QWidget *parent) :
     QWidget(parent)
@@ -21,14 +22,17 @@ EmployeeTable::EmployeeTable(const QString &tableName, QWidget *parent) :
         submitButton->setDefault(true);
         revertButton = new QPushButton(tr("&Revert"));
         quitButton = new QPushButton(tr("Quit"));
+        backButton = new QPushButton(tr("Back"));
 
         buttonBox = new QDialogButtonBox(Qt::Vertical);
         buttonBox->addButton(submitButton, QDialogButtonBox::ActionRole);
         buttonBox->addButton(revertButton, QDialogButtonBox::ActionRole);
+        buttonBox->addButton(backButton, QDialogButtonBox::ActionRole);
         buttonBox->addButton(quitButton, QDialogButtonBox::RejectRole);
 
         connect(submitButton, &QPushButton::clicked, this, &EmployeeTable::submit);
         connect(revertButton, &QPushButton::clicked,  model, &QSqlTableModel::revertAll);
+        connect(backButton, &QPushButton::clicked, this, &EmployeeTable::back);
         connect(quitButton, &QPushButton::clicked, this, &EmployeeTable::close);
 
         QHBoxLayout *mainLayout = new QHBoxLayout;
@@ -54,4 +58,11 @@ void EmployeeTable::submit()
                              tr("The database reported an error: %1")
                              .arg(model->lastError().text()));
     }
+}
+
+void EmployeeTable::back()
+{
+    newMenu* newMenuPtr = new newMenu(this);
+    this->close();
+    newMenuPtr->show();
 }

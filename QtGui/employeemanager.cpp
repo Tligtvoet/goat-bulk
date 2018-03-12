@@ -80,6 +80,7 @@ void EmployeeManager::on_pushButton_Delete_clicked()
 
 void EmployeeManager::on_pushButton_Edit_clicked()
 {
-    EmployeeTable *table = new EmployeeTable(LOGIN_TABLE);
-    table->show();
+//    EmployeeTable *table = new EmployeeTable(this);
+//    this->close();
+//    table->show();
 }

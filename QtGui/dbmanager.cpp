@@ -28,7 +28,6 @@ DbManager::~DbManager()
     {
         bulkDB.close();
     }
-
     qDebug() << "Destroying Databasemanager";
 }
 

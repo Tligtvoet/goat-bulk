@@ -25,8 +25,10 @@ public:
 
 private slots:
     void submit();
+    void back();
 
 private:
+    QPushButton *backButton;
     QPushButton *submitButton;
     QPushButton *revertButton;
     QPushButton *quitButton;
