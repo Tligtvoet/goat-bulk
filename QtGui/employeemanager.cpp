@@ -80,46 +80,7 @@ void EmployeeManager::on_pushButton_Delete_clicked()
 
 void EmployeeManager::on_pushButton_Edit_clicked()
 {
-    QString userID = ui->lineEdit_IdNum->text();
-    int     userId;
-    userId = userID.toInt();
-    QString userName;
-    QString passWord;
-    bool adminStat;
-    bool n;
-
-    /* EDIT EVERYTHING OR IT WILL CHANGE EVEN THE EMPY ONES*/
-
-    if(!ui->lineEdit_Username->text().isEmpty())
-    {
-        userName = ui->lineEdit_Username->text();
-    }
-
-    if(!ui->lineEdit_Password->text().isEmpty())
-    {
-        passWord = ui->lineEdit_Password->text();
-    }
-        if(ui->checkBox_Yes->isChecked())
-        {
-            adminStat = true;
-        } else {
-            adminStat = false;
-        }
-
-    n = LoginManager::instance().updateUserAccount(User::User(userId, userName, passWord, adminStat));
-
-    if (n == true)
-    {
-        QMessageBox::information(this,QObject::tr("System Message"),tr("User account has been edited!"),QMessageBox::Ok);
-    }
-    else
-    {
-        QMessageBox::information(this,QObject::tr("System Message"),tr("Creation of user account has failed on editing!"),QMessageBox::Ok);
-    }
-
-    ui->lineEdit_IdNum->clear();
-    ui->lineEdit_Username->clear();
-    ui->lineEdit_Password->clear();
-    ui->checkBox_Yes->setChecked(false);
-    ui->checkBox_No->setChecked(false);
+//    EmployeeTable *table = new EmployeeTable(this);
+//    this->close();
+//    table->show();
 }

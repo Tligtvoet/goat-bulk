@@ -4,6 +4,7 @@
 #include "salesinfo.h"
 #include "newsales.h"
 #include "employeetable.h"
+#include "employeemanager.h"
 #include "loginwindow.h"
 #include "ui_menu.h"
 #include <QWidget>

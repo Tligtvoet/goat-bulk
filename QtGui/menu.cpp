@@ -29,12 +29,9 @@ void Menu::on_combobox_selection_currentTextChanged(const QString &arg1) //Used 
         newSalesPtr->show();
     } else if(arg1 == "Employee Management")
     {
-        EmployeeTable *table = new EmployeeTable(LOGIN_TABLE);
+        EmployeeManager *EmployeeManagerPtr = new EmployeeManager(this);
         this->close();
-        table->show();
-        /*EmployeeManager *EmployeeManagerPtr = new EmployeeManager(this);
-        this->close();
-        EmployeeManagerPtr->show();*/
+        EmployeeManagerPtr->show();
     }
 }
 

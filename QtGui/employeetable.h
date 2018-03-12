@@ -28,10 +28,17 @@ public:
 
 private slots:
     void submit();
+<<<<<<< HEAD
     //void close();
 
 private:
     //QList <QSqlRecord> EmployeeList;
+=======
+    void back();
+
+private:
+    QPushButton *backButton;
+>>>>>>> 086451568f83b1c9862a214df4333cbd1b8f99dc
     QPushButton *submitButton;
     QPushButton *revertButton;
     QPushButton *quitButton;

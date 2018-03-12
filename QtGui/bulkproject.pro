@@ -34,7 +34,14 @@ SOURCES += \
     employeemanager.cpp \
     loginwindow.cpp \
     employeetable.cpp \
+<<<<<<< HEAD
     newtable.cpp
+=======
+    newmenu.cpp \
+    deleteemployee.cpp \
+    addMember.cpp \
+    editemployee.cpp
+>>>>>>> 086451568f83b1c9862a214df4333cbd1b8f99dc
 
 HEADERS += \
     salesinfo.h \
@@ -47,14 +54,28 @@ HEADERS += \
     employeemanager.h \
     loginwindow.h \
     employeetable.h \
+<<<<<<< HEAD
     newtable.h
+=======
+    newmenu.h \
+    deleteemployee.h \
+    addMember.h \
+    editemployee.h
+>>>>>>> 086451568f83b1c9862a214df4333cbd1b8f99dc
 
 FORMS += \
     loginwindow.ui \
     menu.ui \
     newsales.ui \
     employeemanager.ui \
+<<<<<<< HEAD
     newtable.ui
+=======
+    newmenu.ui \
+    addmember.ui \
+    deleteemployee.ui \
+    editemployee.ui
+>>>>>>> 086451568f83b1c9862a214df4333cbd1b8f99dc
 
 RESOURCES += \
     menupicture.qrc
