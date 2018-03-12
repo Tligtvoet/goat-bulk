@@ -85,10 +85,8 @@ User LoginManager::authenticate(const QString& username, const QString& password
 
     query.prepare("SELECT UserID, Username, Password, isAdministrator FROM LoginInfo WHERE username = (:Username)");
     query.bindValue(":Username", username);
-
     if (query.exec())
         {
-            int idId = query.record().indexOf("Id");
             int idUsername = query.record().indexOf("Username");
             int idPassword = query.record().indexOf("Password");
             int idisAdministrator = query.record().indexOf("isAdministrator");
@@ -98,8 +96,7 @@ User LoginManager::authenticate(const QString& username, const QString& password
                 QString dbusername = query.value(idUsername).toString();
                 QString dbpassword = query.value(idPassword).toString();
                 bool dbisAdministrator = query.value(idisAdministrator).toInt() == 1;
-                int dbid = query.value(idId).toInt();
-
+                int dbid = query.record().indexOf("Id");
                 if( dbpassword == password )
                 {
                     return User(dbid, dbusername, dbpassword, dbisAdministrator);

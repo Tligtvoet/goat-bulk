@@ -10,9 +10,9 @@ void LoginWindow::on_pushButton_login_clicked()
 
     if(LoginManager::instance().authenticate(username, password) != NULL_USER)
     {
-        newMenu* newMenuPtr = new newMenu(this);
+        Menu* menuptr = new Menu(this);
         this->close();
-        newMenuPtr->show();
+        menuptr->show();
     } else {
         invalidCreds.exec();
     }
@@ -22,7 +22,14 @@ LoginWindow::LoginWindow(QWidget *parent) :
     ui(new Ui::LoginWindow)
 {
     ui->setupUi(this);
-    QSqlDatabase myDB  = QSqlDatabase::addDatabase("QSQLITE");
+    QSqlDatabase myDB;
+
+    if(QSqlDatabase::contains()) {
+        myDB = QSqlDatabase::database(QLatin1String(QSqlDatabase::defaultConnection), false);
+    }
+    else {
+        myDB = QSqlDatabase::addDatabase("QSQLITE");
+    }
     myDB.setDatabaseName("bulk.db");
     myDB.open();
 }
