@@ -10,9 +10,9 @@ void LoginWindow::on_pushButton_login_clicked()
 
     if(LoginManager::instance().authenticate(username, password) != NULL_USER)
     {
-        Menu* menuptr = new Menu(this);
+        newMenu* newMenuPtr = new newMenu(this);
         this->close();
-        menuptr->show();
+        newMenuPtr->show();
     } else {
         invalidCreds.exec();
     }
