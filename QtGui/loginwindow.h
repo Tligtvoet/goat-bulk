@@ -3,6 +3,7 @@
 
 #include "user.h"
 #include "menu.h"
+#include "newmenu.h"
 #include "loginmanager.h"
 #include <QMainWindow>
 #include <QMessageBox>
