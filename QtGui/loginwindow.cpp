@@ -22,7 +22,14 @@ LoginWindow::LoginWindow(QWidget *parent) :
     ui(new Ui::LoginWindow)
 {
     ui->setupUi(this);
-    QSqlDatabase myDB  = QSqlDatabase::addDatabase("QSQLITE");
+    QSqlDatabase myDB;
+
+    if(QSqlDatabase::contains())
+    {
+        myDB = QSqlDatabase::database(QLatin1String(QSqlDatabase::defaultConnection), false);
+    } else {
+        myDB = QSqlDatabase::addDatabase("QSQLITE");
+    }
     myDB.setDatabaseName("bulk.db");
     myDB.open();
 }

@@ -33,7 +33,8 @@ SOURCES += \
     loginmanager.cpp \
     employeemanager.cpp \
     loginwindow.cpp \
-    employeetable.cpp
+    employeetable.cpp \
+    newtable.cpp
 
 HEADERS += \
     salesinfo.h \
@@ -45,13 +46,15 @@ HEADERS += \
     user.h \
     employeemanager.h \
     loginwindow.h \
-    employeetable.h
+    employeetable.h \
+    newtable.h
 
 FORMS += \
     loginwindow.ui \
     menu.ui \
     newsales.ui \
-    employeemanager.ui
+    employeemanager.ui \
+    newtable.ui
 
 RESOURCES += \
     menupicture.qrc

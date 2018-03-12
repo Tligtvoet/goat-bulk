@@ -1,6 +1,6 @@
 #include "loginmanager.h"
 
-// Constructor & Dectructor
+// Constructor & Destructor
 LoginManager::LoginManager() {}
 LoginManager::~LoginManager() {}
 
