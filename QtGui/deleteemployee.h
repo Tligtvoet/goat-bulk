@@ -1,8 +1,10 @@
 #ifndef DELETEEMPLOYEE_H
 #define DELETEEMPLOYEE_H
 
-#include <QDialog>
 #include <loginwindow.h>
+#include "dbmanager.h"
+
+#include <QDialog>
 
 namespace Ui {
 class deleteEmployee;

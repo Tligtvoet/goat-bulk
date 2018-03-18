@@ -1,6 +1,5 @@
 #include "deleteemployee.h"
 #include "ui_deleteemployee.h"
-#include "dbmanager.h"
 
 deleteEmployee::deleteEmployee(QWidget *parent) :
     QDialog(parent),
@@ -36,7 +35,7 @@ deleteEmployee::~deleteEmployee()
 
 void deleteEmployee::on_pushButton_clicked()
 {
-    newMenu* newMenuPtr = new newMenu(this);
+    menuAdministrator* newMenuPtr = new menuAdministrator(this);
     this->close();
     newMenuPtr->show();
 }

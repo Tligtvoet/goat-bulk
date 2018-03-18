@@ -1,43 +1,40 @@
-#include "newmenu.h"
-#include "ui_newmenu.h"
-#include "addemployee.h"
-#include "deleteemployee.h"
-#include "editemployee.h"
+#include "menuAdministrator.h"
+#include "ui_menuAdministrator.h"
 
-newMenu::newMenu(QWidget *parent) :
+menuAdministrator::menuAdministrator(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::newMenu)
+    ui(new Ui::menuAdministrator)
 {
     ui->setupUi(this);
 }
 
-newMenu::~newMenu()
+menuAdministrator::~menuAdministrator()
 {
     delete ui;
 }
 
-void newMenu::on_pushButton_2_clicked()
+void menuAdministrator::on_pushButton_2_clicked()
 {
     addEmployee* addEmployeePtr = new addEmployee(this);
     this->close();
     addEmployeePtr->show();
 }
 
-void newMenu::on_pushButton_clicked()
+void menuAdministrator::on_pushButton_clicked()
 {
     LoginWindow* logintPtr = new LoginWindow(this);
     this->close();
     logintPtr->show();
 }
 
-void newMenu::on_pushButton_3_clicked()
+void menuAdministrator::on_pushButton_3_clicked()
 {
     deleteEmployee* deleteEmployeePtr = new deleteEmployee(this);
     this->close();
     deleteEmployeePtr->show();
 }
 
-void newMenu::on_pushButton_4_clicked()
+void menuAdministrator::on_pushButton_4_clicked()
 {
     EmployeeTable *table = new EmployeeTable(LOGIN_TABLE);
     this->close();

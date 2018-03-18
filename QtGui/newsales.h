@@ -1,7 +1,6 @@
 #ifndef NEWSALES_H
 #define NEWSALES_H
 
-#include "menu.h"
 #include <iostream>
 #include <QMainWindow>
 #include <QInputDialog>

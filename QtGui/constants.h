@@ -1,5 +1,6 @@
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
+
 #include <QString>
 
 const int UNASSIGNED_DB_ID = -1;

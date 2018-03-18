@@ -1,5 +1,4 @@
 #include "employeetable.h"
-#include "newmenu.h"
 
 EmployeeTable::EmployeeTable(const QString &tableName, QWidget *parent) :
     QWidget(parent)
@@ -62,7 +61,7 @@ void EmployeeTable::submit()
 
 void EmployeeTable::back()
 {
-    newMenu* newMenuPtr = new newMenu(this);
+    menuAdministrator* newMenuPtr = new menuAdministrator(this);
     this->close();
     newMenuPtr->show();
 }

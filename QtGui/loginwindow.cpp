@@ -8,15 +8,29 @@ void LoginWindow::on_pushButton_login_clicked()
     QString username = ui->lineEdit_username->text();
     QString password = ui->lineEdit_password->text();
 
-    if(LoginManager::instance().authenticate(username, password) != NULL_USER)
+    User temp;
+
+    temp = LoginManager::instance().authenticate(username, password);
+
+    if(temp != NULL_USER)
     {
-        newMenu* newMenuPtr = new newMenu(this);
-        this->close();
-        newMenuPtr->show();
+        if(temp.isAdministrator() == true)
+        {
+            menuAdministrator* menuAdministratorPtr = new menuAdministrator(this);
+            this->close();
+            menuAdministratorPtr->show();
+        }
+        else
+        {
+            menuManager* menuManagerPtr = new menuManager(this);
+            this->close();
+            menuManagerPtr->show();
+        }
     } else {
         invalidCreds.exec();
     }
 }
+
 LoginWindow::LoginWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::LoginWindow)
@@ -24,17 +38,10 @@ LoginWindow::LoginWindow(QWidget *parent) :
     ui->setupUi(this);
     QSqlDatabase myDB;
 
-<<<<<<< HEAD
-    if(QSqlDatabase::contains())
-    {
-        myDB = QSqlDatabase::database(QLatin1String(QSqlDatabase::defaultConnection), false);
-    } else {
-=======
     if(QSqlDatabase::contains()) {
         myDB = QSqlDatabase::database(QLatin1String(QSqlDatabase::defaultConnection), false);
     }
     else {
->>>>>>> 086451568f83b1c9862a214df4333cbd1b8f99dc
         myDB = QSqlDatabase::addDatabase("QSQLITE");
     }
     myDB.setDatabaseName("bulk.db");

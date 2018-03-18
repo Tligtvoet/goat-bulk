@@ -79,6 +79,7 @@ User& User::operator =(const User& user)
         username = user.username;
         password = user.password;
         id = user.id;
+        isAdmin = user.isAdmin;
     }
 
     return *this;

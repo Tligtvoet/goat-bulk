@@ -2,9 +2,11 @@
 #define LOGINWINDOW_H
 
 #include "user.h"
-#include "menu.h"
-#include "newmenu.h"
+#include "menuAdministrator.h"
+#include "menuManager.h"
+#include "dbmanager.h"
 #include "loginmanager.h"
+
 #include <QMainWindow>
 #include <QMessageBox>
 #include <QSqlDatabase>

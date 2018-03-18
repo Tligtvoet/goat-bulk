@@ -1,8 +1,11 @@
 #ifndef EDITEMPLOYEE_H
 #define EDITEMPLOYEE_H
 
-#include <QDialog>
 #include<loginmanager.h>
+#include "loginwindow.h"
+#include "menuAdministrator.h"
+
+#include <QDialog>
 
 namespace Ui {
 class editEmployee;

@@ -1,21 +1,33 @@
-#include "addMember.h"
-#include "ui_addmember.h"
+#include "addemployee.h"
+#include "ui_addemployee.h"
 
-/*THIS SHOULD BE addEmployee.cpp */
-
-addMember::addMember(QWidget *parent) :
+addEmployee::addEmployee(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::addMember)
+    ui(new Ui::addEmployee)
 {
     ui->setupUi(this);
 }
 
-addMember::~addMember()
+addEmployee::~addEmployee()
 {
     delete ui;
 }
 
-void addMember::on_button_submit_clicked()
+void addEmployee::on_back_button_clicked()
+{
+    menuAdministrator* newMenuPtr = new menuAdministrator(this);
+    this->close();
+    newMenuPtr->show();
+}
+
+void addEmployee::on_logout_button_clicked()
+{
+    LoginWindow* logintPtr = new LoginWindow(this);
+    this->close();
+    logintPtr->show();
+}
+
+void addEmployee::on_button_submit_clicked()
 {
     QString userName = ui->lineEdit_username->text();
     QString passWord = ui->lineEdit_password->text();
@@ -43,18 +55,4 @@ void addMember::on_button_submit_clicked()
     ui->lineEdit_username->clear();
     ui->lineEdit_password->clear();
     ui->adminyes->setChecked(false);
-}
-
-void addMember::on_back_button_clicked()
-{
-    newMenu* newMenuPtr = new newMenu(this);
-    this->close();
-    newMenuPtr->show();
-}
-
-void addMember::on_logout_button_clicked()
-{
-    LoginWindow* logintPtr = new LoginWindow(this);
-    this->close();
-    logintPtr->show();
 }

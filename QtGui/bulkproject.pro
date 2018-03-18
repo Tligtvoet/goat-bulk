@@ -25,57 +25,36 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-    salesinfo.cpp \
-    menu.cpp \
-    newsales.cpp \
     dbmanager.cpp \
     user.cpp \
     loginmanager.cpp \
-    employeemanager.cpp \
     loginwindow.cpp \
     employeetable.cpp \
-<<<<<<< HEAD
-    newtable.cpp
-=======
-    newmenu.cpp \
     deleteemployee.cpp \
-    addMember.cpp \
-    editemployee.cpp
->>>>>>> 086451568f83b1c9862a214df4333cbd1b8f99dc
+    editemployee.cpp \
+    addemployee.cpp \
+    menuAdministrator.cpp \
+    menuManager.cpp
 
 HEADERS += \
-    salesinfo.h \
-    menu.h \
-    newsales.h \
     dbmanager.h \
     constants.h \
     loginmanager.h \
     user.h \
-    employeemanager.h \
     loginwindow.h \
     employeetable.h \
-<<<<<<< HEAD
-    newtable.h
-=======
-    newmenu.h \
     deleteemployee.h \
-    addMember.h \
-    editemployee.h
->>>>>>> 086451568f83b1c9862a214df4333cbd1b8f99dc
+    editemployee.h \
+    addemployee.h \
+    menuAdministrator.h \
+    menuManager.h
 
 FORMS += \
     loginwindow.ui \
-    menu.ui \
-    newsales.ui \
-    employeemanager.ui \
-<<<<<<< HEAD
-    newtable.ui
-=======
-    newmenu.ui \
-    addmember.ui \
     deleteemployee.ui \
-    editemployee.ui
->>>>>>> 086451568f83b1c9862a214df4333cbd1b8f99dc
+    editemployee.ui \
+    addemployee.ui \
+    menuAdministrator.ui \
+    menuManager.ui
 
-RESOURCES += \
-    menupicture.qrc
+RESOURCES +=

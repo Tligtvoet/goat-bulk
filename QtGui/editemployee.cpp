@@ -17,7 +17,7 @@ editEmployee::~editEmployee()
 
 void editEmployee::on_pushButton_clicked()
 {
-    newMenu* newMenuPtr = new newMenu(this);
+    menuAdministrator* newMenuPtr = new menuAdministrator(this);
     this->close();
     newMenuPtr->show();
 }

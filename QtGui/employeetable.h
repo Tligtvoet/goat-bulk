@@ -2,9 +2,8 @@
 #define EMPLOYEETABLE_H
 
 #include "constants.h"
-#include "employeemanager.h"
-#include "user.h"
-#include <QList>
+#include "menuAdministrator.h"
+
 #include <QtWidgets>
 #include <QDialog>
 #include <QtSql>
@@ -28,17 +27,10 @@ public:
 
 private slots:
     void submit();
-<<<<<<< HEAD
-    //void close();
-
-private:
-    //QList <QSqlRecord> EmployeeList;
-=======
     void back();
 
 private:
     QPushButton *backButton;
->>>>>>> 086451568f83b1c9862a214df4333cbd1b8f99dc
     QPushButton *submitButton;
     QPushButton *revertButton;
     QPushButton *quitButton;

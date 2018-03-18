@@ -124,19 +124,6 @@
     <string>Yes</string>
    </property>
   </widget>
-  <widget class="QCheckBox" name="adminno">
-   <property name="geometry">
-    <rect>
-     <x>270</x>
-     <y>120</y>
-     <width>87</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>No</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="button_submit">
    <property name="geometry">
     <rect>

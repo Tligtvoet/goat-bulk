@@ -3,6 +3,7 @@
 
 #include "user.h"
 #include "loginmanager.h"
+
 #include <QWidget>
 #include <QMainWindow>
 

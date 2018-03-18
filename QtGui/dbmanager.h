@@ -2,6 +2,7 @@
 #define DBMANAGER_H
 
 #include "constants.h"
+
 #include <QSqlDatabase>
 #include <QDebug>
 #include <QFile>

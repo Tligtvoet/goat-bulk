@@ -1,6 +1,6 @@
 #include "loginmanager.h"
 
-// Constructor & Destructor
+// Constructor & Dectructor
 LoginManager::LoginManager() {}
 LoginManager::~LoginManager() {}
 
@@ -87,16 +87,18 @@ User LoginManager::authenticate(const QString& username, const QString& password
     query.bindValue(":Username", username);
     if (query.exec())
         {
+            int idID = query.record().indexOf("UserID");
             int idUsername = query.record().indexOf("Username");
             int idPassword = query.record().indexOf("Password");
             int idisAdministrator = query.record().indexOf("isAdministrator");
 
             if (query.next())
             {
+
                 QString dbusername = query.value(idUsername).toString();
                 QString dbpassword = query.value(idPassword).toString();
                 bool dbisAdministrator = query.value(idisAdministrator).toInt() == 1;
-                int dbid = query.record().indexOf("Id");
+                int dbid = query.value(idID).toInt();
                 if( dbpassword == password )
                 {
                     return User(dbid, dbusername, dbpassword, dbisAdministrator);
