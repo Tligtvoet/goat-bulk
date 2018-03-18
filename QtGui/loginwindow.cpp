@@ -1,47 +1,51 @@
 #include "loginwindow.h"
 #include "ui_loginwindow.h"
 
+void LoginWindow::on_pushButton_login_clicked()
+{
+    QMessageBox invalidCreds;
+    invalidCreds.setText("The username or password entered is incorrect");
+    QString username = ui->lineEdit_username->text();
+    QString password = ui->lineEdit_password->text();
+
+    User temp;
+
+    temp = LoginManager::instance().authenticate(username, password);
+
+    if(temp != NULL_USER)
+    {
+        if(temp.isAdministrator() == true)
+        {
+            menuAdministrator* menuAdministratorPtr = new menuAdministrator(this);
+            this->close();
+            menuAdministratorPtr->show();
+        }
+        else
+        {
+            menuManager* menuManagerPtr = new menuManager(this);
+            this->close();
+            menuManagerPtr->show();
+        }
+    } else {
+        invalidCreds.exec();
+    }
+}
+
 LoginWindow::LoginWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::LoginWindow)
 {
     ui->setupUi(this);
-}
+    QSqlDatabase myDB;
 
-void LoginWindow::on_pushButton_login_clicked()
-{
-    QString username = ui->lineEdit_username->text();
-    QString password = ui->lineEdit_password->text();
-    QString fUsername, fPassword;
-    QFile user("usernames.txt");
-    QFile pass("passwords.txt");
-    QMessageBox invalidCreds;
-    int compUsername, compPassword;
-    bool invalid = false;
-    invalidCreds.setText("The username or password entered is incorrect");
-
-    if(!user.open(QIODevice::ReadOnly | QIODevice::Text) ||
-       !pass.open(QIODevice::ReadOnly | QIODevice::Text))
-        cout << "FAIL" << endl;
-        //QDebug fail message
-
-    while(!user.atEnd() && !pass.atEnd()) {
-        fUsername = user.readLine();
-        fPassword = pass.readLine();
-        compUsername =  QString::compare(fUsername, username);
-        compPassword =  QString::compare(fPassword, password);
-
-        if( (compUsername == 1) &&
-            (compPassword == 1) )
-        {
-            invalid = true;
-            Menu* menuptr = new Menu(this);
-            this->close();
-            menuptr->show();
-        }
+    if(QSqlDatabase::contains()) {
+        myDB = QSqlDatabase::database(QLatin1String(QSqlDatabase::defaultConnection), false);
     }
-    if(invalid == false)
-        invalidCreds.exec();
+    else {
+        myDB = QSqlDatabase::addDatabase("QSQLITE");
+    }
+    myDB.setDatabaseName("bulk.db");
+    myDB.open();
 }
 
 LoginWindow::~LoginWindow()

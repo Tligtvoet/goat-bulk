@@ -1,17 +1,15 @@
 #ifndef LOGINWINDOW_H
 #define LOGINWINDOW_H
 
-#include "menu.h"
-#include <iostream>
-#include <iomanip>
-#include <fstream>
-#include <QMainWindow>
-#include <QWidget>
-#include <QTextStream>
-#include <QFile>
-#include <QMessageBox>
+#include "user.h"
+#include "menuAdministrator.h"
+#include "menuManager.h"
+#include "dbmanager.h"
+#include "loginmanager.h"
 
-using namespace std;
+#include <QMainWindow>
+#include <QMessageBox>
+#include <QSqlDatabase>
 
 namespace Ui {
 class LoginWindow;
