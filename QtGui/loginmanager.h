@@ -20,7 +20,7 @@ public:
     LoginManager(LoginManager const&) = delete;     // Don't forget to disable copy
     void operator=(LoginManager const&) = delete;   // Don't forget to disable copy
 
-    bool createUserAccount(const User& user) const; //will not be modifying internal state of AuthManager so const. Parameter also const since user cannot be modified.
+    bool createUserAccount(const User& user) const; // will not be modifying internal state of AuthManager so const. Parameter also const since user cannot be modified.
 
     bool deleteUserAccount(int userId) const;
     bool updateUserAccount(const User& user) const;

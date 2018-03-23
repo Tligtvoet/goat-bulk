@@ -32,7 +32,7 @@
 #define __DECIMAL_DIG__ __LDBL_DECIMAL_DIG__
 #define __DEPRECATED 1
 #define __DYNAMIC__ 1
-#define __ENVIRONMENT_MAC_OS_X_VERSION_MIN_REQUIRED__ 101000
+#define __ENVIRONMENT_MAC_OS_X_VERSION_MIN_REQUIRED__ 101100
 #define __EXCEPTIONS 1
 #define __FINITE_MATH_ONLY__ 0
 #define __FLT_DECIMAL_DIG__ 9
@@ -163,9 +163,9 @@
 #define __LP64__ 1
 #define __MACH__ 1
 #define __MMX__ 1
-#define __NO_INLINE__ 1
 #define __NO_MATH_INLINES 1
 #define __OBJC_BOOL_IS_BOOL 0
+#define __OPTIMIZE__ 1
 #define __ORDER_BIG_ENDIAN__ 4321
 #define __ORDER_LITTLE_ENDIAN__ 1234
 #define __ORDER_PDP_ENDIAN__ 3412

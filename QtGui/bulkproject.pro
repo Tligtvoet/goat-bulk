@@ -34,7 +34,10 @@ SOURCES += \
     editemployee.cpp \
     addemployee.cpp \
     menuAdministrator.cpp \
-    menuManager.cpp
+    menuManager.cpp \
+    members.cpp \
+    memberManager.cpp \
+    addMember.cpp
 
 HEADERS += \
     dbmanager.h \
@@ -47,7 +50,10 @@ HEADERS += \
     editemployee.h \
     addemployee.h \
     menuAdministrator.h \
-    menuManager.h
+    menuManager.h \
+    members.h \
+    memberManager.h \
+    addMember.h
 
 FORMS += \
     loginwindow.ui \
@@ -55,6 +61,7 @@ FORMS += \
     editemployee.ui \
     addemployee.ui \
     menuAdministrator.ui \
-    menuManager.ui
+    menuManager.ui \
+    addMember.ui
 
 RESOURCES +=
