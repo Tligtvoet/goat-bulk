@@ -36,7 +36,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Delete Member</string>
+    <string>Delete Employee</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_2">

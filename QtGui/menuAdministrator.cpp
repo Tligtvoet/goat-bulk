@@ -47,3 +47,17 @@ void menuAdministrator::on_pushButton_7_clicked()
     this->close();
     addMemberPtr->show();
 }
+
+void menuAdministrator::on_pushButton_8_clicked()
+{
+    deleteMember* deleteMemberPtr = new deleteMember(this);
+    this->close();
+    deleteMemberPtr->show();
+}
+
+void menuAdministrator::on_pushButton_11_clicked()
+{
+    MemberTable *table = new MemberTable(MEMBER_TABLE);
+    this->close();
+    table->show();
+}

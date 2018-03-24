@@ -19,11 +19,12 @@ public:
     ~addMember();
 
 private slots:
-    void on_pushButton_back_clicked();
 
-    void on_pushButton_logout_clicked();
+    void on_back_button_clicked();
 
-    void on_pushButton_submit_clicked();
+    void on_logout_button_clicked();
+
+    void on_button_submit_clicked();
 
 private:
     Ui::addMember *ui;

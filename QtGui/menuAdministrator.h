@@ -6,6 +6,8 @@
 #include "editemployee.h"
 #include "employeetable.h"
 #include "addMember.h"
+#include "deleteMember.h"
+#include "memberTable.h"
 
 #include <QDialog>
 
@@ -31,6 +33,10 @@ private slots:
     void on_pushButton_4_clicked();
 
     void on_pushButton_7_clicked();
+
+    void on_pushButton_8_clicked();
+
+    void on_pushButton_11_clicked();
 
 private:
     Ui::menuAdministrator *ui;

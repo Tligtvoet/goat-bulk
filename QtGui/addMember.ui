@@ -6,17 +6,17 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>867</width>
-    <height>699</height>
+    <width>691</width>
+    <height>613</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QPushButton" name="pushButton_back">
+  <widget class="QPushButton" name="back_button">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>10</x>
      <y>10</y>
      <width>113</width>
      <height>32</height>
@@ -26,10 +26,23 @@
     <string>Back</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_logout">
+  <widget class="QLabel" name="addmemberlogo">
    <property name="geometry">
     <rect>
-     <x>340</x>
+     <x>200</x>
+     <y>10</y>
+     <width>91</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Add Member</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="logout_button">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
      <y>10</y>
      <width>113</width>
      <height>32</height>
@@ -39,50 +52,37 @@
     <string>Logout</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="name">
    <property name="geometry">
     <rect>
-     <x>180</x>
-     <y>20</y>
-     <width>91</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Add Member</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>70</x>
-     <y>50</y>
-     <width>60</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Name:</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_4">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>80</y>
+     <x>30</x>
+     <y>60</y>
      <width>101</width>
-     <height>20</height>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Member Name:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="memStatus">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>90</y>
+     <width>111</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="text">
     <string>Member Status:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_5">
+  <widget class="QLabel" name="expDate">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>110</y>
+     <x>30</x>
+     <y>120</y>
      <width>101</width>
      <height>16</height>
     </rect>
@@ -94,9 +94,9 @@
   <widget class="QLineEdit" name="lineEdit_name">
    <property name="geometry">
     <rect>
-     <x>110</x>
-     <y>50</y>
-     <width>201</width>
+     <x>150</x>
+     <y>60</y>
+     <width>211</width>
      <height>21</height>
     </rect>
    </property>
@@ -104,34 +104,34 @@
   <widget class="QLineEdit" name="lineEdit_memStatus">
    <property name="geometry">
     <rect>
-     <x>110</x>
-     <y>80</y>
-     <width>201</width>
+     <x>150</x>
+     <y>90</y>
+     <width>211</width>
      <height>21</height>
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_expDate">
+  <widget class="QPushButton" name="button_submit">
    <property name="geometry">
     <rect>
-     <x>110</x>
-     <y>110</y>
-     <width>201</width>
-     <height>21</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_submit">
-   <property name="geometry">
-    <rect>
-     <x>110</x>
-     <y>140</y>
+     <x>140</x>
+     <y>150</y>
      <width>113</width>
      <height>32</height>
     </rect>
    </property>
    <property name="text">
     <string>Submit</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_expDate">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>120</y>
+     <width>211</width>
+     <height>21</height>
+    </rect>
    </property>
   </widget>
  </widget>

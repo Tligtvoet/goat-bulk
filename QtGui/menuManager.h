@@ -2,6 +2,7 @@
 #define MENUMANAGER_H
 
 #include <loginwindow.h>
+#include <addMember.h>
 
 #include <QDialog>
 
@@ -19,6 +20,10 @@ public:
 
 private slots:
     void on_pushButton_clicked();
+
+    void on_pushButton_7_clicked();
+
+    void on_pushButton_8_clicked();
 
 private:
     Ui::menuManager *ui;
