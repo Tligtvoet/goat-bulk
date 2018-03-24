@@ -13,21 +13,21 @@ addMember::~addMember()
     delete ui;
 }
 
-void addMember::on_pushButton_back_clicked()
+void addMember::on_back_button_clicked()
 {
     menuAdministrator* newMenuPtr = new menuAdministrator(this);
     this->close();
     newMenuPtr->show();
 }
 
-void addMember::on_pushButton_logout_clicked()
+void addMember::on_logout_button_clicked()
 {
     LoginWindow* loginPtr = new LoginWindow(this);
     this->close();
     loginPtr->show();
 }
 
-void addMember::on_pushButton_submit_clicked()
+void addMember::on_button_submit_clicked()
 {
     QString name      = ui->lineEdit_name->text();
     QString memStatus = ui->lineEdit_memStatus->text();

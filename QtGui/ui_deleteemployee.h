@@ -71,7 +71,7 @@ public:
     {
         deleteEmployee->setWindowTitle(QApplication::translate("deleteEmployee", "Dialog", nullptr));
         pushButton->setText(QApplication::translate("deleteEmployee", "Back", nullptr));
-        label->setText(QApplication::translate("deleteEmployee", "Delete Member", nullptr));
+        label->setText(QApplication::translate("deleteEmployee", "Delete Employee", nullptr));
         pushButton_2->setText(QApplication::translate("deleteEmployee", "Logout", nullptr));
         label_2->setText(QApplication::translate("deleteEmployee", "Delete By ID Number", nullptr));
         label_3->setText(QApplication::translate("deleteEmployee", "ID: ", nullptr));

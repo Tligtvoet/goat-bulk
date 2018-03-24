@@ -1,16 +1,16 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'addMember.h'
+** Meta object code from reading C++ file 'memberTable.h'
 **
 ** Created by: The Qt Meta Object Compiler version 67 (Qt 5.11.0)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "addMember.h"
+#include "memberTable.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'addMember.h' doesn't include <QObject>."
+#error "The header file 'memberTable.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
 #error "This file was generated using the moc from 5.11.0. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -20,37 +20,34 @@
 QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
-struct qt_meta_stringdata_addMember_t {
-    QByteArrayData data[5];
-    char stringdata0[84];
+struct qt_meta_stringdata_MemberTable_t {
+    QByteArrayData data[4];
+    char stringdata0[25];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_addMember_t, stringdata0) + ofs \
+    qptrdiff(offsetof(qt_meta_stringdata_MemberTable_t, stringdata0) + ofs \
         - idx * sizeof(QByteArrayData)) \
     )
-static const qt_meta_stringdata_addMember_t qt_meta_stringdata_addMember = {
+static const qt_meta_stringdata_MemberTable_t qt_meta_stringdata_MemberTable = {
     {
-QT_MOC_LITERAL(0, 0, 9), // "addMember"
-QT_MOC_LITERAL(1, 10, 22), // "on_back_button_clicked"
-QT_MOC_LITERAL(2, 33, 0), // ""
-QT_MOC_LITERAL(3, 34, 24), // "on_logout_button_clicked"
-QT_MOC_LITERAL(4, 59, 24) // "on_button_submit_clicked"
+QT_MOC_LITERAL(0, 0, 11), // "MemberTable"
+QT_MOC_LITERAL(1, 12, 6), // "submit"
+QT_MOC_LITERAL(2, 19, 0), // ""
+QT_MOC_LITERAL(3, 20, 4) // "back"
 
     },
-    "addMember\0on_back_button_clicked\0\0"
-    "on_logout_button_clicked\0"
-    "on_button_submit_clicked"
+    "MemberTable\0submit\0\0back"
 };
 #undef QT_MOC_LITERAL
 
-static const uint qt_meta_data_addMember[] = {
+static const uint qt_meta_data_MemberTable[] = {
 
  // content:
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       3,   14, // methods
+       2,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -58,65 +55,62 @@ static const uint qt_meta_data_addMember[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   29,    2, 0x08 /* Private */,
-       3,    0,   30,    2, 0x08 /* Private */,
-       4,    0,   31,    2, 0x08 /* Private */,
+       1,    0,   24,    2, 0x08 /* Private */,
+       3,    0,   25,    2, 0x08 /* Private */,
 
  // slots: parameters
-    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
 
        0        // eod
 };
 
-void addMember::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void MemberTable::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        addMember *_t = static_cast<addMember *>(_o);
+        MemberTable *_t = static_cast<MemberTable *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->on_back_button_clicked(); break;
-        case 1: _t->on_logout_button_clicked(); break;
-        case 2: _t->on_button_submit_clicked(); break;
+        case 0: _t->submit(); break;
+        case 1: _t->back(); break;
         default: ;
         }
     }
     Q_UNUSED(_a);
 }
 
-QT_INIT_METAOBJECT const QMetaObject addMember::staticMetaObject = {
-    { &QDialog::staticMetaObject, qt_meta_stringdata_addMember.data,
-      qt_meta_data_addMember,  qt_static_metacall, nullptr, nullptr}
+QT_INIT_METAOBJECT const QMetaObject MemberTable::staticMetaObject = {
+    { &QWidget::staticMetaObject, qt_meta_stringdata_MemberTable.data,
+      qt_meta_data_MemberTable,  qt_static_metacall, nullptr, nullptr}
 };
 
 
-const QMetaObject *addMember::metaObject() const
+const QMetaObject *MemberTable::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *addMember::qt_metacast(const char *_clname)
+void *MemberTable::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_addMember.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_MemberTable.stringdata0))
         return static_cast<void*>(this);
-    return QDialog::qt_metacast(_clname);
+    return QWidget::qt_metacast(_clname);
 }
 
-int addMember::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int MemberTable::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = QDialog::qt_metacall(_c, _id, _a);
+    _id = QWidget::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 3)
+        if (_id < 2)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 3;
+        _id -= 2;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 3)
+        if (_id < 2)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 3;
+        _id -= 2;
     }
     return _id;
 }
