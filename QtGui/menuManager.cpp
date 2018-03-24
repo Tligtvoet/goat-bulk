@@ -33,3 +33,17 @@ void menuManager::on_pushButton_8_clicked()
     this->close();
     deleteMemberPtr->show();
 }
+
+void menuManager::on_pushButton_11_clicked()
+{
+    MemberTable *table = new MemberTable(MEMBER_TABLE);
+    this->close();
+    table->show();
+}
+
+void menuManager::on_pushButton_9_clicked()
+{
+    listMembersWindow* window = new listMembersWindow(this);
+    this->close();
+    window->show();
+}

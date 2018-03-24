@@ -1,7 +1,7 @@
 #ifndef ADDMEMBER_H
 #define ADDMEMBER_H
 
-#include <loginwindow.h>
+#include "loginwindow.h"
 #include "members.h"
 #include "memberManager.h"
 #include <QDialog>

@@ -1,7 +1,7 @@
 #ifndef EDITEMPLOYEE_H
 #define EDITEMPLOYEE_H
 
-#include<loginmanager.h>
+#include "loginmanager.h"
 #include "loginwindow.h"
 #include "menuAdministrator.h"
 

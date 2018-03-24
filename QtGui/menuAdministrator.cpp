@@ -61,3 +61,10 @@ void menuAdministrator::on_pushButton_11_clicked()
     this->close();
     table->show();
 }
+
+void menuAdministrator::on_pushButton_9_clicked()
+{
+    listMembersWindow* window = new listMembersWindow(this);
+    this->close();
+    window->show();
+}

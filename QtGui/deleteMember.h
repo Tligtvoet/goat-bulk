@@ -2,7 +2,7 @@
 #define DELETEMEMBER_H
 
 #include <QDialog>
-#include <loginwindow.h>
+#include "loginwindow.h"
 #include "members.h"
 #include "memberManager.h"
 

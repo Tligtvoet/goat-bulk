@@ -39,7 +39,8 @@ SOURCES += \
     memberManager.cpp \
     addMember.cpp \
     deleteMember.cpp \
-    memberTable.cpp
+    memberTable.cpp \
+    listMembersWindow.cpp
 
 HEADERS += \
     dbmanager.h \
@@ -57,7 +58,8 @@ HEADERS += \
     memberManager.h \
     addMember.h \
     deleteMember.h \
-    memberTable.h
+    memberTable.h \
+    listMembersWindow.h
 
 FORMS += \
     loginwindow.ui \
@@ -67,6 +69,7 @@ FORMS += \
     menuAdministrator.ui \
     menuManager.ui \
     addMember.ui \
-    deleteMember.ui
+    deleteMember.ui \
+    listMembersWindow.ui
 
 RESOURCES +=
