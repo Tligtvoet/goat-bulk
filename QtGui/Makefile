@@ -66,7 +66,8 @@ SOURCES       = main.cpp \
 		addMember.cpp \
 		deleteMember.cpp \
 		memberTable.cpp \
-		listMembersWindow.cpp moc_loginwindow.cpp \
+		listMembersWindow.cpp \
+		expirationSearch.cpp moc_loginwindow.cpp \
 		moc_employeetable.cpp \
 		moc_deleteemployee.cpp \
 		moc_editemployee.cpp \
@@ -76,7 +77,8 @@ SOURCES       = main.cpp \
 		moc_addMember.cpp \
 		moc_deleteMember.cpp \
 		moc_memberTable.cpp \
-		moc_listMembersWindow.cpp
+		moc_listMembersWindow.cpp \
+		moc_expirationSearch.cpp
 OBJECTS       = main.o \
 		dbmanager.o \
 		user.o \
@@ -94,6 +96,7 @@ OBJECTS       = main.o \
 		deleteMember.o \
 		memberTable.o \
 		listMembersWindow.o \
+		expirationSearch.o \
 		moc_loginwindow.o \
 		moc_employeetable.o \
 		moc_deleteemployee.o \
@@ -104,7 +107,8 @@ OBJECTS       = main.o \
 		moc_addMember.o \
 		moc_deleteMember.o \
 		moc_memberTable.o \
-		moc_listMembersWindow.o
+		moc_listMembersWindow.o \
+		moc_expirationSearch.o
 DIST          = ../../../Qt/5.11.0/clang_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.11.0/clang_64/mkspecs/qdevice.pri \
 		../../../Qt/5.11.0/clang_64/mkspecs/features/device_config.prf \
@@ -310,7 +314,8 @@ DIST          = ../../../Qt/5.11.0/clang_64/mkspecs/features/spec_pre.prf \
 		addMember.h \
 		deleteMember.h \
 		memberTable.h \
-		listMembersWindow.h main.cpp \
+		listMembersWindow.h \
+		expirationSearch.h main.cpp \
 		dbmanager.cpp \
 		user.cpp \
 		loginmanager.cpp \
@@ -326,7 +331,8 @@ DIST          = ../../../Qt/5.11.0/clang_64/mkspecs/features/spec_pre.prf \
 		addMember.cpp \
 		deleteMember.cpp \
 		memberTable.cpp \
-		listMembersWindow.cpp
+		listMembersWindow.cpp \
+		expirationSearch.cpp
 QMAKE_TARGET  = bulkproject
 DESTDIR       = 
 TARGET        = bulkproject.app/Contents/MacOS/bulkproject
@@ -340,7 +346,7 @@ EXPORT_ARCH_ARGS = $(foreach arch, $(if $(EXPORT_ACTIVE_ARCHS), $(EXPORT_ACTIVE_
 first: all
 ####### Build rules
 
-$(TARGET): ui_loginwindow.h ui_deleteemployee.h ui_editemployee.h ui_addemployee.h ui_menuAdministrator.h ui_menuManager.h ui_addMember.h ui_deleteMember.h ui_listMembersWindow.h $(OBJECTS)  
+$(TARGET): ui_loginwindow.h ui_deleteemployee.h ui_editemployee.h ui_addemployee.h ui_menuAdministrator.h ui_menuManager.h ui_addMember.h ui_deleteMember.h ui_listMembersWindow.h ui_expirationSearch.h $(OBJECTS)  
 	@test -d bulkproject.app/Contents/MacOS/ || mkdir -p bulkproject.app/Contents/MacOS/
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
@@ -763,9 +769,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../Qt/5.11.0/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents dbmanager.h constants.h loginmanager.h user.h loginwindow.h employeetable.h deleteemployee.h editemployee.h addemployee.h menuAdministrator.h menuManager.h members.h memberManager.h addMember.h deleteMember.h memberTable.h listMembersWindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp dbmanager.cpp user.cpp loginmanager.cpp loginwindow.cpp employeetable.cpp deleteemployee.cpp editemployee.cpp addemployee.cpp menuAdministrator.cpp menuManager.cpp members.cpp memberManager.cpp addMember.cpp deleteMember.cpp memberTable.cpp listMembersWindow.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents loginwindow.ui deleteemployee.ui editemployee.ui addemployee.ui menuAdministrator.ui menuManager.ui addMember.ui deleteMember.ui listMembersWindow.ui $(DISTDIR)/
+	$(COPY_FILE) --parents dbmanager.h constants.h loginmanager.h user.h loginwindow.h employeetable.h deleteemployee.h editemployee.h addemployee.h menuAdministrator.h menuManager.h members.h memberManager.h addMember.h deleteMember.h memberTable.h listMembersWindow.h expirationSearch.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp dbmanager.cpp user.cpp loginmanager.cpp loginwindow.cpp employeetable.cpp deleteemployee.cpp editemployee.cpp addemployee.cpp menuAdministrator.cpp menuManager.cpp members.cpp memberManager.cpp addMember.cpp deleteMember.cpp memberTable.cpp listMembersWindow.cpp expirationSearch.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents loginwindow.ui deleteemployee.ui editemployee.ui addemployee.ui menuAdministrator.ui menuManager.ui addMember.ui deleteMember.ui listMembersWindow.ui expirationSearch.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -797,9 +803,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: ../../../Qt/5.11.0/clang_64/mkspecs/features/data/dummy.cpp
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -pipe -stdlib=libc++ -O2 -std=gnu++11 $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -mmacosx-version-min=10.11 -Wall -W -dM -E -o moc_predefs.h ../../../Qt/5.11.0/clang_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_loginwindow.cpp moc_employeetable.cpp moc_deleteemployee.cpp moc_editemployee.cpp moc_addemployee.cpp moc_menuAdministrator.cpp moc_menuManager.cpp moc_addMember.cpp moc_deleteMember.cpp moc_memberTable.cpp moc_listMembersWindow.cpp
+compiler_moc_header_make_all: moc_loginwindow.cpp moc_employeetable.cpp moc_deleteemployee.cpp moc_editemployee.cpp moc_addemployee.cpp moc_menuAdministrator.cpp moc_menuManager.cpp moc_addMember.cpp moc_deleteMember.cpp moc_memberTable.cpp moc_listMembersWindow.cpp moc_expirationSearch.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_loginwindow.cpp moc_employeetable.cpp moc_deleteemployee.cpp moc_editemployee.cpp moc_addemployee.cpp moc_menuAdministrator.cpp moc_menuManager.cpp moc_addMember.cpp moc_deleteMember.cpp moc_memberTable.cpp moc_listMembersWindow.cpp
+	-$(DEL_FILE) moc_loginwindow.cpp moc_employeetable.cpp moc_deleteemployee.cpp moc_editemployee.cpp moc_addemployee.cpp moc_menuAdministrator.cpp moc_menuManager.cpp moc_addMember.cpp moc_deleteMember.cpp moc_memberTable.cpp moc_listMembersWindow.cpp moc_expirationSearch.cpp
 moc_loginwindow.cpp: user.h \
 		constants.h \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/QString \
@@ -832,11 +838,7 @@ moc_loginwindow.cpp: user.h \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qvariant.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QDialog \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
-		loginmanager.h \
-		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
-		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
-		deleteemployee.h \
-		editemployee.h \
+		deleteMember.h \
 		employeetable.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qtwidgetsglobal.h \
@@ -909,6 +911,7 @@ moc_loginwindow.cpp: user.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qlineedit.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qlistview.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qlistwidget.h \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmdiarea.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmdisubwindow.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmenu.h \
@@ -977,7 +980,12 @@ moc_loginwindow.cpp: user.h \
 		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqltablemodel.h \
 		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qtsqlversion.h \
 		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlTableModel \
-		deleteMember.h \
+		listMembersWindow.h \
+		expirationSearch.h \
+		loginmanager.h \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
+		deleteemployee.h \
+		editemployee.h \
 		memberTable.h \
 		loginwindow.h \
 		moc_predefs.h \
@@ -1016,11 +1024,7 @@ moc_employeetable.cpp: constants.h \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qvariant.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QDialog \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
-		loginmanager.h \
-		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
-		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
-		deleteemployee.h \
-		editemployee.h \
+		deleteMember.h \
 		employeetable.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qtwidgetsglobal.h \
@@ -1093,6 +1097,7 @@ moc_employeetable.cpp: constants.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qlineedit.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qlistview.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qlistwidget.h \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmdiarea.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmdisubwindow.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmenu.h \
@@ -1161,7 +1166,12 @@ moc_employeetable.cpp: constants.h \
 		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqltablemodel.h \
 		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qtsqlversion.h \
 		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlTableModel \
-		deleteMember.h \
+		listMembersWindow.h \
+		expirationSearch.h \
+		loginmanager.h \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
+		deleteemployee.h \
+		editemployee.h \
 		memberTable.h \
 		employeetable.h \
 		moc_predefs.h \
@@ -1345,6 +1355,8 @@ moc_deleteemployee.cpp: loginwindow.h \
 		memberManager.h \
 		deleteMember.h \
 		memberTable.h \
+		listMembersWindow.h \
+		expirationSearch.h \
 		menuManager.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		deleteemployee.h \
@@ -1529,6 +1541,8 @@ moc_editemployee.cpp: loginmanager.h \
 		memberManager.h \
 		deleteMember.h \
 		memberTable.h \
+		listMembersWindow.h \
+		expirationSearch.h \
 		menuManager.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		editemployee.h \
@@ -1713,6 +1727,8 @@ moc_addemployee.cpp: loginwindow.h \
 		memberManager.h \
 		deleteMember.h \
 		memberTable.h \
+		listMembersWindow.h \
+		expirationSearch.h \
 		menuManager.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		addemployee.h \
@@ -1897,6 +1913,8 @@ moc_menuAdministrator.cpp: addemployee.h \
 		memberManager.h \
 		deleteMember.h \
 		memberTable.h \
+		listMembersWindow.h \
+		expirationSearch.h \
 		menuManager.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		menuAdministrator.h \
@@ -2081,6 +2099,8 @@ moc_menuManager.cpp: loginwindow.h \
 		memberManager.h \
 		deleteMember.h \
 		memberTable.h \
+		listMembersWindow.h \
+		expirationSearch.h \
 		menuManager.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		menuManager.h \
@@ -2265,6 +2285,8 @@ moc_addMember.cpp: loginwindow.h \
 		memberManager.h \
 		deleteMember.h \
 		memberTable.h \
+		listMembersWindow.h \
+		expirationSearch.h \
 		menuManager.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		addMember.h \
@@ -2449,6 +2471,8 @@ moc_deleteMember.cpp: ../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Header
 		memberManager.h \
 		deleteMember.h \
 		memberTable.h \
+		listMembersWindow.h \
+		expirationSearch.h \
 		menuManager.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		deleteMember.h \
@@ -2488,11 +2512,7 @@ moc_memberTable.cpp: constants.h \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qvariant.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QDialog \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
-		loginmanager.h \
-		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
-		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
-		deleteemployee.h \
-		editemployee.h \
+		deleteMember.h \
 		employeetable.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qtwidgetsglobal.h \
@@ -2565,6 +2585,7 @@ moc_memberTable.cpp: constants.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qlineedit.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qlistview.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qlistwidget.h \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmdiarea.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmdisubwindow.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmenu.h \
@@ -2633,7 +2654,12 @@ moc_memberTable.cpp: constants.h \
 		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqltablemodel.h \
 		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qtsqlversion.h \
 		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlTableModel \
-		deleteMember.h \
+		listMembersWindow.h \
+		expirationSearch.h \
+		loginmanager.h \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
+		deleteemployee.h \
+		editemployee.h \
 		memberTable.h \
 		memberTable.h \
 		moc_predefs.h \
@@ -2817,6 +2843,8 @@ moc_listMembersWindow.cpp: ../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/H
 		memberManager.h \
 		deleteMember.h \
 		memberTable.h \
+		listMembersWindow.h \
+		expirationSearch.h \
 		menuManager.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		listMembersWindow.h \
@@ -2824,13 +2852,20 @@ moc_listMembersWindow.cpp: ../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/H
 		../../../Qt/5.11.0/clang_64/bin/moc
 	/Users/Kenneth/Qt/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/Kenneth/Qt/5.11.0/clang_64/mkspecs/macx-clang -I/Users/Kenneth/Desktop/goat-bulk-GUI-Kenneth/QtGui -I/Users/Kenneth/Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/Kenneth/Qt/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/Kenneth/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers -I/Users/Kenneth/Qt/5.11.0/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include -F/Users/Kenneth/Qt/5.11.0/clang_64/lib listMembersWindow.h -o moc_listMembersWindow.cpp
 
+moc_expirationSearch.cpp: ../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		expirationSearch.h \
+		moc_predefs.h \
+		../../../Qt/5.11.0/clang_64/bin/moc
+	/Users/Kenneth/Qt/5.11.0/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/Kenneth/Qt/5.11.0/clang_64/mkspecs/macx-clang -I/Users/Kenneth/Desktop/goat-bulk-GUI-Kenneth/QtGui -I/Users/Kenneth/Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers -I/Users/Kenneth/Qt/5.11.0/clang_64/lib/QtGui.framework/Headers -I/Users/Kenneth/Qt/5.11.0/clang_64/lib/QtSql.framework/Headers -I/Users/Kenneth/Qt/5.11.0/clang_64/lib/QtCore.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include -F/Users/Kenneth/Qt/5.11.0/clang_64/lib expirationSearch.h -o moc_expirationSearch.cpp
+
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_loginwindow.h ui_deleteemployee.h ui_editemployee.h ui_addemployee.h ui_menuAdministrator.h ui_menuManager.h ui_addMember.h ui_deleteMember.h ui_listMembersWindow.h
+compiler_uic_make_all: ui_loginwindow.h ui_deleteemployee.h ui_editemployee.h ui_addemployee.h ui_menuAdministrator.h ui_menuManager.h ui_addMember.h ui_deleteMember.h ui_listMembersWindow.h ui_expirationSearch.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_loginwindow.h ui_deleteemployee.h ui_editemployee.h ui_addemployee.h ui_menuAdministrator.h ui_menuManager.h ui_addMember.h ui_deleteMember.h ui_listMembersWindow.h
+	-$(DEL_FILE) ui_loginwindow.h ui_deleteemployee.h ui_editemployee.h ui_addemployee.h ui_menuAdministrator.h ui_menuManager.h ui_addMember.h ui_deleteMember.h ui_listMembersWindow.h ui_expirationSearch.h
 ui_loginwindow.h: loginwindow.ui \
 		../../../Qt/5.11.0/clang_64/bin/uic
 	/Users/Kenneth/Qt/5.11.0/clang_64/bin/uic loginwindow.ui -o ui_loginwindow.h
@@ -2866,6 +2901,10 @@ ui_deleteMember.h: deleteMember.ui \
 ui_listMembersWindow.h: listMembersWindow.ui \
 		../../../Qt/5.11.0/clang_64/bin/uic
 	/Users/Kenneth/Qt/5.11.0/clang_64/bin/uic listMembersWindow.ui -o ui_listMembersWindow.h
+
+ui_expirationSearch.h: expirationSearch.ui \
+		../../../Qt/5.11.0/clang_64/bin/uic
+	/Users/Kenneth/Qt/5.11.0/clang_64/bin/uic expirationSearch.ui -o ui_expirationSearch.h
 
 compiler_rez_source_make_all:
 compiler_rez_source_clean:
@@ -3056,6 +3095,8 @@ main.o: main.cpp loginwindow.h \
 		memberManager.h \
 		deleteMember.h \
 		memberTable.h \
+		listMembersWindow.h \
+		expirationSearch.h \
 		menuManager.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QApplication
@@ -3284,6 +3325,8 @@ loginwindow.o: loginwindow.cpp loginwindow.h \
 		memberManager.h \
 		deleteMember.h \
 		memberTable.h \
+		listMembersWindow.h \
+		expirationSearch.h \
 		menuManager.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		ui_loginwindow.h
@@ -3322,12 +3365,14 @@ employeetable.o: employeetable.cpp employeetable.h \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qvariant.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QDialog \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		deleteMember.h \
+		listMembersWindow.h \
+		expirationSearch.h \
 		loginmanager.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		deleteemployee.h \
 		editemployee.h \
-		deleteMember.h \
 		memberTable.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qtwidgetsglobal.h \
@@ -3647,6 +3692,8 @@ deleteemployee.o: deleteemployee.cpp deleteemployee.h \
 		memberManager.h \
 		deleteMember.h \
 		memberTable.h \
+		listMembersWindow.h \
+		expirationSearch.h \
 		menuManager.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		ui_deleteemployee.h
@@ -3829,6 +3876,8 @@ editemployee.o: editemployee.cpp editemployee.h \
 		memberManager.h \
 		deleteMember.h \
 		memberTable.h \
+		listMembersWindow.h \
+		expirationSearch.h \
 		menuManager.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		ui_editemployee.h
@@ -4011,6 +4060,8 @@ addemployee.o: addemployee.cpp addemployee.h \
 		memberManager.h \
 		deleteMember.h \
 		memberTable.h \
+		listMembersWindow.h \
+		expirationSearch.h \
 		menuManager.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		ui_addemployee.h
@@ -4048,11 +4099,7 @@ menuAdministrator.o: menuAdministrator.cpp menuAdministrator.h \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qvariant.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QDialog \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
-		loginmanager.h \
-		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
-		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
-		deleteemployee.h \
-		editemployee.h \
+		deleteMember.h \
 		employeetable.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qtwidgetsglobal.h \
@@ -4125,6 +4172,7 @@ menuAdministrator.o: menuAdministrator.cpp menuAdministrator.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qlineedit.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qlistview.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qlistwidget.h \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmdiarea.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmdisubwindow.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmenu.h \
@@ -4193,7 +4241,12 @@ menuAdministrator.o: menuAdministrator.cpp menuAdministrator.h \
 		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqltablemodel.h \
 		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qtsqlversion.h \
 		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlTableModel \
-		deleteMember.h \
+		listMembersWindow.h \
+		expirationSearch.h \
+		loginmanager.h \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
+		deleteemployee.h \
+		editemployee.h \
 		memberTable.h \
 		ui_menuAdministrator.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o menuAdministrator.o menuAdministrator.cpp
@@ -4376,6 +4429,8 @@ menuManager.o: menuManager.cpp menuManager.h \
 		memberManager.h \
 		deleteMember.h \
 		memberTable.h \
+		listMembersWindow.h \
+		expirationSearch.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		ui_menuManager.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o menuManager.o menuManager.cpp
@@ -4591,6 +4646,8 @@ addMember.o: addMember.cpp addMember.h \
 		members.h \
 		memberManager.h \
 		memberTable.h \
+		listMembersWindow.h \
+		expirationSearch.h \
 		menuManager.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		ui_addMember.h
@@ -4773,6 +4830,8 @@ deleteMember.o: deleteMember.cpp deleteMember.h \
 		members.h \
 		memberManager.h \
 		memberTable.h \
+		listMembersWindow.h \
+		expirationSearch.h \
 		menuManager.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		ui_deleteMember.h
@@ -4811,11 +4870,7 @@ memberTable.o: memberTable.cpp memberTable.h \
 		../../../Qt/5.11.0/clang_64/lib/QtCore.framework/Headers/qvariant.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QDialog \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
-		loginmanager.h \
-		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
-		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
-		deleteemployee.h \
-		editemployee.h \
+		deleteMember.h \
 		employeetable.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qtwidgetsglobal.h \
@@ -4888,6 +4943,7 @@ memberTable.o: memberTable.cpp memberTable.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qlineedit.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qlistview.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qlistwidget.h \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmdiarea.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmdisubwindow.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qmenu.h \
@@ -4956,7 +5012,12 @@ memberTable.o: memberTable.cpp memberTable.h \
 		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qsqltablemodel.h \
 		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/qtsqlversion.h \
 		../../../Qt/5.11.0/clang_64/lib/QtSql.framework/Headers/QSqlTableModel \
-		deleteMember.h
+		listMembersWindow.h \
+		expirationSearch.h \
+		loginmanager.h \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
+		deleteemployee.h \
+		editemployee.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o memberTable.o memberTable.cpp
 
 listMembersWindow.o: listMembersWindow.cpp listMembersWindow.h \
@@ -5139,8 +5200,15 @@ listMembersWindow.o: listMembersWindow.cpp listMembersWindow.h \
 		memberTable.h \
 		menuManager.h \
 		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
+		expirationSearch.h \
 		ui_listMembersWindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o listMembersWindow.o listMembersWindow.cpp
+
+expirationSearch.o: expirationSearch.cpp expirationSearch.h \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		../../../Qt/5.11.0/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		ui_expirationSearch.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o expirationSearch.o expirationSearch.cpp
 
 moc_loginwindow.o: moc_loginwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_loginwindow.o moc_loginwindow.cpp
@@ -5174,6 +5242,9 @@ moc_memberTable.o: moc_memberTable.cpp
 
 moc_listMembersWindow.o: moc_listMembersWindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_listMembersWindow.o moc_listMembersWindow.cpp
+
+moc_expirationSearch.o: moc_expirationSearch.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_expirationSearch.o moc_expirationSearch.cpp
 
 ####### Install
 
