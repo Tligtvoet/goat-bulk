@@ -41,7 +41,7 @@ void addEmployee::on_button_submit_clicked()
         adminStat = false;
     }
 
-    n = LoginManager::instance().createUserAccount(User::User(userName, passWord, adminStat));
+    n = LoginManager::instance().createUserAccount(User(userName, passWord, adminStat));
 
     if (n == true)
     {

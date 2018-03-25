@@ -35,7 +35,7 @@ void addMember::on_button_submit_clicked()
 
     bool n;
 
-    n = memberManager::instance().createMember(members::members(name, memStatus, expDate));
+    n = memberManager::instance().createMember(members(name, memStatus, expDate));
 
     if(n == true)
     {

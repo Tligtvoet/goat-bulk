@@ -70,12 +70,12 @@
     <rect>
      <x>80</x>
      <y>90</y>
-     <width>71</width>
+     <width>81</width>
      <height>21</height>
     </rect>
    </property>
    <property name="text">
-    <string>Password:</string>
+    <string>Member Status:</string>
    </property>
   </widget>
   <widget class="QLabel" name="adminstatus">
@@ -88,40 +88,27 @@
     </rect>
    </property>
    <property name="text">
-    <string>Administrator Status:</string>
+    <string>Expiration Date:</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_username">
+  <widget class="QLineEdit" name="lineEdit_name">
    <property name="geometry">
     <rect>
-     <x>150</x>
+     <x>180</x>
      <y>60</y>
      <width>211</width>
      <height>21</height>
     </rect>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_password">
+  <widget class="QLineEdit" name="lineEdit_memStatus">
    <property name="geometry">
     <rect>
-     <x>150</x>
+     <x>180</x>
      <y>90</y>
      <width>211</width>
      <height>21</height>
     </rect>
-   </property>
-  </widget>
-  <widget class="QCheckBox" name="adminyes">
-   <property name="geometry">
-    <rect>
-     <x>220</x>
-     <y>120</y>
-     <width>87</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Yes</string>
    </property>
   </widget>
   <widget class="QPushButton" name="button_submit">
@@ -135,6 +122,16 @@
    </property>
    <property name="text">
     <string>Submit</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_expDate">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>120</y>
+     <width>211</width>
+     <height>20</height>
+    </rect>
    </property>
   </widget>
  </widget>
