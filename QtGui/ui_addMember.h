@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'addMember.ui'
 **
-** Created by: Qt User Interface Compiler version 5.11.0
+** Created by: Qt User Interface Compiler version 5.10.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,8 +10,11 @@
 #define UI_ADDMEMBER_H
 
 #include <QtCore/QVariant>
+#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QDialog>
+#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
@@ -24,9 +27,9 @@ public:
     QPushButton *back_button;
     QLabel *addmemberlogo;
     QPushButton *logout_button;
-    QLabel *name;
-    QLabel *memStatus;
-    QLabel *expDate;
+    QLabel *username;
+    QLabel *password;
+    QLabel *adminstatus;
     QLineEdit *lineEdit_name;
     QLineEdit *lineEdit_memStatus;
     QPushButton *button_submit;
@@ -46,27 +49,27 @@ public:
         logout_button = new QPushButton(addMember);
         logout_button->setObjectName(QStringLiteral("logout_button"));
         logout_button->setGeometry(QRect(330, 10, 113, 32));
-        name = new QLabel(addMember);
-        name->setObjectName(QStringLiteral("name"));
-        name->setGeometry(QRect(30, 60, 101, 21));
-        memStatus = new QLabel(addMember);
-        memStatus->setObjectName(QStringLiteral("memStatus"));
-        memStatus->setGeometry(QRect(30, 90, 111, 21));
-        expDate = new QLabel(addMember);
-        expDate->setObjectName(QStringLiteral("expDate"));
-        expDate->setGeometry(QRect(30, 120, 101, 16));
+        username = new QLabel(addMember);
+        username->setObjectName(QStringLiteral("username"));
+        username->setGeometry(QRect(80, 60, 81, 21));
+        password = new QLabel(addMember);
+        password->setObjectName(QStringLiteral("password"));
+        password->setGeometry(QRect(80, 90, 81, 21));
+        adminstatus = new QLabel(addMember);
+        adminstatus->setObjectName(QStringLiteral("adminstatus"));
+        adminstatus->setGeometry(QRect(80, 120, 131, 16));
         lineEdit_name = new QLineEdit(addMember);
         lineEdit_name->setObjectName(QStringLiteral("lineEdit_name"));
-        lineEdit_name->setGeometry(QRect(150, 60, 211, 21));
+        lineEdit_name->setGeometry(QRect(180, 60, 211, 21));
         lineEdit_memStatus = new QLineEdit(addMember);
         lineEdit_memStatus->setObjectName(QStringLiteral("lineEdit_memStatus"));
-        lineEdit_memStatus->setGeometry(QRect(150, 90, 211, 21));
+        lineEdit_memStatus->setGeometry(QRect(180, 90, 211, 21));
         button_submit = new QPushButton(addMember);
         button_submit->setObjectName(QStringLiteral("button_submit"));
         button_submit->setGeometry(QRect(140, 150, 113, 32));
         lineEdit_expDate = new QLineEdit(addMember);
         lineEdit_expDate->setObjectName(QStringLiteral("lineEdit_expDate"));
-        lineEdit_expDate->setGeometry(QRect(150, 120, 211, 21));
+        lineEdit_expDate->setGeometry(QRect(180, 120, 211, 20));
 
         retranslateUi(addMember);
 
@@ -79,9 +82,9 @@ public:
         back_button->setText(QApplication::translate("addMember", "Back", nullptr));
         addmemberlogo->setText(QApplication::translate("addMember", "Add Member", nullptr));
         logout_button->setText(QApplication::translate("addMember", "Logout", nullptr));
-        name->setText(QApplication::translate("addMember", "Member Name:", nullptr));
-        memStatus->setText(QApplication::translate("addMember", "Member Status:", nullptr));
-        expDate->setText(QApplication::translate("addMember", "Expiration Date:", nullptr));
+        username->setText(QApplication::translate("addMember", "Username:", nullptr));
+        password->setText(QApplication::translate("addMember", "Member Status:", nullptr));
+        adminstatus->setText(QApplication::translate("addMember", "Expiration Date:", nullptr));
         button_submit->setText(QApplication::translate("addMember", "Submit", nullptr));
     } // retranslateUi
 

@@ -68,3 +68,24 @@ void menuAdministrator::on_pushButton_9_clicked()
     this->close();
     window->show();
 }
+
+void menuAdministrator::on_pushButton_5_clicked()
+{
+   addItem* window = new addItem(this);
+    this->close();
+    window->show();
+}
+
+void menuAdministrator::on_pushButton_6_clicked()
+{
+    deleteItem* window = new deleteItem(this);
+    this->close();
+    window->show();
+}
+
+void menuAdministrator::on_pushButton_10_clicked()
+{
+    inventoryTable *table = new inventoryTable(INVENTORY_TABLE);
+    this->close();
+    table->show();
+}

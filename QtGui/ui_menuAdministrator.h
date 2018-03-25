@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'menuAdministrator.ui'
 **
-** Created by: Qt User Interface Compiler version 5.11.0
+** Created by: Qt User Interface Compiler version 5.10.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,8 +10,11 @@
 #define UI_MENUADMINISTRATOR_H
 
 #include <QtCore/QVariant>
+#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QDialog>
+#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
 
@@ -55,7 +58,7 @@ public:
         label->setGeometry(QRect(200, 30, 191, 16));
         pushButton_8 = new QPushButton(menuAdministrator);
         pushButton_8->setObjectName(QStringLiteral("pushButton_8"));
-        pushButton_8->setGeometry(QRect(210, 210, 121, 32));
+        pushButton_8->setGeometry(QRect(220, 210, 111, 32));
         pushButton_11 = new QPushButton(menuAdministrator);
         pushButton_11->setObjectName(QStringLiteral("pushButton_11"));
         pushButton_11->setGeometry(QRect(220, 240, 113, 32));
