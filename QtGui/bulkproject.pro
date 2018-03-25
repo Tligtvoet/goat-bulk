@@ -40,7 +40,8 @@ SOURCES += \
     addMember.cpp \
     deleteMember.cpp \
     memberTable.cpp \
-    listMembersWindow.cpp
+    listMembersWindow.cpp \
+    expirationSearch.cpp
 
 HEADERS += \
     dbmanager.h \
@@ -59,7 +60,8 @@ HEADERS += \
     addMember.h \
     deleteMember.h \
     memberTable.h \
-    listMembersWindow.h
+    listMembersWindow.h \
+    expirationSearch.h
 
 FORMS += \
     loginwindow.ui \
@@ -70,6 +72,7 @@ FORMS += \
     menuManager.ui \
     addMember.ui \
     deleteMember.ui \
-    listMembersWindow.ui
+    listMembersWindow.ui \
+    expirationSearch.ui
 
 RESOURCES +=
