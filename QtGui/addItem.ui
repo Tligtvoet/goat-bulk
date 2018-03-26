@@ -16,9 +16,9 @@
   <widget class="QLineEdit" name="lineEdit_iName">
    <property name="geometry">
     <rect>
-     <x>100</x>
+     <x>120</x>
      <y>60</y>
-     <width>281</width>
+     <width>261</width>
      <height>20</height>
     </rect>
    </property>
@@ -26,10 +26,10 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>30</x>
+     <x>10</x>
      <y>60</y>
-     <width>61</width>
-     <height>16</height>
+     <width>81</width>
+     <height>20</height>
     </rect>
    </property>
    <property name="text">
@@ -39,9 +39,9 @@
   <widget class="QLineEdit" name="lineEdit_iPrice">
    <property name="geometry">
     <rect>
-     <x>100</x>
+     <x>120</x>
      <y>100</y>
-     <width>281</width>
+     <width>261</width>
      <height>20</height>
     </rect>
    </property>
@@ -49,10 +49,10 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>30</x>
+     <x>10</x>
      <y>100</y>
-     <width>61</width>
-     <height>16</height>
+     <width>81</width>
+     <height>20</height>
     </rect>
    </property>
    <property name="text">
@@ -62,9 +62,9 @@
   <widget class="QLineEdit" name="lineEdit_iQuan">
    <property name="geometry">
     <rect>
-     <x>100</x>
+     <x>120</x>
      <y>140</y>
-     <width>281</width>
+     <width>261</width>
      <height>20</height>
     </rect>
    </property>
@@ -98,9 +98,9 @@
   <widget class="QPushButton" name="submit_button">
    <property name="geometry">
     <rect>
-     <x>170</x>
+     <x>120</x>
      <y>170</y>
-     <width>81</width>
+     <width>261</width>
      <height>31</height>
     </rect>
    </property>
@@ -125,9 +125,9 @@
    <property name="geometry">
     <rect>
      <x>160</x>
-     <y>20</y>
+     <y>15</y>
      <width>81</width>
-     <height>16</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="text">

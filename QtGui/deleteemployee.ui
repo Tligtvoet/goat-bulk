@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>679</width>
-    <height>671</height>
+    <height>571</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -29,7 +29,7 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>200</x>
+     <x>300</x>
      <y>20</y>
      <width>101</width>
      <height>16</height>
@@ -42,7 +42,7 @@
   <widget class="QPushButton" name="pushButton_2">
    <property name="geometry">
     <rect>
-     <x>380</x>
+     <x>550</x>
      <y>10</y>
      <width>113</width>
      <height>32</height>
@@ -55,35 +55,22 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>200</x>
+     <x>250</x>
      <y>50</y>
      <width>141</width>
      <height>16</height>
     </rect>
    </property>
    <property name="text">
-    <string>Delete By ID Number</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_3">
-   <property name="geometry">
-    <rect>
-     <x>180</x>
-     <y>80</y>
-     <width>60</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>ID: </string>
+    <string>Delete By ID Number:</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="lineEdit_id">
    <property name="geometry">
     <rect>
-     <x>200</x>
-     <y>80</y>
-     <width>151</width>
+     <x>400</x>
+     <y>50</y>
+     <width>131</width>
      <height>21</height>
     </rect>
    </property>
@@ -91,9 +78,9 @@
   <widget class="QPushButton" name="pushButton_3">
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>110</y>
-     <width>113</width>
+     <x>402</x>
+     <y>80</y>
+     <width>131</width>
      <height>32</height>
     </rect>
    </property>
@@ -105,7 +92,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>140</y>
+     <y>120</y>
      <width>641</width>
      <height>441</height>
     </rect>
