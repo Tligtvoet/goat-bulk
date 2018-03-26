@@ -89,3 +89,11 @@ void menuAdministrator::on_pushButton_10_clicked()
     this->close();
     table->show();
 }
+
+void menuAdministrator::on_pushButton_12_clicked()
+{
+    addSalesInfo* window = new addSalesInfo(this);
+    this->close();
+    window->show();
+
+}

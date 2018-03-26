@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'menuManager.ui'
 **
-** Created by: Qt User Interface Compiler version 5.11.0
+** Created by: Qt User Interface Compiler version 5.10.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,8 +10,11 @@
 #define UI_MENUMANAGER_H
 
 #include <QtCore/QVariant>
+#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QDialog>
+#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
 
@@ -58,7 +61,7 @@ public:
         pushButton_10->setGeometry(QRect(160, 120, 113, 32));
         pushButton_8 = new QPushButton(menuManager);
         pushButton_8->setObjectName(QStringLiteral("pushButton_8"));
-        pushButton_8->setGeometry(QRect(150, 180, 121, 32));
+        pushButton_8->setGeometry(QRect(160, 180, 111, 32));
         pushButton = new QPushButton(menuManager);
         pushButton->setObjectName(QStringLiteral("pushButton"));
         pushButton->setGeometry(QRect(10, 10, 113, 32));
