@@ -37,6 +37,8 @@ private slots:
 
     void on_getMemberPurchasesButton_clicked();
 
+    void on_getRebatesButton_clicked();
+
 private:
     Ui::listMembersWindow *ui;
 };

@@ -34,6 +34,7 @@ void displayPurchases::on_pushButton_3_clicked()
 {
     double total = 0;
     double salesTax = 0;
+    double rebate = 0;
 
     QString id = ui->lineEdit_id->text();
     int ID = id.toInt();
@@ -61,12 +62,21 @@ void displayPurchases::on_pushButton_3_clicked()
         ui->tableWidget->setItem(i,4,new QTableWidgetItem(query.value(4).toString()));
         i++;
 
+        rebate = rebate + (0.04 * (query.value(3).toDouble() * query.value(4).toDouble()));
+
         salesTax = 0.0775 * (query.value(3).toDouble() * query.value(4).toDouble());
         total = total + salesTax + (query.value(3).toDouble() * query.value(4).toDouble());
     }
-    QString str= QString::number(total, 'f', 2);
+    QString str = QString::number(total, 'f', 2);
+    QString tmp = QString::number(rebate, 'f', 2);
     total = str.toDouble();
-    qDebug() << str;
+    rebate = tmp.toDouble();
+
+
+    if(rebate > 55.00)
+    {
+        QMessageBox::information(this,QObject::tr("System Message"),tr("Member should change their status to Executive!"),QMessageBox::Ok);
+    }
 
     ui->label_4->setText("$" + str);
     ui->label_4->show();
@@ -76,4 +86,11 @@ void displayPurchases::on_pushButton_3_clicked()
     updateQuery.bindValue(":total", total);
     updateQuery.bindValue(":ID", ID);
     updateQuery.exec();
+
+    qDebug() << "* " << rebate;
+    QSqlQuery updateRebate;
+    updateRebate.prepare("UPDATE Member SET MemberRebate = :rebate WHERE MemberID = :ID AND MemberStatus = 'Executive'");
+    updateRebate.bindValue(":rebate", rebate);
+    updateRebate.bindValue(":ID", ID);
+    updateRebate.exec();
 }

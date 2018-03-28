@@ -31,7 +31,6 @@ void displayItem::on_pushButton_2_clicked()
 void displayItem::on_pushButton_3_clicked()
 {
     double total = 0;
-    double salesTax = 0;
 
     QString itemName = ui->lineEdit_itemName->text();
 

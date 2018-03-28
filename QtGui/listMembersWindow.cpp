@@ -168,3 +168,28 @@ void listMembersWindow::on_getMemberPurchasesButton_clicked()
     this->close();
     displayPtr->show();
 }
+
+void listMembersWindow::on_getRebatesButton_clicked()
+{
+    ui->tableWidget->clearContents();
+    ui->tableWidget->setRowCount(0);
+
+    QSqlQuery query;
+    query.prepare("SELECT * FROM Member WHERE MemberStatus LIKE 'E%' ORDER BY MemberID");
+    query.exec();
+
+    ui->tableWidget->setColumnCount(4);
+    ui->tableWidget->setRowCount(query.size());
+    ui->tableWidget->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
+    ui->tableWidget->setHorizontalHeaderLabels(QString("Member ID;Member Name;Member Status; Rebate;").split(";"));
+
+    int i=0;
+    while(query.next()) {
+        ui->tableWidget->insertRow(i);
+        ui->tableWidget->setItem(i,0,new QTableWidgetItem(query.value(0).toString()));
+        ui->tableWidget->setItem(i,1,new QTableWidgetItem(query.value(1).toString()));
+        ui->tableWidget->setItem(i,2,new QTableWidgetItem(query.value(2).toString()));
+        ui->tableWidget->setItem(i,3,new QTableWidgetItem(query.value(4).toString()));
+        i++;
+    }
+}
