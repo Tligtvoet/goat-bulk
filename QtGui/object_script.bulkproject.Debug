@@ -22,9 +22,6 @@ INPUT(
 ./debug\addItem.o
 ./debug\deleteItem.o
 ./debug\inventoryTable.o
-./debug\salesInfo.o
-./debug\addSalesInfo.o
-./debug\salesInfoManager.o
 ./debug\moc_loginwindow.o
 ./debug\moc_employeetable.o
 ./debug\moc_deleteemployee.o
@@ -40,5 +37,4 @@ INPUT(
 ./debug\moc_addItem.o
 ./debug\moc_deleteItem.o
 ./debug\moc_inventoryTable.o
-./debug\moc_addSalesInfo.o
 );

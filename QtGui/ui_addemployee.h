@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'addemployee.ui'
 **
-** Created by: Qt User Interface Compiler version 5.10.1
+** Created by: Qt User Interface Compiler version 5.11.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,12 +10,9 @@
 #define UI_ADDEMPLOYEE_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QCheckBox>
 #include <QtWidgets/QDialog>
-#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
@@ -40,7 +37,7 @@ public:
     {
         if (addEmployee->objectName().isEmpty())
             addEmployee->setObjectName(QStringLiteral("addEmployee"));
-        addEmployee->resize(539, 190);
+        addEmployee->resize(539, 489);
         username = new QLabel(addEmployee);
         username->setObjectName(QStringLiteral("username"));
         username->setGeometry(QRect(80, 60, 81, 21));
@@ -64,10 +61,10 @@ public:
         back_button->setGeometry(QRect(10, 10, 113, 32));
         button_submit = new QPushButton(addEmployee);
         button_submit->setObjectName(QStringLiteral("button_submit"));
-        button_submit->setGeometry(QRect(360, 140, 113, 32));
+        button_submit->setGeometry(QRect(140, 150, 113, 32));
         logout_button = new QPushButton(addEmployee);
         logout_button->setObjectName(QStringLiteral("logout_button"));
-        logout_button->setGeometry(QRect(360, 10, 113, 32));
+        logout_button->setGeometry(QRect(330, 10, 113, 32));
         adminyes = new QCheckBox(addEmployee);
         adminyes->setObjectName(QStringLiteral("adminyes"));
         adminyes->setGeometry(QRect(220, 120, 87, 20));

@@ -161,7 +161,7 @@ public:
     void retranslateUi(QDialog *listMembersWindow)
     {
         listMembersWindow->setWindowTitle(QApplication::translate("listMembersWindow", "Dialog", nullptr));
-        label_3->setText(QApplication::translate("listMembersWindow", "Show Only", nullptr));
+        label_3->setText(QApplication::translate("listMembersWindow", "Show Only:", nullptr));
         pushButton_2->setText(QApplication::translate("listMembersWindow", "Executive", nullptr));
         pushButton->setText(QApplication::translate("listMembersWindow", "Regular", nullptr));
         label_2->setText(QApplication::translate("listMembersWindow", "Sort All Members By:", nullptr));

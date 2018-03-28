@@ -24,7 +24,7 @@ bool salesInfoManager::createSalesInfo(const salesInfo& salesInfo) const
 
 
     QSqlQuery insertQuery;
-    insertQuery.prepare("INSERT INTO SalesInfo (itemDate, membID, itemName, itemCost, itemQuantity) VALUES (:date, :memID, :name, :cost, :quan)");
+    insertQuery.prepare("INSERT INTO SalesInfo (id, date, item, cost, quantity) VALUES (:memID, :date, :name, :cost, :quan)");
     insertQuery.bindValue(":date", salesInfo.getItemDate());
     insertQuery.bindValue(":memID", salesInfo.getMembID());
     insertQuery.bindValue(":name", salesInfo.getItemName());

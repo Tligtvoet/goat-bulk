@@ -12,7 +12,9 @@
 #include "addItem.h"
 #include "deleteItem.h"
 #include "inventoryTable.h"
+#include "displayItem.h"
 #include "addSalesInfo.h"
+#include "newsales.h"
 #include <QDialog>
 
 namespace Ui {
@@ -50,7 +52,11 @@ private slots:
 
     void on_pushButton_10_clicked();
 
-    void on_pushButton_12_clicked();
+    void on_pushButton_13_clicked();
+
+    void on_pushButton_14_clicked();
+
+    void on_pushButton_15_clicked();
 
 private:
     Ui::menuAdministrator *ui;

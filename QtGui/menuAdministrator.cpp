@@ -90,10 +90,23 @@ void menuAdministrator::on_pushButton_10_clicked()
     table->show();
 }
 
-void menuAdministrator::on_pushButton_12_clicked()
+void menuAdministrator::on_pushButton_13_clicked()
 {
-    addSalesInfo* window = new addSalesInfo(this);
+    displayItem *menu = new displayItem(this);
     this->close();
-    window->show();
+    menu->show();
+}
 
+void menuAdministrator::on_pushButton_14_clicked()
+{
+    addSalesInfo *menu = new addSalesInfo(this);
+    this->close();
+    menu->show();
+}
+
+void menuAdministrator::on_pushButton_15_clicked()
+{
+    newSales *menu = new newSales(this);
+    this->close();
+    menu->show();
 }

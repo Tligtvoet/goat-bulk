@@ -1,7 +1,7 @@
 #ifndef MENU_H
 #define MENU_H
 
-#include "salesinfo.h"
+#include "salesInfo.h"
 #include "newsales.h"
 #include "employeetable.h"
 #include "employeemanager.h"

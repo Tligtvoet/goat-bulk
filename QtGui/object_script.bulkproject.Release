@@ -22,9 +22,6 @@ INPUT(
 ./release\addItem.o
 ./release\deleteItem.o
 ./release\inventoryTable.o
-./release\salesInfo.o
-./release\addSalesInfo.o
-./release\salesInfoManager.o
 ./release\moc_loginwindow.o
 ./release\moc_employeetable.o
 ./release\moc_deleteemployee.o
@@ -40,5 +37,4 @@ INPUT(
 ./release\moc_addItem.o
 ./release\moc_deleteItem.o
 ./release\moc_inventoryTable.o
-./release\moc_addSalesInfo.o
 );

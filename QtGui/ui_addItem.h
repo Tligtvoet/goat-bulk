@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'addItem.ui'
 **
-** Created by: Qt User Interface Compiler version 5.10.1
+** Created by: Qt User Interface Compiler version 5.11.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,11 +10,8 @@
 #define UI_ADDITEM_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QDialog>
-#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
@@ -45,13 +42,13 @@ public:
         lineEdit_iName->setGeometry(QRect(100, 60, 281, 20));
         label = new QLabel(addItem);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(30, 60, 61, 16));
+        label->setGeometry(QRect(20, 60, 71, 20));
         lineEdit_iPrice = new QLineEdit(addItem);
         lineEdit_iPrice->setObjectName(QStringLiteral("lineEdit_iPrice"));
         lineEdit_iPrice->setGeometry(QRect(100, 100, 281, 20));
         label_2 = new QLabel(addItem);
         label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(30, 100, 61, 16));
+        label_2->setGeometry(QRect(20, 100, 71, 20));
         lineEdit_iQuan = new QLineEdit(addItem);
         lineEdit_iQuan->setObjectName(QStringLiteral("lineEdit_iQuan"));
         lineEdit_iQuan->setGeometry(QRect(100, 140, 281, 20));

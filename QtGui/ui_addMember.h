@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'addMember.ui'
 **
-** Created by: Qt User Interface Compiler version 5.10.1
+** Created by: Qt User Interface Compiler version 5.11.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,11 +10,8 @@
 #define UI_ADDMEMBER_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QDialog>
-#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
@@ -54,7 +51,7 @@ public:
         username->setGeometry(QRect(80, 60, 81, 21));
         password = new QLabel(addMember);
         password->setObjectName(QStringLiteral("password"));
-        password->setGeometry(QRect(80, 90, 81, 21));
+        password->setGeometry(QRect(60, 90, 101, 21));
         adminstatus = new QLabel(addMember);
         adminstatus->setObjectName(QStringLiteral("adminstatus"));
         adminstatus->setGeometry(QRect(80, 120, 131, 16));
