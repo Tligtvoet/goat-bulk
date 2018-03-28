@@ -72,25 +72,41 @@ void displayPurchases::on_pushButton_3_clicked()
     total = str.toDouble();
     rebate = tmp.toDouble();
 
-
-    if(rebate > 55.00)
-    {
-        QMessageBox::information(this,QObject::tr("System Message"),tr("Member should change their status to Executive!"),QMessageBox::Ok);
-    }
-
-    ui->label_4->setText("$" + str);
-    ui->label_4->show();
-
     QSqlQuery updateQuery;
     updateQuery.prepare("UPDATE Member SET MemberTotal = :total WHERE MemberID = :ID");
     updateQuery.bindValue(":total", total);
     updateQuery.bindValue(":ID", ID);
     updateQuery.exec();
 
-    qDebug() << "* " << rebate;
     QSqlQuery updateRebate;
     updateRebate.prepare("UPDATE Member SET MemberRebate = :rebate WHERE MemberID = :ID AND MemberStatus = 'Executive'");
     updateRebate.bindValue(":rebate", rebate);
     updateRebate.bindValue(":ID", ID);
     updateRebate.exec();
+
+    if(str == "0.00") {
+        ui->label_4->setText("$0.00");
+    } else {
+        ui->label_4->setText("$" + str);
+    }
+       ui->label_4->repaint();
+       ui->label_4->show();
+
+    QSqlQuery notif;
+    notif.prepare("SELECT * FROM Member WHERE MemberID = :ID");
+    notif.bindValue(":ID", ID);
+    notif.exec();
+
+    notif.first();
+    notif.setForwardOnly(true);
+
+    qDebug() << " * NOTIF " << notif.value(2).toString();
+    if(notif.value(2).toString() == "Regular" && rebate > 55.00)
+    {
+         QMessageBox::information(this,QObject::tr("System Message"),tr("Member should change their status to Executive!"),QMessageBox::Ok);
+    }
+    else if(notif.value(2).toString() == "Executive" && rebate <= 55.00)
+    {
+        QMessageBox::information(this,QObject::tr("System Message"),tr("Member should change their status to Regular!"),QMessageBox::Ok);
+    }
 }
