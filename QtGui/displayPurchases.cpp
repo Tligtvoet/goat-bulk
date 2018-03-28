@@ -1,0 +1,79 @@
+#include "displayPurchases.h"
+#include "ui_displayPurchases.h"
+#include <iomanip>
+
+displayPurchases::displayPurchases(QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::displayPurchases)
+{
+    ui->setupUi(this);
+    ui->label_4->hide();
+}
+
+displayPurchases::~displayPurchases()
+{
+    delete ui;
+}
+
+void displayPurchases::on_pushButton_clicked()
+{
+    menuAdministrator* newMenuPtr = new menuAdministrator(this);
+    this->close();
+    newMenuPtr->show();
+}
+
+
+void displayPurchases::on_pushButton_2_clicked()
+{
+    LoginWindow* logintPtr = new LoginWindow(this);
+    this->close();
+    logintPtr->show();
+}
+
+void displayPurchases::on_pushButton_3_clicked()
+{
+    double total = 0;
+    double salesTax = 0;
+
+    QString id = ui->lineEdit_id->text();
+    int ID = id.toInt();
+
+    ui->tableWidget->clearContents();
+    ui->tableWidget->setRowCount(0);
+
+    QSqlQuery query;
+    query.prepare("SELECT p.* FROM SalesInfo p JOIN Member u ON u.memberID = p.id WHERE u.memberID = :ID");
+    query.bindValue(":ID", ID);
+    query.exec();
+
+    ui->tableWidget->setColumnCount(5);
+    ui->tableWidget->setRowCount(query.size());
+    ui->tableWidget->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
+    ui->tableWidget->setHorizontalHeaderLabels(QString("Member ID;Date ;Item Name; Price; Quantity").split(";"));
+
+    int i=0;
+    while(query.next()) {
+        ui->tableWidget->insertRow(i);
+        ui->tableWidget->setItem(i,0,new QTableWidgetItem(query.value(0).toString()));
+        ui->tableWidget->setItem(i,1,new QTableWidgetItem(query.value(1).toString()));
+        ui->tableWidget->setItem(i,2,new QTableWidgetItem(query.value(2).toString()));
+        ui->tableWidget->setItem(i,3,new QTableWidgetItem(query.value(3).toString()));
+        ui->tableWidget->setItem(i,4,new QTableWidgetItem(query.value(4).toString()));
+        i++;
+
+        salesTax = 0.0775 * (query.value(3).toDouble() * query.value(4).toDouble());
+        total = total + salesTax + (query.value(3).toDouble() * query.value(4).toDouble());
+    }
+    QString str= QString::number(total, 'f', 2);
+    total = str.toDouble();
+    qDebug() << str;
+
+    ui->label_4->setText("$" + str);
+    ui->label_4->show();
+
+    QSqlQuery updateQuery;
+    updateQuery.prepare("UPDATE Member SET MemberTotal = :total WHERE MemberID = :ID");
+    updateQuery.bindValue(":total", total);
+    updateQuery.bindValue(":ID", ID);
+    updateQuery.exec();
+}

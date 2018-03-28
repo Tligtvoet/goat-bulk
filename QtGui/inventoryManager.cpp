@@ -1,4 +1,4 @@
-#include "inventoryManager.h"
+#include "inventorymanager.h"
 
 // Constructor & Destructor
 inventoryManager::inventoryManager() {}

@@ -4,7 +4,7 @@
 #include <QDialog>
 #include "loginwindow.h"
 #include "inventory.h"
-#include "inventoryManager.h"
+#include "inventorymanager.h"
 
 namespace Ui {
 class deleteItem;

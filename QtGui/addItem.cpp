@@ -1,4 +1,4 @@
-#include "inventoryManager.h"
+#include "inventorymanager.h"
 #include "addItem.h"
 #include "loginwindow.h"
 #include "ui_addItem.h"

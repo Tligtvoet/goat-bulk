@@ -52,25 +52,25 @@
     <string>Logout</string>
    </property>
   </widget>
-  <widget class="QLabel" name="name">
+  <widget class="QLabel" name="username">
    <property name="geometry">
     <rect>
-     <x>30</x>
+     <x>80</x>
      <y>60</y>
-     <width>101</width>
+     <width>81</width>
      <height>21</height>
     </rect>
    </property>
    <property name="text">
-    <string>Member Name:</string>
+    <string>Username:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="memStatus">
+  <widget class="QLabel" name="password">
    <property name="geometry">
     <rect>
-     <x>30</x>
+     <x>60</x>
      <y>90</y>
-     <width>111</width>
+     <width>101</width>
      <height>21</height>
     </rect>
    </property>
@@ -78,12 +78,12 @@
     <string>Member Status:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="expDate">
+  <widget class="QLabel" name="adminstatus">
    <property name="geometry">
     <rect>
-     <x>30</x>
+     <x>80</x>
      <y>120</y>
-     <width>101</width>
+     <width>131</width>
      <height>16</height>
     </rect>
    </property>
@@ -94,7 +94,7 @@
   <widget class="QLineEdit" name="lineEdit_name">
    <property name="geometry">
     <rect>
-     <x>150</x>
+     <x>180</x>
      <y>60</y>
      <width>211</width>
      <height>21</height>
@@ -104,7 +104,7 @@
   <widget class="QLineEdit" name="lineEdit_memStatus">
    <property name="geometry">
     <rect>
-     <x>150</x>
+     <x>180</x>
      <y>90</y>
      <width>211</width>
      <height>21</height>
@@ -127,10 +127,10 @@
   <widget class="QLineEdit" name="lineEdit_expDate">
    <property name="geometry">
     <rect>
-     <x>150</x>
+     <x>180</x>
      <y>120</y>
      <width>211</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>

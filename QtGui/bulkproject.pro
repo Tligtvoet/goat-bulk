@@ -47,9 +47,13 @@ SOURCES += \
     addItem.cpp \
     deleteItem.cpp \
     inventoryTable.cpp \
-    salesInfo.cpp \
+    displayPurchases.cpp \
+    listInventoryWindow.cpp \
+    displayItem.cpp \
     addSalesInfo.cpp \
-    salesInfoManager.cpp
+    salesInfo.cpp \
+    salesInfoManager.cpp \
+    newsales.cpp
 
 HEADERS += \
     dbmanager.h \
@@ -75,9 +79,13 @@ HEADERS += \
     addItem.h \
     deleteItem.h \
     inventoryTable.h \
-    salesInfo.h \
+    displayPurchases.h \
+    listInventoryWindow.h \
+    displayItem.h \
     addSalesInfo.h \
-    salesInfoManager.h
+    salesInfo.h \
+    salesInfoManager.h \
+    newsales.h
 
 FORMS += \
     loginwindow.ui \
@@ -92,6 +100,10 @@ FORMS += \
     expirationSearch.ui \
     addItem.ui \
     deleteItem.ui \
-    addSalesInfo.ui
+    displayPurchases.ui \
+    listInventoryWindow.ui \
+    displayItem.ui \
+    addSalesInfo.ui \
+    newsales.ui
 
 RESOURCES +=

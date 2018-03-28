@@ -50,11 +50,11 @@ void addSalesInfo::on_button_submit_clicked()
 
     if (n == true)
     {
-        QMessageBox::information(this,QObject::tr("System Message"),tr("User account has been created!"),QMessageBox::Ok);
+        QMessageBox::information(this,QObject::tr("System Message"),tr("Sale has been created!"),QMessageBox::Ok);
     }
     else
     {
-        QMessageBox::information(this,QObject::tr("System Message"),tr("Creation of user account has failed!"),QMessageBox::Ok);
+        QMessageBox::information(this,QObject::tr("System Message"),tr("Creation of Sale has failed!"),QMessageBox::Ok);
     }
 
     ui->lineEdit_itemDate->clear();
