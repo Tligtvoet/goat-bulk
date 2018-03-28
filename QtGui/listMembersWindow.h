@@ -6,6 +6,7 @@
 #include "members.h"
 #include "memberManager.h"
 #include "expirationSearch.h"
+#include "displayPurchases.h"
 
 namespace Ui {
 class listMembersWindow;
@@ -33,6 +34,8 @@ private slots:
     void on_pushButton_2_clicked();
 
     void on_pushButton_clicked();
+
+    void on_getMemberPurchasesButton_clicked();
 
 private:
     Ui::listMembersWindow *ui;

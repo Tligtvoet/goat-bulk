@@ -161,3 +161,10 @@ void listMembersWindow::on_pushButton_clicked()
         i++;
     }
 }
+
+void listMembersWindow::on_getMemberPurchasesButton_clicked()
+{
+    displayPurchases* displayPtr = new displayPurchases(this);
+    this->close();
+    displayPtr->show();
+}
