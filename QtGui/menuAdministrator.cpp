@@ -110,3 +110,10 @@ void menuAdministrator::on_pushButton_15_clicked()
     this->close();
     menu->show();
 }
+
+void menuAdministrator::on_pushButton_12_clicked()
+{
+    inventoryTable *table = new inventoryTable(INVENTORY_TABLE);
+    this->close();
+    table->show();
+}
