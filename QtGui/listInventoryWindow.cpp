@@ -12,3 +12,17 @@ listInventoryWindow::~listInventoryWindow()
 {
     delete ui;
 }
+
+void listInventoryWindow::on_pushButton_2_clicked()
+{
+    menuAdministrator *menuPtr = new menuAdministrator(this);
+    this->close();
+    menuPtr->show();
+}
+
+void listInventoryWindow::on_pushButton_clicked()
+{
+    LoginWindow* logintPtr = new LoginWindow(this);
+    this->close();
+    logintPtr->show();
+}

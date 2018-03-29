@@ -15,6 +15,7 @@
 #include "displayItem.h"
 #include "addSalesInfo.h"
 #include "newsales.h"
+#include "listInventoryWindow.h"
 #include <QDialog>
 
 namespace Ui {

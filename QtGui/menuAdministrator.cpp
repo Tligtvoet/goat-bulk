@@ -113,7 +113,7 @@ void menuAdministrator::on_pushButton_15_clicked()
 
 void menuAdministrator::on_pushButton_12_clicked()
 {
-    inventoryTable *table = new inventoryTable(INVENTORY_TABLE);
+    listInventoryWindow *window = new listInventoryWindow(this);
     this->close();
-    table->show();
+    window->show();
 }
