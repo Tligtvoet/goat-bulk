@@ -13,58 +13,44 @@ menuManager::~menuManager()
     delete ui;
 }
 
-void menuManager::on_pushButton_clicked()
+void menuManager::on_pushButton_logout_clicked()
 {
     LoginWindow* logintPtr = new LoginWindow(this);
     this->close();
     logintPtr->show();
 }
 
-void menuManager::on_pushButton_7_clicked()
+void menuManager::on_pushButton_itemSearch_clicked()
 {
-    addMember* addMemberPtr = new addMember(this);
+    displayItem* displayPtr = new displayItem(this);
     this->close();
-    addMemberPtr->show();
+    displayPtr->show();
 }
 
-void menuManager::on_pushButton_8_clicked()
-{
-    deleteMember* deleteMemberPtr = new deleteMember(this);
-    this->close();
-    deleteMemberPtr->show();
-}
-
-void menuManager::on_pushButton_11_clicked()
-{
-    MemberTable *table = new MemberTable(MEMBER_TABLE);
-    this->close();
-    table->show();
-}
-
-void menuManager::on_pushButton_9_clicked()
+void menuManager::on_pushButton_displayMembers_clicked()
 {
     listMembersWindow* window = new listMembersWindow(this);
     this->close();
     window->show();
 }
 
-void menuManager::on_pushButton_5_clicked()
+void menuManager::on_pushButton_displaySalesReport_clicked()
 {
-    addItem* window = new addItem(this);
+    newSales* displayPtr = new newSales(this);
      this->close();
-     window->show();
+     displayPtr->show();
 }
 
-void menuManager::on_pushButton_6_clicked()
+void menuManager::on_pushButton_displayPurchases_clicked()
 {
-    deleteItem* window = new deleteItem(this);
+    displayPurchases* displayPtr = new displayPurchases(this);
     this->close();
-    window->show();
+    displayPtr->show();
 }
 
-void menuManager::on_pushButton_10_clicked()
+void menuManager::on_pushButton_inventory_clicked()
 {
-    inventoryTable *table = new inventoryTable(INVENTORY_TABLE);
+    listInventoryWindow* inventoryPtr = new listInventoryWindow(this);
     this->close();
-    table->show();
+    inventoryPtr->show();
 }

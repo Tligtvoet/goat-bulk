@@ -22,21 +22,17 @@ public:
     ~menuManager();
 
 private slots:
-    void on_pushButton_clicked();
+    void on_pushButton_logout_clicked();
 
-    void on_pushButton_7_clicked();
+    void on_pushButton_itemSearch_clicked();
 
-    void on_pushButton_8_clicked();
+    void on_pushButton_displayMembers_clicked();
 
-    void on_pushButton_11_clicked();
+    void on_pushButton_displaySalesReport_clicked();
 
-    void on_pushButton_9_clicked();
+    void on_pushButton_displayPurchases_clicked();
 
-    void on_pushButton_5_clicked();
-
-    void on_pushButton_6_clicked();
-
-    void on_pushButton_10_clicked();
+    void on_pushButton_inventory_clicked();
 
 private:
     Ui::menuManager *ui;

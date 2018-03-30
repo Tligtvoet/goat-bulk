@@ -96,7 +96,7 @@ newSales::~newSales()
 
 void newSales::on_pushButton_back_clicked()
 {
-    menuAdministrator *menuPtr = new menuAdministrator(this);
+    menuManager* menuPtr = new menuManager(this);
     this->close();
     menuPtr->show();
 }

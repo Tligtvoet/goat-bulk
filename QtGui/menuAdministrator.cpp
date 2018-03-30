@@ -62,13 +62,6 @@ void menuAdministrator::on_pushButton_11_clicked()
     table->show();
 }
 
-void menuAdministrator::on_pushButton_9_clicked()
-{
-    listMembersWindow* window = new listMembersWindow(this);
-    this->close();
-    window->show();
-}
-
 void menuAdministrator::on_pushButton_5_clicked()
 {
    addItem* window = new addItem(this);
@@ -88,32 +81,4 @@ void menuAdministrator::on_pushButton_10_clicked()
     inventoryTable *table = new inventoryTable(INVENTORY_TABLE);
     this->close();
     table->show();
-}
-
-void menuAdministrator::on_pushButton_13_clicked()
-{
-    displayItem *menu = new displayItem(this);
-    this->close();
-    menu->show();
-}
-
-void menuAdministrator::on_pushButton_14_clicked()
-{
-    addSalesInfo *menu = new addSalesInfo(this);
-    this->close();
-    menu->show();
-}
-
-void menuAdministrator::on_pushButton_15_clicked()
-{
-    newSales *menu = new newSales(this);
-    this->close();
-    menu->show();
-}
-
-void menuAdministrator::on_pushButton_12_clicked()
-{
-    listInventoryWindow *window = new listInventoryWindow(this);
-    this->close();
-    window->show();
 }
