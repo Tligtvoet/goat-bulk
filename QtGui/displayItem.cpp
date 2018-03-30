@@ -42,10 +42,12 @@ void displayItem::on_pushButton_3_clicked()
     query.bindValue(":itemName", itemName);
     query.exec();
 
-    ui->tableWidget->setColumnCount(6);
+    //ui->tableWidget->setColumnCount(6);
+    ui->tableWidget->setColumnCount(5);
     ui->tableWidget->setRowCount(query.size());
     ui->tableWidget->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
-    ui->tableWidget->setHorizontalHeaderLabels(QString("Item ID; Item Name ; Price; Quantity; Total Sales; Total Amount").split(";"));
+    ui->tableWidget->setHorizontalHeaderLabels(QString("Item ID; Item Name ; Price; Quantity; Total Sales").split(";"));
+    //ui->tableWidget->setHorizontalHeaderLabels(QString("Item ID; Item Name ; Price; Quantity; Total Sales; Total Amount").split(";"));
 
     int i=0;
     while(query.next()) {
@@ -55,10 +57,10 @@ void displayItem::on_pushButton_3_clicked()
         ui->tableWidget->setItem(i,2,new QTableWidgetItem(query.value(2).toString()));
         ui->tableWidget->setItem(i,3,new QTableWidgetItem(query.value(3).toString()));
         ui->tableWidget->setItem(i,4,new QTableWidgetItem(query.value(4).toString()));
-        ui->tableWidget->setItem(i,5,new QTableWidgetItem(query.value(5).toString()));
+        //ui->tableWidget->setItem(i,5,new QTableWidgetItem(query.value(5).toString()));
         i++;
 
-        total = total + (query.value(4).toDouble() * query.value(5).toDouble());
+        total = total + (query.value(2).toDouble() * query.value(3).toDouble());
     }
     QString str = QString::number(total, 'f', 2);
     total = str.toDouble();
