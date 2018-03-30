@@ -51,6 +51,8 @@ private slots:
 
     void on_pushButton_10_clicked();
 
+    void on_pushButton_9_clicked();
+
 private:
     Ui::menuAdministrator *ui;
 };
