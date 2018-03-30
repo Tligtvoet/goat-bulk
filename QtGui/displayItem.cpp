@@ -15,9 +15,9 @@ displayItem::~displayItem()
 
 void displayItem::on_pushButton_clicked()
 {
-    menuAdministrator* newMenuPtr = new menuAdministrator(this);
+    menuManager* menuPtr = new menuManager(this);
     this->close();
-    newMenuPtr->show();
+    menuPtr->show();
 }
 
 void displayItem::on_pushButton_2_clicked()

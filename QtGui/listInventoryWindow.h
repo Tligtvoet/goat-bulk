@@ -3,6 +3,8 @@
 
 #include <QDialog>
 #include "loginwindow.h"
+#include "inventorymanager.h"
+#include "displayPurchases.h"
 
 namespace Ui {
 class listInventoryWindow;
@@ -17,9 +19,9 @@ public:
     ~listInventoryWindow();
 
 private slots:
-    void on_pushButton_2_clicked();
+    void on_pushButton_back_clicked();
 
-    void on_pushButton_clicked();
+    void on_pushButton_logout_clicked();
 
 private:
     Ui::listInventoryWindow *ui;

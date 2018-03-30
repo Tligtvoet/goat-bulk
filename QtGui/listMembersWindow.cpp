@@ -15,9 +15,9 @@ listMembersWindow::~listMembersWindow()
 
 void listMembersWindow::on_BackButton_clicked()
 {
-    menuAdministrator* newMenuPtr = new menuAdministrator(this);
+    menuManager* menuPtr = new menuManager(this);
     this->close();
-    newMenuPtr->show();
+    menuPtr->show();
 }
 
 void listMembersWindow::on_Logout_clicked()
