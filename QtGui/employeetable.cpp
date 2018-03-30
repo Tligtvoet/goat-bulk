@@ -15,6 +15,8 @@ EmployeeTable::EmployeeTable(const QString &tableName, QWidget *parent) :
 
         QTableView *view = new QTableView;
         view->setModel(model);
+        view->setFixedWidth(600);
+        view->setFixedHeight(700);
         view->resizeColumnsToContents();
 
         submitButton = new QPushButton(tr("Submit"));
