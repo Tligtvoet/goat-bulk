@@ -79,7 +79,7 @@ void newSales::on_pushButton_clicked()
 
     int tempId, eMem, rMem;
 
-    double total;
+    double total = 0.00;
 
     QDate date;
     QString tempName, tempStatus;

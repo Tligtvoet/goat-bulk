@@ -38,14 +38,18 @@ public:
     QLabel *label;
     QDateEdit *dateEdit_chooseDate;
     QPushButton *pushButton;
+    QWidget *horizontalLayoutWidget;
+    QHBoxLayout *horizontalLayout_3;
     QLabel *label_totalRev;
-    QLabel *label_reg;
-    QLabel *label_5;
     QLabel *label_3;
+    QLabel *label_5;
+    QLabel *label_reg;
     QLabel *label_4;
     QLabel *label_exec;
-    QComboBox *comboBox;
+    QWidget *horizontalLayoutWidget_2;
+    QHBoxLayout *horizontalLayout_4;
     QLabel *label_6;
+    QComboBox *comboBox;
 
     void setupUi(QWidget *newSales)
     {
@@ -64,7 +68,7 @@ public:
         tableWidget->setSizePolicy(sizePolicy);
         layoutWidget = new QWidget(newSales);
         layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
-        layoutWidget->setGeometry(QRect(10, 10, 431, 26));
+        layoutWidget->setGeometry(QRect(10, 10, 431, 32));
         horizontalLayout = new QHBoxLayout(layoutWidget);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
@@ -84,7 +88,7 @@ public:
 
         layoutWidget1 = new QWidget(newSales);
         layoutWidget1->setObjectName(QStringLiteral("layoutWidget1"));
-        layoutWidget1->setGeometry(QRect(510, 50, 279, 27));
+        layoutWidget1->setGeometry(QRect(516, 50, 281, 36));
         horizontalLayout_2 = new QHBoxLayout(layoutWidget1);
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
@@ -104,36 +108,64 @@ public:
 
         horizontalLayout_2->addWidget(pushButton);
 
-        label_totalRev = new QLabel(newSales);
+        horizontalLayoutWidget = new QWidget(newSales);
+        horizontalLayoutWidget->setObjectName(QStringLiteral("horizontalLayoutWidget"));
+        horizontalLayoutWidget->setGeometry(QRect(10, 40, 511, 41));
+        horizontalLayout_3 = new QHBoxLayout(horizontalLayoutWidget);
+        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
+        horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
+        label_totalRev = new QLabel(horizontalLayoutWidget);
         label_totalRev->setObjectName(QStringLiteral("label_totalRev"));
         label_totalRev->setEnabled(true);
-        label_totalRev->setGeometry(QRect(20, 50, 81, 20));
-        label_reg = new QLabel(newSales);
-        label_reg->setObjectName(QStringLiteral("label_reg"));
-        label_reg->setGeometry(QRect(260, 50, 41, 20));
-        label_5 = new QLabel(newSales);
-        label_5->setObjectName(QStringLiteral("label_5"));
-        label_5->setGeometry(QRect(170, 50, 91, 20));
-        label_3 = new QLabel(newSales);
+
+        horizontalLayout_3->addWidget(label_totalRev);
+
+        label_3 = new QLabel(horizontalLayoutWidget);
         label_3->setObjectName(QStringLiteral("label_3"));
         label_3->setEnabled(true);
-        label_3->setGeometry(QRect(100, 50, 61, 21));
         label_3->setAutoFillBackground(false);
-        label_4 = new QLabel(newSales);
+
+        horizontalLayout_3->addWidget(label_3);
+
+        label_5 = new QLabel(horizontalLayoutWidget);
+        label_5->setObjectName(QStringLiteral("label_5"));
+
+        horizontalLayout_3->addWidget(label_5);
+
+        label_reg = new QLabel(horizontalLayoutWidget);
+        label_reg->setObjectName(QStringLiteral("label_reg"));
+
+        horizontalLayout_3->addWidget(label_reg);
+
+        label_4 = new QLabel(horizontalLayoutWidget);
         label_4->setObjectName(QStringLiteral("label_4"));
-        label_4->setGeometry(QRect(310, 50, 101, 20));
-        label_exec = new QLabel(newSales);
+
+        horizontalLayout_3->addWidget(label_4);
+
+        label_exec = new QLabel(horizontalLayoutWidget);
         label_exec->setObjectName(QStringLiteral("label_exec"));
-        label_exec->setGeometry(QRect(410, 50, 51, 20));
-        comboBox = new QComboBox(newSales);
+
+        horizontalLayout_3->addWidget(label_exec);
+
+        horizontalLayoutWidget_2 = new QWidget(newSales);
+        horizontalLayoutWidget_2->setObjectName(QStringLiteral("horizontalLayoutWidget_2"));
+        horizontalLayoutWidget_2->setGeometry(QRect(510, 0, 170, 51));
+        horizontalLayout_4 = new QHBoxLayout(horizontalLayoutWidget_2);
+        horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
+        horizontalLayout_4->setContentsMargins(0, 0, 0, 0);
+        label_6 = new QLabel(horizontalLayoutWidget_2);
+        label_6->setObjectName(QStringLiteral("label_6"));
+
+        horizontalLayout_4->addWidget(label_6);
+
+        comboBox = new QComboBox(horizontalLayoutWidget_2);
         comboBox->addItem(QString());
         comboBox->addItem(QString());
         comboBox->addItem(QString());
         comboBox->setObjectName(QStringLiteral("comboBox"));
-        comboBox->setGeometry(QRect(610, 20, 81, 21));
-        label_6 = new QLabel(newSales);
-        label_6->setObjectName(QStringLiteral("label_6"));
-        label_6->setGeometry(QRect(510, 20, 41, 21));
+
+        horizontalLayout_4->addWidget(comboBox);
+
 
         retranslateUi(newSales);
 
@@ -149,16 +181,16 @@ public:
         dateEdit_chooseDate->setDisplayFormat(QApplication::translate("newSales", "MM/dd/yyyy", nullptr));
         pushButton->setText(QApplication::translate("newSales", "Search", nullptr));
         label_totalRev->setText(QApplication::translate("newSales", "Total Revenue:", nullptr));
-        label_reg->setText(QApplication::translate("newSales", "total", nullptr));
-        label_5->setText(QApplication::translate("newSales", "Regular Members:", nullptr));
         label_3->setText(QApplication::translate("newSales", "total", nullptr));
+        label_5->setText(QApplication::translate("newSales", "Regular Members:", nullptr));
+        label_reg->setText(QApplication::translate("newSales", "total", nullptr));
         label_4->setText(QApplication::translate("newSales", "Executive Members:", nullptr));
         label_exec->setText(QApplication::translate("newSales", "total", nullptr));
+        label_6->setText(QApplication::translate("newSales", "Sort By:", nullptr));
         comboBox->setItemText(0, QApplication::translate("newSales", "N/A", nullptr));
         comboBox->setItemText(1, QApplication::translate("newSales", "Executive", nullptr));
         comboBox->setItemText(2, QApplication::translate("newSales", "Regular", nullptr));
 
-        label_6->setText(QApplication::translate("newSales", "Sort By:", nullptr));
     } // retranslateUi
 
 };

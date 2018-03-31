@@ -81,7 +81,7 @@ void newSales::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
 }
 
 QT_INIT_METAOBJECT const QMetaObject newSales::staticMetaObject = {
-    { &QMainWindow::staticMetaObject, qt_meta_stringdata_newSales.data,
+    { &QWidget::staticMetaObject, qt_meta_stringdata_newSales.data,
       qt_meta_data_newSales,  qt_static_metacall, nullptr, nullptr}
 };
 
@@ -96,12 +96,12 @@ void *newSales::qt_metacast(const char *_clname)
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_meta_stringdata_newSales.stringdata0))
         return static_cast<void*>(this);
-    return QMainWindow::qt_metacast(_clname);
+    return QWidget::qt_metacast(_clname);
 }
 
 int newSales::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = QMainWindow::qt_metacall(_c, _id, _a);
+    _id = QWidget::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {

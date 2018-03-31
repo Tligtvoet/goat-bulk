@@ -12,56 +12,96 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QVBoxLayout>
+#include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
 class Ui_menuManager
 {
 public:
-    QPushButton *pushButton_9;
-    QPushButton *pushButton_11;
-    QPushButton *pushButton_6;
-    QPushButton *pushButton_7;
-    QLabel *label;
-    QPushButton *pushButton_5;
-    QPushButton *pushButton_10;
-    QPushButton *pushButton_8;
-    QPushButton *pushButton;
+    QWidget *layoutWidget;
+    QHBoxLayout *horizontalLayout;
+    QPushButton *pushButton_logout;
+    QSpacerItem *horizontalSpacer;
+    QLabel *label_welcomeManager;
+    QWidget *widget;
+    QHBoxLayout *horizontalLayout_2;
+    QVBoxLayout *verticalLayout;
+    QPushButton *pushButton_displaySalesReport;
+    QPushButton *pushButton_displayPurchases;
+    QPushButton *pushButton_inventory;
+    QPushButton *pushButton_itemSearch;
+    QPushButton *pushButton_displayMembers;
 
     void setupUi(QDialog *menuManager)
     {
         if (menuManager->objectName().isEmpty())
             menuManager->setObjectName(QStringLiteral("menuManager"));
-        menuManager->resize(753, 747);
-        pushButton_9 = new QPushButton(menuManager);
-        pushButton_9->setObjectName(QStringLiteral("pushButton_9"));
-        pushButton_9->setGeometry(QRect(160, 240, 113, 32));
-        pushButton_11 = new QPushButton(menuManager);
-        pushButton_11->setObjectName(QStringLiteral("pushButton_11"));
-        pushButton_11->setGeometry(QRect(160, 210, 113, 32));
-        pushButton_6 = new QPushButton(menuManager);
-        pushButton_6->setObjectName(QStringLiteral("pushButton_6"));
-        pushButton_6->setGeometry(QRect(160, 90, 113, 32));
-        pushButton_7 = new QPushButton(menuManager);
-        pushButton_7->setObjectName(QStringLiteral("pushButton_7"));
-        pushButton_7->setGeometry(QRect(160, 150, 113, 32));
-        label = new QLabel(menuManager);
-        label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(160, 20, 191, 16));
-        pushButton_5 = new QPushButton(menuManager);
-        pushButton_5->setObjectName(QStringLiteral("pushButton_5"));
-        pushButton_5->setGeometry(QRect(160, 60, 113, 32));
-        pushButton_10 = new QPushButton(menuManager);
-        pushButton_10->setObjectName(QStringLiteral("pushButton_10"));
-        pushButton_10->setGeometry(QRect(160, 120, 113, 32));
-        pushButton_8 = new QPushButton(menuManager);
-        pushButton_8->setObjectName(QStringLiteral("pushButton_8"));
-        pushButton_8->setGeometry(QRect(150, 180, 121, 32));
-        pushButton = new QPushButton(menuManager);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(10, 10, 113, 32));
+        menuManager->resize(600, 700);
+        menuManager->setMinimumSize(QSize(600, 700));
+        menuManager->setMaximumSize(QSize(600, 700));
+        layoutWidget = new QWidget(menuManager);
+        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
+        layoutWidget->setGeometry(QRect(9, 10, 361, 26));
+        horizontalLayout = new QHBoxLayout(layoutWidget);
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        pushButton_logout = new QPushButton(layoutWidget);
+        pushButton_logout->setObjectName(QStringLiteral("pushButton_logout"));
+
+        horizontalLayout->addWidget(pushButton_logout);
+
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer);
+
+        label_welcomeManager = new QLabel(layoutWidget);
+        label_welcomeManager->setObjectName(QStringLiteral("label_welcomeManager"));
+
+        horizontalLayout->addWidget(label_welcomeManager);
+
+        widget = new QWidget(menuManager);
+        widget->setObjectName(QStringLiteral("widget"));
+        widget->setGeometry(QRect(10, 170, 581, 371));
+        horizontalLayout_2 = new QHBoxLayout(widget);
+        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
+        verticalLayout = new QVBoxLayout();
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        pushButton_displaySalesReport = new QPushButton(widget);
+        pushButton_displaySalesReport->setObjectName(QStringLiteral("pushButton_displaySalesReport"));
+        pushButton_displaySalesReport->setIconSize(QSize(16, 16));
+
+        verticalLayout->addWidget(pushButton_displaySalesReport);
+
+        pushButton_displayPurchases = new QPushButton(widget);
+        pushButton_displayPurchases->setObjectName(QStringLiteral("pushButton_displayPurchases"));
+
+        verticalLayout->addWidget(pushButton_displayPurchases);
+
+        pushButton_inventory = new QPushButton(widget);
+        pushButton_inventory->setObjectName(QStringLiteral("pushButton_inventory"));
+
+        verticalLayout->addWidget(pushButton_inventory);
+
+        pushButton_itemSearch = new QPushButton(widget);
+        pushButton_itemSearch->setObjectName(QStringLiteral("pushButton_itemSearch"));
+
+        verticalLayout->addWidget(pushButton_itemSearch);
+
+
+        horizontalLayout_2->addLayout(verticalLayout);
+
+        pushButton_displayMembers = new QPushButton(widget);
+        pushButton_displayMembers->setObjectName(QStringLiteral("pushButton_displayMembers"));
+
+        horizontalLayout_2->addWidget(pushButton_displayMembers);
+
 
         retranslateUi(menuManager);
 
@@ -71,15 +111,13 @@ public:
     void retranslateUi(QDialog *menuManager)
     {
         menuManager->setWindowTitle(QApplication::translate("menuManager", "Dialog", nullptr));
-        pushButton_9->setText(QApplication::translate("menuManager", "List Members", nullptr));
-        pushButton_11->setText(QApplication::translate("menuManager", "Edit Member", nullptr));
-        pushButton_6->setText(QApplication::translate("menuManager", "Delete Item", nullptr));
-        pushButton_7->setText(QApplication::translate("menuManager", "Add Member", nullptr));
-        label->setText(QApplication::translate("menuManager", "Welcome Manager", nullptr));
-        pushButton_5->setText(QApplication::translate("menuManager", "Add Item", nullptr));
-        pushButton_10->setText(QApplication::translate("menuManager", "Edit Item", nullptr));
-        pushButton_8->setText(QApplication::translate("menuManager", "Delete Member", nullptr));
-        pushButton->setText(QApplication::translate("menuManager", "Logout", nullptr));
+        pushButton_logout->setText(QApplication::translate("menuManager", "Logout", nullptr));
+        label_welcomeManager->setText(QApplication::translate("menuManager", "Welcome Manager", nullptr));
+        pushButton_displaySalesReport->setText(QApplication::translate("menuManager", "Display Sales Report", nullptr));
+        pushButton_displayPurchases->setText(QApplication::translate("menuManager", "Display Purchases", nullptr));
+        pushButton_inventory->setText(QApplication::translate("menuManager", "Inventory", nullptr));
+        pushButton_itemSearch->setText(QApplication::translate("menuManager", "Item Search", nullptr));
+        pushButton_displayMembers->setText(QApplication::translate("menuManager", "Display Members", nullptr));
     } // retranslateUi
 
 };
