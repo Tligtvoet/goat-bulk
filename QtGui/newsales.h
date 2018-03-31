@@ -12,7 +12,7 @@ namespace Ui {
 class newSales;
 }
 
-class newSales : public QMainWindow
+class newSales : public QWidget
 {
     Q_OBJECT
 
@@ -26,6 +26,8 @@ private slots:
     void on_pushButton_back_clicked();
 
     void on_pushButton_clicked();
+
+    void on_comboBox_currentTextChanged(const QString &arg1);
 
 private:
     Ui::newSales *ui;
