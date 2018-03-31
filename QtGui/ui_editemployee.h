@@ -30,7 +30,9 @@ public:
     {
         if (editEmployee->objectName().isEmpty())
             editEmployee->setObjectName(QStringLiteral("editEmployee"));
-        editEmployee->resize(639, 537);
+        editEmployee->resize(600, 700);
+        editEmployee->setMinimumSize(QSize(600, 700));
+        editEmployee->setMaximumSize(QSize(600, 700));
         pushButton = new QPushButton(editEmployee);
         pushButton->setObjectName(QStringLiteral("pushButton"));
         pushButton->setGeometry(QRect(10, 10, 113, 32));
@@ -42,7 +44,12 @@ public:
         pushButton_3->setGeometry(QRect(20, 490, 113, 32));
         tableView = new QTableView(editEmployee);
         tableView->setObjectName(QStringLiteral("tableView"));
-        tableView->setGeometry(QRect(20, 50, 611, 431));
+        tableView->setGeometry(QRect(10, 50, 581, 641));
+        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(tableView->sizePolicy().hasHeightForWidth());
+        tableView->setSizePolicy(sizePolicy);
 
         retranslateUi(editEmployee);
 

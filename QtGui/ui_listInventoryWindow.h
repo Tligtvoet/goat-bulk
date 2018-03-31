@@ -16,6 +16,7 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QTableWidget>
 #include <QtWidgets/QWidget>
 
@@ -24,62 +25,59 @@ QT_BEGIN_NAMESPACE
 class Ui_listInventoryWindow
 {
 public:
-    QWidget *horizontalLayoutWidget;
-    QHBoxLayout *horizontalLayout;
-    QPushButton *pushButton_2;
-    QLabel *label;
-    QPushButton *pushButton;
-    QWidget *horizontalLayoutWidget_2;
-    QHBoxLayout *horizontalLayout_2;
-    QPushButton *pushButton_3;
-    QPushButton *pushButton_4;
     QTableWidget *tableWidget;
+    QWidget *layoutWidget;
+    QHBoxLayout *horizontalLayout;
+    QPushButton *pushButton_back;
+    QSpacerItem *horizontalSpacer;
+    QLabel *label_itemsSold;
+    QSpacerItem *horizontalSpacer_2;
+    QPushButton *pushButton_logout;
 
     void setupUi(QDialog *listInventoryWindow)
     {
         if (listInventoryWindow->objectName().isEmpty())
             listInventoryWindow->setObjectName(QStringLiteral("listInventoryWindow"));
-        listInventoryWindow->resize(864, 763);
-        horizontalLayoutWidget = new QWidget(listInventoryWindow);
-        horizontalLayoutWidget->setObjectName(QStringLiteral("horizontalLayoutWidget"));
-        horizontalLayoutWidget->setGeometry(QRect(0, 0, 661, 51));
-        horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        pushButton_2 = new QPushButton(horizontalLayoutWidget);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-
-        horizontalLayout->addWidget(pushButton_2);
-
-        label = new QLabel(horizontalLayoutWidget);
-        label->setObjectName(QStringLiteral("label"));
-
-        horizontalLayout->addWidget(label);
-
-        pushButton = new QPushButton(horizontalLayoutWidget);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-
-        horizontalLayout->addWidget(pushButton);
-
-        horizontalLayoutWidget_2 = new QWidget(listInventoryWindow);
-        horizontalLayoutWidget_2->setObjectName(QStringLiteral("horizontalLayoutWidget_2"));
-        horizontalLayoutWidget_2->setGeometry(QRect(0, 50, 661, 51));
-        horizontalLayout_2 = new QHBoxLayout(horizontalLayoutWidget_2);
-        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
-        pushButton_3 = new QPushButton(horizontalLayoutWidget_2);
-        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
-
-        horizontalLayout_2->addWidget(pushButton_3);
-
-        pushButton_4 = new QPushButton(horizontalLayoutWidget_2);
-        pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
-
-        horizontalLayout_2->addWidget(pushButton_4);
-
+        listInventoryWindow->resize(600, 700);
+        listInventoryWindow->setMinimumSize(QSize(600, 700));
+        listInventoryWindow->setMaximumSize(QSize(600, 700));
         tableWidget = new QTableWidget(listInventoryWindow);
         tableWidget->setObjectName(QStringLiteral("tableWidget"));
-        tableWidget->setGeometry(QRect(0, 100, 661, 561));
+        tableWidget->setGeometry(QRect(10, 50, 581, 641));
+        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(tableWidget->sizePolicy().hasHeightForWidth());
+        tableWidget->setSizePolicy(sizePolicy);
+        layoutWidget = new QWidget(listInventoryWindow);
+        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
+        layoutWidget->setGeometry(QRect(10, 10, 581, 26));
+        horizontalLayout = new QHBoxLayout(layoutWidget);
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        pushButton_back = new QPushButton(layoutWidget);
+        pushButton_back->setObjectName(QStringLiteral("pushButton_back"));
+
+        horizontalLayout->addWidget(pushButton_back);
+
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer);
+
+        label_itemsSold = new QLabel(layoutWidget);
+        label_itemsSold->setObjectName(QStringLiteral("label_itemsSold"));
+
+        horizontalLayout->addWidget(label_itemsSold);
+
+        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer_2);
+
+        pushButton_logout = new QPushButton(layoutWidget);
+        pushButton_logout->setObjectName(QStringLiteral("pushButton_logout"));
+
+        horizontalLayout->addWidget(pushButton_logout);
+
 
         retranslateUi(listInventoryWindow);
 
@@ -89,11 +87,9 @@ public:
     void retranslateUi(QDialog *listInventoryWindow)
     {
         listInventoryWindow->setWindowTitle(QApplication::translate("listInventoryWindow", "Dialog", nullptr));
-        pushButton_2->setText(QApplication::translate("listInventoryWindow", "Back", nullptr));
-        label->setText(QApplication::translate("listInventoryWindow", "Inventory Window", nullptr));
-        pushButton->setText(QApplication::translate("listInventoryWindow", "Logout", nullptr));
-        pushButton_3->setText(QApplication::translate("listInventoryWindow", "All Items", nullptr));
-        pushButton_4->setText(QApplication::translate("listInventoryWindow", "Search Item Stats", nullptr));
+        pushButton_back->setText(QApplication::translate("listInventoryWindow", "Back", nullptr));
+        label_itemsSold->setText(QApplication::translate("listInventoryWindow", "Items Sold", nullptr));
+        pushButton_logout->setText(QApplication::translate("listInventoryWindow", "Logout", nullptr));
     } // retranslateUi
 
 };

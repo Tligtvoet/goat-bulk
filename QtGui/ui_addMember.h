@@ -36,7 +36,7 @@ public:
     {
         if (addMember->objectName().isEmpty())
             addMember->setObjectName(QStringLiteral("addMember"));
-        addMember->resize(691, 613);
+        addMember->resize(452, 216);
         back_button = new QPushButton(addMember);
         back_button->setObjectName(QStringLiteral("back_button"));
         back_button->setGeometry(QRect(10, 10, 113, 32));
@@ -48,13 +48,13 @@ public:
         logout_button->setGeometry(QRect(330, 10, 113, 32));
         username = new QLabel(addMember);
         username->setObjectName(QStringLiteral("username"));
-        username->setGeometry(QRect(80, 60, 81, 21));
+        username->setGeometry(QRect(20, 60, 141, 21));
         password = new QLabel(addMember);
         password->setObjectName(QStringLiteral("password"));
-        password->setGeometry(QRect(60, 90, 101, 21));
+        password->setGeometry(QRect(20, 90, 141, 21));
         adminstatus = new QLabel(addMember);
         adminstatus->setObjectName(QStringLiteral("adminstatus"));
-        adminstatus->setGeometry(QRect(80, 120, 131, 16));
+        adminstatus->setGeometry(QRect(20, 120, 191, 20));
         lineEdit_name = new QLineEdit(addMember);
         lineEdit_name->setObjectName(QStringLiteral("lineEdit_name"));
         lineEdit_name->setGeometry(QRect(180, 60, 211, 21));
@@ -63,7 +63,7 @@ public:
         lineEdit_memStatus->setGeometry(QRect(180, 90, 211, 21));
         button_submit = new QPushButton(addMember);
         button_submit->setObjectName(QStringLiteral("button_submit"));
-        button_submit->setGeometry(QRect(140, 150, 113, 32));
+        button_submit->setGeometry(QRect(170, 170, 113, 32));
         lineEdit_expDate = new QLineEdit(addMember);
         lineEdit_expDate->setObjectName(QStringLiteral("lineEdit_expDate"));
         lineEdit_expDate->setGeometry(QRect(180, 120, 211, 20));

@@ -12,11 +12,14 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QTableWidget>
+#include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
@@ -26,37 +29,72 @@ public:
     QLineEdit *lineEdit_id;
     QPushButton *pushButton_3;
     QTableWidget *tableWidget;
-    QPushButton *pushButton_back;
-    QLabel *label_deletemember;
     QLabel *label_id;
+    QLabel *label_2;
+    QWidget *widget;
+    QHBoxLayout *horizontalLayout;
+    QPushButton *pushButton_back;
+    QSpacerItem *horizontalSpacer;
+    QLabel *label_deletemember;
+    QSpacerItem *horizontalSpacer_2;
     QPushButton *pushButton_logout;
 
     void setupUi(QDialog *deleteItem)
     {
         if (deleteItem->objectName().isEmpty())
             deleteItem->setObjectName(QStringLiteral("deleteItem"));
-        deleteItem->resize(655, 552);
+        deleteItem->resize(600, 700);
+        deleteItem->setMinimumSize(QSize(600, 700));
+        deleteItem->setMaximumSize(QSize(600, 700));
         lineEdit_id = new QLineEdit(deleteItem);
         lineEdit_id->setObjectName(QStringLiteral("lineEdit_id"));
-        lineEdit_id->setGeometry(QRect(180, 70, 151, 21));
+        lineEdit_id->setGeometry(QRect(150, 70, 151, 21));
         pushButton_3 = new QPushButton(deleteItem);
         pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
-        pushButton_3->setGeometry(QRect(350, 71, 81, 21));
+        pushButton_3->setGeometry(QRect(150, 100, 100, 30));
         tableWidget = new QTableWidget(deleteItem);
         tableWidget->setObjectName(QStringLiteral("tableWidget"));
-        tableWidget->setGeometry(QRect(0, 100, 641, 441));
-        pushButton_back = new QPushButton(deleteItem);
-        pushButton_back->setObjectName(QStringLiteral("pushButton_back"));
-        pushButton_back->setGeometry(QRect(10, 10, 113, 32));
-        label_deletemember = new QLabel(deleteItem);
-        label_deletemember->setObjectName(QStringLiteral("label_deletemember"));
-        label_deletemember->setGeometry(QRect(180, 10, 131, 41));
+        tableWidget->setGeometry(QRect(10, 140, 581, 551));
+        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(tableWidget->sizePolicy().hasHeightForWidth());
+        tableWidget->setSizePolicy(sizePolicy);
         label_id = new QLabel(deleteItem);
         label_id->setObjectName(QStringLiteral("label_id"));
-        label_id->setGeometry(QRect(120, 70, 51, 20));
-        pushButton_logout = new QPushButton(deleteItem);
+        label_id->setGeometry(QRect(90, 70, 51, 20));
+        label_2 = new QLabel(deleteItem);
+        label_2->setObjectName(QStringLiteral("label_2"));
+        label_2->setGeometry(QRect(90, 50, 141, 16));
+        widget = new QWidget(deleteItem);
+        widget->setObjectName(QStringLiteral("widget"));
+        widget->setGeometry(QRect(10, 10, 581, 26));
+        horizontalLayout = new QHBoxLayout(widget);
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        pushButton_back = new QPushButton(widget);
+        pushButton_back->setObjectName(QStringLiteral("pushButton_back"));
+
+        horizontalLayout->addWidget(pushButton_back);
+
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer);
+
+        label_deletemember = new QLabel(widget);
+        label_deletemember->setObjectName(QStringLiteral("label_deletemember"));
+
+        horizontalLayout->addWidget(label_deletemember);
+
+        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer_2);
+
+        pushButton_logout = new QPushButton(widget);
         pushButton_logout->setObjectName(QStringLiteral("pushButton_logout"));
-        pushButton_logout->setGeometry(QRect(530, 10, 113, 32));
+
+        horizontalLayout->addWidget(pushButton_logout);
+
 
         retranslateUi(deleteItem);
 
@@ -67,9 +105,10 @@ public:
     {
         deleteItem->setWindowTitle(QApplication::translate("deleteItem", "Dialog", nullptr));
         pushButton_3->setText(QApplication::translate("deleteItem", "Submit", nullptr));
+        label_id->setText(QApplication::translate("deleteItem", "Item ID: ", nullptr));
+        label_2->setText(QApplication::translate("deleteItem", "Delete By ID Number", nullptr));
         pushButton_back->setText(QApplication::translate("deleteItem", "Back", nullptr));
         label_deletemember->setText(QApplication::translate("deleteItem", "Delete Item", nullptr));
-        label_id->setText(QApplication::translate("deleteItem", "Item ID: ", nullptr));
         pushButton_logout->setText(QApplication::translate("deleteItem", "Logout", nullptr));
     } // retranslateUi
 

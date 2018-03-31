@@ -13,10 +13,14 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QDialog>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QTableWidget>
+#include <QtWidgets/QVBoxLayout>
+#include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
@@ -26,8 +30,16 @@ public:
     QLabel *label;
     QComboBox *comboBox_month;
     QTableWidget *tableWidget;
+    QLabel *label_annualDues;
+    QWidget *widget;
+    QHBoxLayout *horizontalLayout;
     QPushButton *pushButton;
+    QSpacerItem *horizontalSpacer;
+    QLabel *label_memberExpiration;
+    QSpacerItem *horizontalSpacer_2;
     QPushButton *pushButton_2;
+    QWidget *widget1;
+    QVBoxLayout *verticalLayout;
     QLabel *label_2;
     QLabel *label_3;
 
@@ -35,10 +47,12 @@ public:
     {
         if (expirationSearch->objectName().isEmpty())
             expirationSearch->setObjectName(QStringLiteral("expirationSearch"));
-        expirationSearch->resize(827, 743);
+        expirationSearch->resize(600, 700);
+        expirationSearch->setMinimumSize(QSize(600, 700));
+        expirationSearch->setMaximumSize(QSize(600, 700));
         label = new QLabel(expirationSearch);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(240, 30, 381, 16));
+        label->setGeometry(QRect(210, 90, 381, 16));
         comboBox_month = new QComboBox(expirationSearch);
         comboBox_month->addItem(QString());
         comboBox_month->addItem(QString());
@@ -54,22 +68,63 @@ public:
         comboBox_month->addItem(QString());
         comboBox_month->addItem(QString());
         comboBox_month->setObjectName(QStringLiteral("comboBox_month"));
-        comboBox_month->setGeometry(QRect(240, 50, 361, 26));
+        comboBox_month->setGeometry(QRect(450, 110, 141, 26));
         tableWidget = new QTableWidget(expirationSearch);
         tableWidget->setObjectName(QStringLiteral("tableWidget"));
-        tableWidget->setGeometry(QRect(20, 80, 701, 491));
-        pushButton = new QPushButton(expirationSearch);
+        tableWidget->setGeometry(QRect(10, 140, 581, 551));
+        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(tableWidget->sizePolicy().hasHeightForWidth());
+        tableWidget->setSizePolicy(sizePolicy);
+        label_annualDues = new QLabel(expirationSearch);
+        label_annualDues->setObjectName(QStringLiteral("label_annualDues"));
+        label_annualDues->setGeometry(QRect(10, 40, 81, 16));
+        widget = new QWidget(expirationSearch);
+        widget->setObjectName(QStringLiteral("widget"));
+        widget->setGeometry(QRect(10, 10, 581, 26));
+        horizontalLayout = new QHBoxLayout(widget);
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        pushButton = new QPushButton(widget);
         pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(0, 10, 113, 32));
-        pushButton_2 = new QPushButton(expirationSearch);
+
+        horizontalLayout->addWidget(pushButton);
+
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer);
+
+        label_memberExpiration = new QLabel(widget);
+        label_memberExpiration->setObjectName(QStringLiteral("label_memberExpiration"));
+
+        horizontalLayout->addWidget(label_memberExpiration);
+
+        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer_2);
+
+        pushButton_2 = new QPushButton(widget);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        pushButton_2->setGeometry(QRect(610, 10, 113, 32));
-        label_2 = new QLabel(expirationSearch);
+
+        horizontalLayout->addWidget(pushButton_2);
+
+        widget1 = new QWidget(expirationSearch);
+        widget1->setObjectName(QStringLiteral("widget1"));
+        widget1->setGeometry(QRect(20, 60, 119, 41));
+        verticalLayout = new QVBoxLayout(widget1);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        label_2 = new QLabel(widget1);
         label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(20, 40, 201, 16));
-        label_3 = new QLabel(expirationSearch);
+
+        verticalLayout->addWidget(label_2);
+
+        label_3 = new QLabel(widget1);
         label_3->setObjectName(QStringLiteral("label_3"));
-        label_3->setGeometry(QRect(110, 60, 121, 20));
+
+        verticalLayout->addWidget(label_3);
+
 
         retranslateUi(expirationSearch);
 
@@ -94,9 +149,11 @@ public:
         comboBox_month->setItemText(11, QApplication::translate("expirationSearch", "November", nullptr));
         comboBox_month->setItemText(12, QApplication::translate("expirationSearch", "December", nullptr));
 
+        label_annualDues->setText(QApplication::translate("expirationSearch", "Annual Dues:", nullptr));
         pushButton->setText(QApplication::translate("expirationSearch", "Back", nullptr));
+        label_memberExpiration->setText(QApplication::translate("expirationSearch", "Member Expiration", nullptr));
         pushButton_2->setText(QApplication::translate("expirationSearch", "Logout", nullptr));
-        label_2->setText(QApplication::translate("expirationSearch", "Annual Dues - Regular: $65.00", nullptr));
+        label_2->setText(QApplication::translate("expirationSearch", "Regular: $65.00", nullptr));
         label_3->setText(QApplication::translate("expirationSearch", "Executive: $120.00", nullptr));
     } // retranslateUi
 

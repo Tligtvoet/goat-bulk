@@ -45,7 +45,7 @@ void displayItem::on_pushButton_3_clicked()
     ui->tableWidget->setColumnCount(6);
     ui->tableWidget->setRowCount(query.size());
     ui->tableWidget->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
-    ui->tableWidget->setHorizontalHeaderLabels(QString("Item ID; Item Name ; Price; Quantity; Total Sales; Total Amount").split(";"));
+    ui->tableWidget->setHorizontalHeaderLabels(QString("Item ID; Item Name ; Price; Quantity; Total Sales; Total Sold").split(";"));
 
     int i=0;
     while(query.next()) {
