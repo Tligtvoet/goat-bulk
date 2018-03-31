@@ -2,6 +2,7 @@
 #define INVENTORYMANAGER_H
 
 #include "inventory.h"
+#include "salesInfo.h"
 #include "dbmanager.h"
 #include <QMessageBox>
 #include <QSqlQuery>
@@ -19,6 +20,7 @@ public:
     void operator=(inventoryManager const&) = delete; // Don't forget to disable copy
 
     bool createInventory(const inventory& inventory) const;
+    bool updateInventory(const salesInfo& salesInfo) const;
     bool deleteInventory(int iID) const;
 
 private:

@@ -15,9 +15,9 @@ expirationSearch::~expirationSearch()
 
 void expirationSearch::on_pushButton_clicked()
 {
-    menuManager* menuPtr = new menuManager(this);
+    listMembersWindow* windowPtr = new listMembersWindow(this);
     this->close();
-    menuPtr->show();
+    windowPtr->show();
 }
 
 void expirationSearch::on_pushButton_2_clicked()

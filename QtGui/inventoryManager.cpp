@@ -39,6 +39,27 @@ bool inventoryManager::createInventory(const inventory& inventory) const
     }
 }
 
+bool inventoryManager::updateInventory(const salesInfo& salesInfo) const
+{
+    QSqlQuery updateQuery;
+    updateQuery.prepare("UPDATE Inventory "
+                        "Set itemQuantity = itemQuantity - :qty, totalSales = totalSales + itemPrice*:qty, totalSold = totalSold + :qty "
+                        "WHERE itemName = :name");
+    updateQuery.bindValue(":qty", salesInfo.getItemQuantity());
+    updateQuery.bindValue(":name", salesInfo.getItemName());
+
+    if(updateQuery.exec())
+    {
+        qDebug() << "Item update succeeded!";
+        return true;
+    }
+    else
+    {
+        qDebug() << "Item update failed: " << updateQuery.lastError();
+        return false;
+    }
+}
+
 bool inventoryManager::deleteInventory(int itemId) const
 {
     QSqlQuery deleteQuery;
