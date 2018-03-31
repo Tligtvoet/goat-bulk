@@ -21,11 +21,13 @@ bool inventoryManager::createInventory(const inventory& inventory) const
     }
 
     QSqlQuery insertQuery;
-    insertQuery.prepare("INSERT INTO Inventory (itemID, itemName, itemPrice, itemQuantity) VALUES (:iID, :iName, :iPrice, :iQuan)");
+    insertQuery.prepare("INSERT INTO Inventory (itemID, itemName, itemPrice, itemQuantity, totalSales, totalSold) VALUES (:iID, :iName, :iPrice, :iQuan, :iSale, :iSold)");
     insertQuery.bindValue("iID", inventory.getItemID());
     insertQuery.bindValue(":iName", inventory.getItemName());
     insertQuery.bindValue(":iPrice", inventory.getItemPrice());
     insertQuery.bindValue(":iQuan", inventory.getItemQuantity());
+    insertQuery.bindValue(":iSale", 0);
+    insertQuery.bindValue(":iSold", 0);
 
     if(insertQuery.exec())
     {
