@@ -35,6 +35,18 @@ bool salesInfoManager::createSalesInfo(const salesInfo& salesInfo) const
     if(insertQuery.exec() && inventoryManager::instance().updateInventory(salesInfo))
     {
         qDebug() << "Purchase Added!";
+
+        double rebate = 0;
+        rebate = 0.04 *(salesInfo.getItemCost() * salesInfo.getItemQuantity());
+        QString tmp = QString::number(rebate, 'f', 2);
+        rebate = tmp.toDouble();
+
+        QSqlQuery updateRebate;
+        updateRebate.prepare("UPDATE Member SET MemberRebate = MemberRebate + :rebate WHERE MemberID = :memID AND MemberStatus = 'Executive'");
+        updateRebate.bindValue(":memID", salesInfo.getMembID());
+        updateRebate.bindValue(":rebate", rebate);
+        updateRebate.exec();
+
         return true;
     }
     else
