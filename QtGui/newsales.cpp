@@ -11,39 +11,6 @@ newSales::newSales(QWidget *parent) :
     ui->label_3->hide();
     ui->label_exec->hide();
     ui->label_reg->hide();
-    int tempId;
-    QString tempName, tempStatus;
-    QSqlQuery query;
-    query.prepare("SELECT * FROM SalesInfo");
-    query.exec();
-
-    ui->tableWidget->setColumnCount(7);
-    ui->tableWidget->setRowCount(query.size());
-    ui->tableWidget->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
-    ui->tableWidget->setHorizontalHeaderLabels(QString("Date;Id;Item;Cost;Quantity;Member;Member Status").split(";"));
-
-
-    tempId = 0;
-
-    int i=0;
-    while (query.next()) {
-
-        ui->tableWidget->insertRow(i);
-        ui->tableWidget->setItem(i,0,new QTableWidgetItem(query.value(1).toString()));
-        ui->tableWidget->setItem(i,1,new QTableWidgetItem(query.value(0).toString()));
-        tempId = query.value(0).toInt();
-        ui->tableWidget->setItem(i,2,new QTableWidgetItem(query.value(2).toString()));
-        ui->tableWidget->setItem(i,3,new QTableWidgetItem(query.value(3).toString()));
-        ui->tableWidget->setItem(i,4,new QTableWidgetItem(query.value(4).toString()));
-        tempName = nameOfCustomer(tempId);
-        tempStatus = memberStatus(tempId);
-        ui->tableWidget->setItem(i,5,new QTableWidgetItem(tempName));
-        ui->tableWidget->setItem(i,6,new QTableWidgetItem(tempStatus));
-
-        i++;
-    }
-
-
 
 }
 
@@ -186,7 +153,3 @@ void newSales::on_pushButton_clicked()
 
 }
 
-void newSales::on_comboBox_currentTextChanged(const QString &arg1)
-{
-
-}
