@@ -25,13 +25,14 @@ bool salesInfoManager::createSalesInfo(const salesInfo& salesInfo) const
 
     QSqlQuery insertQuery;
     insertQuery.prepare("INSERT INTO SalesInfo (id, date, item, cost, quantity) VALUES (:memID, :date, :name, :cost, :quan)");
+
     insertQuery.bindValue(":date", salesInfo.getItemDate());
     insertQuery.bindValue(":memID", salesInfo.getMembID());
     insertQuery.bindValue(":name", salesInfo.getItemName());
     insertQuery.bindValue(":cost", salesInfo.getItemCost());
     insertQuery.bindValue(":quan", salesInfo.getItemQuantity());
 
-    if(insertQuery.exec())
+    if(insertQuery.exec() && inventoryManager::instance().updateInventory(salesInfo))
     {
         qDebug() << "Purchase Added!";
         return true;

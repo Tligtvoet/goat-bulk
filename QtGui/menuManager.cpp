@@ -36,9 +36,9 @@ void menuManager::on_pushButton_displayMembers_clicked()
 
 void menuManager::on_pushButton_displaySalesReport_clicked()
 {
-    newSales* displayPtr = new newSales(this);
-     this->close();
-     displayPtr->show();
+    newSales* displayPtr = new newSales;
+    this->close();
+    displayPtr->show();
 }
 
 void menuManager::on_pushButton_displayPurchases_clicked()

@@ -2,6 +2,7 @@
 #define SALESINFOMANAGER_H
 
 #include "salesInfo.h"
+#include "inventorymanager.h"
 #include <QMessageBox>
 #include <QSqlQuery>
 #include <QSqlError>

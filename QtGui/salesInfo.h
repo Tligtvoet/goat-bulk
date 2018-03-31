@@ -2,6 +2,7 @@
 #define SALESINFO_H
 
 #include "constants.h"
+//#include "inventory.h"
 #include <QStringBuilder>
 #include <QString>
 using namespace std;
