@@ -14,7 +14,7 @@ SQLite Version 3.22.0
 
 C++ Language
 
-Google C++ Coding Style - (https://google.github.io/styleguide/cppguide.html)
+[Google C++ Coding Style](https://google.github.io/styleguide/cppguide.html)
 
 ## Deployment
 
