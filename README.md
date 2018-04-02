@@ -28,13 +28,13 @@ Build in Qt and run
 
 ## Authors
 
-* **Kenneth Casimiro** - *Initial work* - [wuwukennywu](https://github.com/wuwukennywu)
+* **Kenneth Casimiro** - Programmer - [wuwukennywu](https://github.com/wuwukennywu)
 
-* **Mason Godfrey** - *Initial work* - [OverlordWorld](https://github.com/OverworldLordh)
+* **Mason Godfrey** - Programmer - [OverlordWorld](https://github.com/OverworldLordh)
 
-* **Tristan Ligtvoet** - *Initial work* - [PurpleBooth](https://github.com/Tligtvoet)
+* **Tristan Ligtvoet** - Programmer/Product Owner - [PurpleBooth](https://github.com/Tligtvoet)
 
-* **Mitchell O'Hair** - *Initial work* - [PurpleBooth](https://github.com/mitchdotdev)
+* **Mitchell O'Hair** - Programmer/Scrum Master - [PurpleBooth](https://github.com/mitchdotdev)
 
 ## License
 
