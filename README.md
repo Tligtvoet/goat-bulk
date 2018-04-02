@@ -32,9 +32,9 @@ Build in Qt and run
 
 * **Mason Godfrey** - Programmer - [OverlordWorld](https://github.com/OverworldLordh)
 
-* **Tristan Ligtvoet** - Programmer/Product Owner - [PurpleBooth](https://github.com/Tligtvoet)
+* **Tristan Ligtvoet** - Programmer/Product Owner - [Tligtvoet](https://github.com/Tligtvoet)
 
-* **Mitchell O'Hair** - Programmer/Scrum Master - [PurpleBooth](https://github.com/mitchdotdev)
+* **Mitchell O'Hair** - Programmer/Scrum Master - [mitchdotdev](https://github.com/mitchdotdev)
 
 ## License
 
