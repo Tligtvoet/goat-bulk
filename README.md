@@ -30,7 +30,7 @@ Build in Qt and run
 
 * **Kenneth Casimiro** - Programmer - [wuwukennywu](https://github.com/wuwukennywu)
 
-* **Mason Godfrey** - Programmer - [OverlordWorld](https://github.com/OverworldLordh)
+* **Mason Godfrey** - Programmer - [OverlordWorld](https://github.com/OverworldLord)
 
 * **Tristan Ligtvoet** - Programmer/Product Owner - [Tligtvoet](https://github.com/Tligtvoet)
 
