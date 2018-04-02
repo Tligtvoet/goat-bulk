@@ -1,6 +1,6 @@
 # Super Warehouse Store Group Project
 
-Your team is to write a program that supports the Bulk Club. Your team must use inheritance and composition. At least one class must contain a pointer (a copy constructor needs to be written and tested). Your team is to write at least 10 agile stories (including description, tasks, test scenarios, and story points) before software is developed). Your team must use an agile management tool (e.g. Waffle.io), Graphical User Interface (GUI) such as QT, DOXYGEN, and GIT.
+Write a program that supports the Bulk Club. Must use inheritance and composition. At least one class must contain a pointer (a copy constructor needs to be written and tested). Write at least 10 agile stories (including description, tasks, test scenarios, and story points) before software is developed). Must use an agile management tool (e.g. Waffle.io), Graphical User Interface (GUI) such as QT, DOXYGEN, and GIT.
 
 ### Prerequisites
 
