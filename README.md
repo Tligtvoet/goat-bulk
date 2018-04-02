@@ -42,4 +42,4 @@ Please don't steal our code. Thanks
 
 ## Acknowledgments
 
-* Base god
+* Based god
