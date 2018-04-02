@@ -14,7 +14,7 @@ SQLite Version 3.22.0
 
 C++ Language
 
-Coding Style of Saddleback Computer Science class
+Coding Style of Saddleback Computer Science classes
 
 ## Deployment
 
