@@ -28,7 +28,7 @@ Build in Qt and run
 
 ## Authors
 
-* **Kenneth Casimiro** - *Initial work* - [PurpleBooth](https://github.com/wuwukennywu)
+* **Kenneth Casimiro** - *Initial work* - [wuwukennywu](https://github.com/wuwukennywu)
 
 * **Mason Godfrey** - *Initial work* - [OverlordWorld](https://github.com/OverworldLordh)
 
