@@ -66,4 +66,4 @@ SOFTWARE.
 
 * Jerry Lebowitz - Professor at Saddleback College
 
-* Homi Bodanwala - Professor at Saddleback College
+* Homi Bodhanwala - Professor at Saddleback College
